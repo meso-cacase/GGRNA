@@ -46,7 +46,7 @@ my %spe_fullname = (              # 生物種の正式名
 	'dm' => 'Drosophila melanogaster (fruit fly)',
 	'ce' => 'Caenorhabditis elegans',
 	'at' => 'Arabidopsis thaliana (thale cress)',
-	'os' => 'Oryza sativa Japonica Group',
+	'os' => 'Oryza sativa Japonica Group (Japanese rice)',
 	'sc' => 'Saccharomyces cerevisiae S288c',
 	'sp' => 'Schizosaccharomyces pombe 972h-'
 ) ;
