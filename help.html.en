@@ -1,0 +1,488 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>
+<html>
+
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+<meta http-equiv='Content-Script-Type' content='text/javascript'>
+<meta http-equiv='Content-Style-Type' content='text/css'>
+<meta name='author' content='Yuki Naito'>
+<title>GGRNA | gene search</title>
+<script type='text/javascript'>
+<!--
+function set_spe(){
+	var spe ;
+	if (location.pathname.match(/\/(..)\/help.html$/)){
+		spe = location.pathname.match(/\/(..)\/help.html$/)[1] ;
+		if (spe.match(/hs|mm|rn|gg|xt|dr|ci|dm|ce|at|os|sc|sp/)){
+			document.refsearch.spe.value = spe ;
+		}
+	}
+}
+function change_spe(){
+	location.href = document.refsearch.spe.value + '/help.html' ;
+}
+//-->
+</script>
+<style type='text/css'>
+<!--
+	* { font-family:verdana,arial,helvetica,sans-serif }
+	p,table,ol,pre,div,small,cite { font-size:9pt }
+	cite { color:#0E774A; font-style:normal }
+	em { font-weight:bold;
+		font-style:normal;
+		background-color:#99FF99 }
+	.a { color:#3366CC; font-style:normal }
+	.k { color:black }
+	.t { font-size:10pt; width:90% }
+	.b { word-wrap:break-word; width:90% }
+	.g { color:gray; width:90% }
+	table { border-collapse:collapse }
+	th { background-color: #dfe1ed;
+		border:solid 1px #8c93ba;
+		padding:4px }
+	td { border:solid 1px #8c93ba;
+		padding:4px }
+	.gene { margin:10pt }
+-->
+</style>
+</head>
+
+<body>
+
+<a href='./?spe='><img src='GGRNAlogo_en.png' alt='GGRNA' height=69 width=191 border=0></a>
+
+<small><font color='#003300'>ver.2</font></small>
+
+<script type='text/javascript'>
+<!--
+var spe ;
+if (location.pathname.match(/\/(..)\/help.html$/)){
+	spe = location.pathname.match(/\/(..)\/help.html$/)[1] ;
+}
+switch (spe){
+	case 'hs':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/human/">' +
+			'<img src="togopic/hs_riv.png" alt="Homo sapiens (human)" '      +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'mm':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/mouse/">' +
+			'<img src="togopic/mm_riv.png" alt="Mus musculus (mouse)" '      +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'rn':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/rat/">' +
+			'<img src="togopic/rn_riv.png" alt="Rattus norvegicus (rat)" ' +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'gg':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/chicken/">' +
+			'<img src="togopic/gg_riv.png" alt="Gallus gallus (chicken)" '     +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'xt':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/xenopus_laevis/">' +
+			'<img src="togopic/xt_riv.png" alt="Xenopus tropicalis (frog)" '          +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'dr':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/zebrafish/">' +
+			'<img src="togopic/dr_riv.png" alt="Danio rerio (zebrafish)" '       +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'ci':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/ciona/">'       +
+			'<img src="togopic/ci_riv.png" alt="Ciona intestinalis (sea squirt)" ' +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'dm':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/fruitfly/">'  +
+			'<img src="togopic/dm_riv.png" alt="Drosophila melanogaster (fly)" ' +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'ce':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/nematode/">'  +
+			'<img src="togopic/ce_riv.png" alt="Caenorhabditis elegans (worm)" ' +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'at':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/arabi/">'          +
+			'<img src="togopic/at_riv.png" alt="Arabidopsis thaliana (thale cress)" ' +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'os':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/rice/">' +
+			'<img src="togopic/os_riv.png" alt="Oryza sativa (rice)" '      +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'sc':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/budding_yeast/">' +
+			'<img src="togopic/sc_riv.png" alt="Saccharomyces cerevisiae S288c" '    +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'sp':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/fission_yeast/">' +
+			'<img src="togopic/sp_riv.png" alt="Schizosaccharomyces pombe 972h-" '   +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	default :
+		break ;
+}
+//-->
+</script>
+
+<small style='vertical-align:top'>
+<a style='vertical-align:top' class=k href='.'            >Home</a>            |
+<a style='vertical-align:top' class=k href='advanced.html'>Advanced search</a> |
+<a style='vertical-align:top' class=k href='ja/help.html' >Japanese</a>
+</small>
+&emsp;
+<small style='vertical-align:top'>
+<a style='vertical-align:top' class=k href='/v1/'>Previous release (v1)</a>
+</small>
+
+<form name=refsearch method=GET action='search.cgi'>
+<p>
+<input type=text name=query size=70 value='"cell division"  atggagcct'>
+<input type=submit value='Search'>
+<select id=spe name=spe onchange='change_spe()'>
+	<option value=zoo selected>Zoo (All organisms in RefSeq)</option>
+	<option disabled>----------                        </option>
+	<option value=hs>Homo sapiens (human)              </option>
+	<option value=mm>Mus musculus (mouse)              </option>
+	<option value=rn>Rattus norvegicus (rat)           </option>
+	<option value=gg>Gallus gallus (chicken)           </option>
+	<option value=xt>Xenopus tropicalis (frog)         </option>
+	<option value=dr>Danio rerio (zebrafish)           </option>
+	<option value=ci>Ciona intestinalis (sea squirt)   </option>
+	<option value=dm>Drosophila melanogaster (fly)     </option>
+	<option value=ce>Caenorhabditis elegans (worm)     </option>
+	<option value=at>Arabidopsis thaliana (thale cress)</option>
+	<option value=os>Oryza sativa (rice)               </option>
+	<option value=sc>Saccharomyces cerevisiae S288c    </option>
+	<option value=sp>Schizosaccharomyces pombe 972h-   </option>
+</select>
+</p>
+</form>
+
+<script type='text/javascript'>
+<!--
+set_spe()
+//-->
+</script>
+
+<!--
+<div><font color=red>
+NOTICE:
+<ul>
+	<li>Currently under maintenance.
+</ul>
+</font></div>
+
+<img src='togopic/chata_en.png' alt='nyaan' border=0>
+
+<hr> --> <!-- __________________________________________________ -->
+
+<div>
+Search tips:
+<ul>
+	<li>GGRNA is a Google-like search engine for genes and transcripts archived in
+		<a target='_blank' class=k href='http://www.ncbi.nlm.nih.gov/RefSeq/'>NCBI RefSeq</a>.
+	<li>RefSeq includes genomic, mRNA, noncoding RNA (ncRNA), and protein records.<br>
+		Of these, GGRNA searches for RefSeq mRNA (accession starts with NM_/XM_)
+		and ncRNA (NR_/XR_) records.<br>
+		FTP: <a class=k href='ftp://ftp.ncbi.nlm.nih.gov/refseq/release/complete/'><!--
+		-->ftp://ftp.ncbi.nlm.nih.gov/refseq/release/complete/</a>complete.*.rna.gbff.gz
+	<li>Search is always case insensitive.
+	<li>Search for a phrase by enclosing it in double quotes (<i>e.g.</i> "PAZ domain").
+	<li>GGRNA will find results that contain all the terms separated by spaces or commas.
+	<li>Word order does not affect search results.
+	<li><a href='advanced.html' class=k>Advanced search</a> is available for refining your query.
+	<li>Instead, you can refine your query by using operators (see below: shown in green).
+</ul>
+</div>
+
+<div>
+Search examples:
+<ul>
+	<li><a target='_blank' class=k href='http://g86.dbcls.jp/~meso/meme/?p=1627'>Nucleotide sequences</a>
+	<li><a target='_blank' class=k href='http://g86.dbcls.jp/~meso/meme/?p=1654'>Amino-acid sequences</a>
+</ul>
+</div>
+
+<div>
+Tutorial video introducing GGRNA (<a target='_blank' class=k href='http://togotv.dbcls.jp/en/'>TogoTV</a>):
+<ul>
+	<a target='_blank' href='http://togotv.dbcls.jp/en/?p=322'>
+	<img src='togopic/togotv_small_en.png' alt='GGRNA: search engine for genes and transcripts'
+		height=203 width=360 border=0></a>
+</ul>
+</div>
+
+<div>
+Search operators:
+<ul>
+<table>
+<tr><th>Search words</th><th>Description</th><th>Alias</th></tr>
+<tr>
+	<td><a href='refid%3ANM_001518' class=k><cite>refid:</cite>NM_001518</a></td>
+	<td>
+		Search by RefSeq ID.<br>
+		Version number following a dot is ignored:<br>
+		[ <cite>refid:</cite>NM_003380.2 ] and [ <cite>refid:</cite>NM_003380 ]<br>
+		will return the same results. Words starting with<br>
+		NM_, XM_, NR_, or XR_ is automatically<br>
+		treated as <cite>refid:</cite> search without operator.</td>
+	<td>
+		<cite>refseqid:</cite><br>
+		<cite>refseq:</cite><br>
+		<cite>id:</cite>NM_<br>
+		<cite>id:</cite>XM_<br>
+		<cite>id:</cite>NR_<br>
+		<cite>id:</cite>XR_</td></tr>
+<tr>
+	<td><a href='geneid%3A10579' class=k><cite>geneid:</cite>10579</a></td>
+	<td>
+		Search by Gene ID.<br>
+		An integer is automatically treated as<br>
+		<cite>geneid:</cite> search without operator.</td>
+	<td>
+		<cite>gene:</cite><i>integer</i><br>
+		<cite>id:</cite><i>integer</i></td></tr>
+<tr>
+	<td><a href='symbol%3AVIM' class=k><cite>symbol:</cite>VIM</a></td>
+	<td>
+		Search for gene symbols and synonyms<br>
+		which partially match to the query.<br>
+		For example, query EIF2C will return<br>
+		EIF2C1, 2, 3, and 4.</td>
+	<td>
+		<cite>name:</cite><br>
+		<cite>gene:</cite><i>word</i></td></tr>
+<tr>
+	<td><a href='aa%3AKDEL' class=k><cite>aa:</cite>KDEL</a></td>
+	<td>Search for amino acid sequence.</td>
+	<td></td></tr>
+<tr>
+	<td><a href='ref%3ANaito' class=k><cite>ref:</cite>Naito</a><br>
+		<a href='ref%3A1327585' class=k><cite>ref:</cite>1327585</a></td>
+	<td>Full text search within cited references.<br>
+		PubMed ID can also be queried.</td>
+	<td><cite>reference:</cite></td></tr>
+<tr>
+	<td><a href='probe%3A1552311_a_at' class=k><cite>probe:</cite>1552311_a_at</a><br>
+		<a href='probe%3AA_23_P101434' class=k><cite>probe:</cite>A_23_P101434</a></td>
+	<td>
+		Search for nucleotide sequences by<br>
+		microarray probe ID.<br>
+		Words ending with _at, _st (Affymetrix ID) and<br>
+		starting with A_ (Agilent ID) are automatically<br>
+		treated as <cite>probe:</cite> search without operator.<br>
+		When probe ID is not converted into sequences,<br>
+		the probe ID is subjected to a basic search.</td>
+	<td><cite>probeid:</cite></td></tr>
+<tr>
+	<td><a href='seq%3Acaagaagagattg' class=k><cite>seq:</cite>caagaagagattg</a></td>
+	<td>
+		Search for nucleotide sequence.<br>
+		Query containing letters A,T,G,C, and U only will<br>
+		automatically be treated as <cite>seq:</cite> search without<br>
+		the operator. U and T will be treated identically.<br>
+		<strike>
+		<cite>seq1:</cite>, <cite>seq2:</cite>, and <cite>seq3:</cite> will return results with<br>
+		1-, 2-, and 3-nucleotides mismatch tolerance.
+		</strike></td>
+	<td><cite>sequence:</cite></td></tr>
+<tr>
+	<td><a href='comp%3Acaagaagagattg' class=k><cite>comp:</cite>caagaagagattg</a></td>
+	<td>Search for complementary sequence.<br>
+		<strike>
+		<cite>comp1:</cite>, <cite>comp2:</cite>, and <cite>comp3:</cite> will return results<br>
+		with 1-, 2-, and 3-nucleotides mismatch tolerance.
+		</strike></td>
+	<td><cite>complementary:</cite></td></tr>
+<tr>
+	<td><a href='both%3Acaagaagagattg' class=k><cite>both:</cite>caagaagagattg</a></td>
+	<td>Simultaneously retrieve sense and antisense<br>
+		nucleotide sequences corresponding to the query.<br>
+		<strike>
+		<cite>both1:</cite>, <cite>both2:</cite>, and <cite>both3:</cite> will return results with<br>
+		1-, 2-, and 3-nucleotides mismatch tolerance.
+		</strike></td>
+	<td><cite>bothseq:</cite></td></tr>
+<tr>
+	<td><a href='iub%3Aaggtcannrtgacct' class=k><cite>iub:</cite>aggtcannrtgacct</a><br>
+		<a href='iubcomp%3Aaggtcannrtgacct' class=k><cite>iubcomp:</cite>aggtcannrtgacct</a><br>
+		<a href='iubboth%3Aaggtcannrtgacct' class=k><cite>iubboth:</cite>aggtcannrtgacct</a></td>
+	<td>
+		Search for nucleotide sequence containing<br>
+		IUB code letters (<i>i.e.</i> N, R, Y, ...).<br>
+		<cite>iubcomp:</cite> will return complementary sequences<br>
+		to the query; <cite>iubboth:</cite> will return both strands.</td>
+	<td><cite>iubseq:</cite> &rarr; <cite>iub:</cite></td></tr>
+</table>
+</ul>
+<ul>
+	<li>Please use 
+		<a target='_blank' href='http://GGGenome.dbcls.jp' class=k>GGGenome</a> 
+		for searching nucleotide sequences with mismatches and gaps.
+</ul>
+</div>
+
+<a name=api></a>
+<div>
+URLs:
+<ul>
+	<li>http://GGRNA.dbcls.jp/<!--
+		--><span style='color:#ff6600'>species</span>/<!--
+		--><span style='color:#0000ff'>query+string</span><!--
+		-->[.<span style='color:#008000'>format</span>]<!--
+		-->[.<span style='color:brown'>download</span>]
+	<ul>
+		<li><span style='color:#ff6600'>species</span> &rarr;
+			hs for <i>Homo sapiens</i>, mm for <i>Mus musculus</i>, etc.
+			default: zoo (all species in RefSeq)
+		<li><span style='color:#0000ff'>query+string</span> &rarr;
+			a simple keyword or a URL-encoded string.
+		<li><span style='color:#008000'>format</span> &rarr;
+			html, txt, json as output format. (default: html)
+		<li><span style='color:brown'>download</span> &rarr;
+			download result as a file. (optional)
+	</ul>
+	<li>Currently available <span style='color:#ff6600'>species</span> and
+		<span style='color:#008000'>format</span> types are listed here:
+	<ul>
+		<li><a class=k href='http://GGRNA.dbcls.jp/api'>http://GGRNA.dbcls.jp/api</a>
+	</ul>
+	<li>Examples:
+	<ul>
+		<li><a class=k href='http://GGRNA.dbcls.jp/NM_001518.txt'><!--
+			-->http://GGRNA.dbcls.jp/NM_001518.txt</a><br>
+			(Search "NM_001518". Output in tab delimited text format.)
+		<li><a class=k href='http://GGRNA.dbcls.jp/mm/homeobox.txt'><!--
+			-->http://GGRNA.dbcls.jp/mm/homeobox.txt</a><br>
+			(Search "homeobox" in mouse. Output in tab delimited text format.)
+		<li><a class=k href='http://GGRNA.dbcls.jp/dm/%22RNA+interference%22.json'><!--
+			-->http://GGRNA.dbcls.jp/dm/%22RNA+interference%22.json</a><br>
+			(Search "RNA interference" in <i>D. melanogaster</i>. Output in JSON format.<br>
+			Note that a double quote is encoded as %22, and a space character is encoded as + in the URL.)
+		<li><a class=k href='http://GGRNA.dbcls.jp/caagaagagattg.json'><!--
+			-->http://GGRNA.dbcls.jp/caagaagagattg.json</a><br>
+			(Search "caagaagagattg" in all species. Output in JSON format.)
+	</ul>
+</ul>
+</div>
+
+<div>
+Species:
+<ul>
+	<li>GGRNA searches for all species in RefSeq by default.
+	<li>However, 13 species listed below can be searched separately from following URLs.
+</ul>
+<ul>
+<table>
+	<tr>
+		<td><a class=k href='http://GGRNA.dbcls.jp/hs/'>Human (hs)<br>
+			<img src='togopic/hs_riv.png' alt='Human' height=69 width=120 border=0></a></td>
+		<td><a class=k href='http://GGRNA.dbcls.jp/mm/'>Mouse (mm)<br>
+			<img src='togopic/mm_riv.png' alt='Mouse' height=69 width=120 border=0></a></td>
+		<td><a class=k href='http://GGRNA.dbcls.jp/rn/'>Rat (rn)<br>
+			<img src='togopic/rn_riv.png' alt='Rat' height=69 width=120 border=0></a></td>
+		<td><a class=k href='http://GGRNA.dbcls.jp/gg/'>Chicken (gg)<br>
+			<img src='togopic/gg_riv.png' alt='Chicken' height=69 width=120 border=0></a></td>
+	</tr>
+	<tr>
+		<td><a class=k href='http://GGRNA.dbcls.jp/xt/'>Frog (xt)<br>
+			<img src='togopic/xt_riv.png' alt='Frog' height=69 width=120 border=0></a></td>
+		<td><a class=k href='http://GGRNA.dbcls.jp/dr/'>Zebrafish (dr)<br>
+			<img src='togopic/dr_riv.png' alt='Zebrafish' height=69 width=120 border=0></a></td>
+		<td><a class=k href='http://GGRNA.dbcls.jp/ci/'>Sea squirt (ci)<br>
+			<img src='togopic/ci_riv.png' alt='Sea squirt' height=69 width=120 border=0></a></td>
+		<td><a class=k href='http://GGRNA.dbcls.jp/dm/'>Fly (dm)<br>
+			<img src='togopic/dm_riv.png' alt='Fly' height=69 width=120 border=0></a></td>
+	</tr>
+	<tr>
+		<td><a class=k href='http://GGRNA.dbcls.jp/ce/'>Worm (ce)<br>
+			<img src='togopic/ce_riv.png' alt='Worm' height=69 width=120 border=0></a></td>
+		<td><a class=k href='http://GGRNA.dbcls.jp/at/'><i>Arabidopsis</i> (at)<br>
+			<img src='togopic/at_riv.png' alt='Arabidopsis' height=69 width=120 border=0></a></td>
+		<td><a class=k href='http://GGRNA.dbcls.jp/os/'>Rice (os)<br>
+			<img src='togopic/os_riv.png' alt='Rice' height=69 width=120 border=0></a></td>
+	</tr>
+	<tr>
+		<td><a class=k href='http://GGRNA.dbcls.jp/sc/'><i>S. cerevisiae</i> (sc)<br>
+			<img src='togopic/sc_riv.png' alt='S. cerevisiae' height=69 width=120 border=0></a></td>
+		<td><a class=k href='http://GGRNA.dbcls.jp/sp/'><i>S. pombe</i> (sp)<br>
+			<img src='togopic/sp_riv.png' alt='S. pombe' height=69 width=120 border=0></a></td>
+	</tr>
+</table>
+</ul>
+</div>
+
+<div>
+Reference:
+<ul>
+	<li>Yuki Naito &amp; Hidemasa Bono (2012)<br>
+		<a target='_blank' class=k href='http://nar.oxfordjournals.org/content/40/W1/W592.full'><!--
+		-->GGRNA: an ultrafast, transcript-oriented search engine for genes and transcripts.</a><br>
+		<i>Nucleic Acids Res.</i> <b>40</b>, W592-W596.
+</ul>
+</div>
+
+<a name=news></a>
+<div>
+What's new:
+<ul>
+	<li>2013-07-08 GGRNA ver.2 released. All organisms in RefSeq are available.
+	<li>2013-05-07 Database updated to RefSeq rel. 59 (May, 2013).
+	<li>2013-03-15 Database updated to RefSeq rel. 58 (Mar, 2013).
+	<li>2013-01-15 Database updated to RefSeq rel. 57 (Jan, 2013).
+	<li>2012-11-14 Database updated to RefSeq rel. 56 (Nov, 2012).
+	<li>2012-09-21 Database updated to RefSeq rel. 55 (Sep, 2012).
+	<li>2012-07-18 Database updated to RefSeq rel. 54 (Jul, 2012).
+	<li>2012-05-29 <a target='_blank' class=k
+	               href='http://nar.oxfordjournals.org/content/40/W1/W592.full'><!--
+	               -->GGRNA paper has been published in <i>Nucleic Acids Research</i>.</a>
+	<li>2012-05-14 Database updated to RefSeq rel. 53 (May, 2012).
+	<li>2012-03-09 Database updated to RefSeq rel. 52 (Mar, 2012).
+	<li>2012-02-25 GGRNA REST API is available. See the <a class=k href='help.html#api'>help page</a>.
+	<li>2012-01-13 Database updated to RefSeq rel. 51 (Jan, 2012).
+	<li>2011-11-17 <a href='advanced.html' class=k>Advanced search</a> released.
+	<li>2011-11-11 Database updated to RefSeq rel. 50 (Nov, 2011).
+	<li>2011-09-20 <i>Ciona intestinalis</i> (sea squirt) is available.
+	<li>2011-09-16 Search by Gene ontology and EC (Enzyme Commission) numbers enabled.
+	<li>2011-09-16 Database updated to RefSeq rel. 49 (Sep, 2011).
+	<li>2011-08-17 URL has been changed: <a class=k href='http://GGRNA.dbcls.jp/en/'><!--
+	               -->http://GGRNA.dbcls.jp/en/</a>
+	<li>2011-07-29 Nucleotide sequence containing IUB code letters (<i>e.g.</i> N,R,Y,...)
+	               can be queried using <cite>iub:</cite> tag.
+	<li>2011-07-27 <i>X. tropicalis</i> (frog) and <i>O. sativa</i> (rice) are available.
+		           Updated to RefSeq rel. 48 (Jul, 2011).
+	<li>2011-07-04 English page launched.
+</ul>
+</div>
+
+<hr><!-- __________________________________________________ -->
+
+<p class=g>Last modified on Jul 17, 2013 by
+<a target='_blank' class=a href='http://twitter.com/meso_cacase'>@meso_cacase</a> at 
+<a target='_blank' class=a href='http://dbcls.rois.ac.jp/en/'>DBCLS</a><br>
+This page is licensed under a
+<a target='_blank' class=a href='http://creativecommons.org/licenses/by/2.1/jp/deed.en'>
+Creative Commons Attribution 2.1 Japan License</a>.</p>
+
+</body>
+</html>

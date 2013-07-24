@@ -1,0 +1,48 @@
+GGRNA.v2 REST API
+
+Query format:
+
+http://GGRNA.dbcls.jp/SPECIES/QUERY_STRING[.FORMAT][.download]
+  SPECIES (optional):
+    'hs' - Homo sapiens (human)
+    'mm' - Mus musculus (house mouse)
+    'rn' - Rattus norvegicus (Norway rat)
+    'gg' - Gallus gallus (chicken)
+    'xt' - Xenopus (Silurana) tropicalis (western clawed frog)
+    'dr' - Danio rerio (zebrafish)
+    'ci' - Ciona intestinalis (vase tunicate)
+    'dm' - Drosophila melanogaster (fruit fly)
+    'ce' - Caenorhabditis elegans
+    'at' - Arabidopsis thaliana (thale cress)
+    'os' - Oryza sativa Japonica Group
+    'sc' - Saccharomyces cerevisiae S288c
+    'sp' - Schizosaccharomyces pombe 972h-
+    'zoo' - All species in RefSeq
+    Default: zoo
+  QUERY_STRING:
+    URI-encoded query string.
+  FORMAT (optional):
+    'html' - HTML
+    'txt'  - Tab-delimited text
+    'json' - JSON object
+    Default: html
+  download (optional):
+    Download result as a file.
+
+Examples:
+
+http://GGRNA.dbcls.jp/NM_001518
+  Search 'NM_001518'.
+  Output in HTML format. (default)
+
+http://GGRNA.dbcls.jp/mm/homeobox.json
+  Search 'homeobox' in mouse.
+  Output in JSON format.
+
+http://GGRNA.dbcls.jp/dm/%22RNA+interference%22.txt.download
+  Search 'RNA interference' in D. melanogaster.
+  Download tab-delimited text.
+
+http://GGRNA.dbcls.jp/caagaagagattg.json
+  Search 'caagaagagattg' in all species.
+  Output in JSON format.

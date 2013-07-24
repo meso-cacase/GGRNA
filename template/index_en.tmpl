@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>
+<html>
+
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+<meta http-equiv='Content-Script-Type' content='text/javascript'>
+<meta http-equiv='Content-Style-Type' content='text/css'>
+<TMPL_VAR NAME=ROBOTS><meta name='author' content='Yuki Naito'>
+<title><TMPL_VAR NAME=TITLE></title>
+<script type='text/javascript'>
+<!--
+function set_spe(){
+	var spe ;
+	if (location.pathname.match(/\/(..)\/[^\/]*$/)){
+		spe = location.pathname.match(/\/(..)\/[^\/]*$/)[1] ;
+		if (spe.match(/hs|mm|rn|gg|xt|dr|ci|dm|ce|at|os|sc|sp/)){
+			document.ggrna.spe.value = spe ;
+		}
+	}
+}
+function change_spe(){
+	if (document.ggrna.query.value == ''){
+		location.href = document.ggrna.spe.value + '/' ;
+	} else {
+		// location.href = document.ggrna.spe.value + '/?q=' +
+		//                 document.ggrna.query.value ;
+	}
+}
+function hideDebug() {
+	if (document.getElementById('debug').style.display == 'none') {
+		document.getElementById('debug').style.display = 'block';
+	} else {
+		document.getElementById('debug').style.display = 'none';
+	}
+}
+//-->
+</script>
+<style type='text/css'>
+<!--
+	* { font-family:verdana,arial,helvetica,sans-serif }
+	p,ol,pre,div,small,cite { font-size:9pt }
+	cite {
+		font-style:normal;
+		color:#0E774A;
+	}
+	em   { background-color:#99FF99; font-style:normal; font-weight:bold }
+	.lv2 { background-color:#66CC99 }
+	.lv3 { background-color:#339999 }
+	.lv4 { background-color:#006699 }
+	.gene { margin:10pt }
+	.a { color:#3366CC }
+	.k { color:black   }
+	.g { color:gray    }
+	.s { color:silver  }
+	.t { font-size:10pt; width:90% }
+	.b { word-wrap:break-word; width:90% }
+	.mono { font-family:courier,monospace }
+	.position { font-size:7pt; border:1px solid }
+-->
+</style>
+</head>
+
+<body>
+
+<a href='./?spe='><img src='GGRNAlogo_en.png' alt='GGRNA' height=69 width=191 border=0></a>
+
+<small><font color='#003300'>ver.2</font></small>
+
+<script type='text/javascript'>
+<!--
+var spe ;
+if (location.pathname.match(/\/(..)\/[^\/]*$/)){
+	spe = location.pathname.match(/\/(..)\/[^\/]*$/)[1] ;
+}
+switch (spe){
+	case 'hs':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/human/">' +
+			'<img src="togopic/hs_riv.png" alt="Homo sapiens (human)" '      +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'mm':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/mouse/">' +
+			'<img src="togopic/mm_riv.png" alt="Mus musculus (mouse)" '      +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'rn':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/rat/">' +
+			'<img src="togopic/rn_riv.png" alt="Rattus norvegicus (rat)" ' +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'gg':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/chicken/">' +
+			'<img src="togopic/gg_riv.png" alt="Gallus gallus (chicken)" '     +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'xt':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/xenopus_laevis/">' +
+			'<img src="togopic/xt_riv.png" alt="Xenopus tropicalis (frog)" '          +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'dr':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/zebrafish/">' +
+			'<img src="togopic/dr_riv.png" alt="Danio rerio (zebrafish)" '       +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'ci':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/ciona/">'       +
+			'<img src="togopic/ci_riv.png" alt="Ciona intestinalis (sea squirt)" ' +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'dm':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/fruitfly/">'  +
+			'<img src="togopic/dm_riv.png" alt="Drosophila melanogaster (fly)" ' +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'ce':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/nematode/">'  +
+			'<img src="togopic/ce_riv.png" alt="Caenorhabditis elegans (worm)" ' +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'at':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/arabi/">'          +
+			'<img src="togopic/at_riv.png" alt="Arabidopsis thaliana (thale cress)" ' +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'os':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/rice/">' +
+			'<img src="togopic/os_riv.png" alt="Oryza sativa (rice)" '      +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'sc':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/budding_yeast/">' +
+			'<img src="togopic/sc_riv.png" alt="Saccharomyces cerevisiae S288c" '    +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'sp':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/fission_yeast/">' +
+			'<img src="togopic/sp_riv.png" alt="Schizosaccharomyces pombe 972h-" '   +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	default :
+		break ;
+}
+//-->
+</script>
+
+<small style='vertical-align:top'>
+<a style='vertical-align:top' class=k href='help.html'    >Help</a>            |
+<a style='vertical-align:top' class=k href='advanced.html'>Advanced search</a> |
+<a style='vertical-align:top' class=k href='?lang=ja'     >Japanese</a>
+</small>
+&emsp;
+<small style='vertical-align:top'>
+<a style='vertical-align:top' class=k href='/v1/'>Previous release (v1)</a>
+</small>
+
+<form name=ggrna method=GET action='.'>
+<p>
+<input type=text name=query size=70 value='<TMPL_VAR NAME=QUERY>'>
+<input type=submit value='Search'>
+<select id=spe name=spe onChange='change_spe()'>
+	<option value=zoo selected>Zoo (All organisms in RefSeq)</option>
+	<option disabled>----------                        </option>
+	<option value=hs>Homo sapiens (human)              </option>
+	<option value=mm>Mus musculus (mouse)              </option>
+	<option value=rn>Rattus norvegicus (rat)           </option>
+	<option value=gg>Gallus gallus (chicken)           </option>
+	<option value=xt>Xenopus tropicalis (frog)         </option>
+	<option value=dr>Danio rerio (zebrafish)           </option>
+	<option value=ci>Ciona intestinalis (sea squirt)   </option>
+	<option value=dm>Drosophila melanogaster (fly)     </option>
+	<option value=ce>Caenorhabditis elegans (worm)     </option>
+	<option value=at>Arabidopsis thaliana (thale cress)</option>
+	<option value=os>Oryza sativa (rice)               </option>
+	<option value=sc>Saccharomyces cerevisiae S288c    </option>
+	<option value=sp>Schizosaccharomyces pombe 972h-   </option>
+</select>
+</p>
+</form>
+
+<script type='text/javascript'>
+<!--
+set_spe()
+//-->
+</script>
+
+<TMPL_VAR NAME=HTML>
+
+<hr><!-- __________________________________________________ -->
+
+<p class=g>by
+<a target='_blank' class=a href='http://twitter.com/meso_cacase'>@meso_cacase</a> at 
+<a target='_blank' class=a href='http://dbcls.rois.ac.jp/'>DBCLS</a><br>
+This page is licensed under a
+<a target='_blank' class=a href='http://creativecommons.org/licenses/by/2.1/jp/'>
+Creative Commons Attribution 2.1 Japan License</a>.</p>
+
+</body>
+</html>

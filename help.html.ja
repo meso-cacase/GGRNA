@@ -1,0 +1,528 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>
+<html lang=ja>
+
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+<meta http-equiv='Content-Script-Type' content='text/javascript'>
+<meta http-equiv='Content-Style-Type' content='text/css'>
+<meta name='author' content='Yuki Naito'>
+<title>統合遺伝子検索GGRNA</title>
+<script type='text/javascript'>
+<!--
+function set_spe(){
+	var spe ;
+	if (location.pathname.match(/\/(..)\/help.html$/)){
+		spe = location.pathname.match(/\/(..)\/help.html$/)[1] ;
+		if (spe.match(/hs|mm|rn|gg|xt|dr|ci|dm|ce|at|os|sc|sp/)){
+			document.refsearch.spe.value = spe ;
+		}
+	}
+}
+function change_spe(){
+	location.href = document.refsearch.spe.value + '/help.html' ;
+}
+//-->
+</script>
+<style type='text/css'>
+<!--
+	* { font-family:verdana,arial,helvetica,sans-serif }
+	p,table,ol,pre,div,small,cite { font-size:9pt }
+	cite { color:#0E774A; font-style:normal }
+	em { font-weight:bold;
+		font-style:normal;
+		background-color:#99FF99 }
+	.a { color:#3366CC; font-style:normal }
+	.k { color:black }
+	.t { font-size:10pt; width:90% }
+	.b { word-wrap:break-word; width:90% }
+	.g { color:gray; width:90% }
+	table { border-collapse:collapse }
+	th { background-color: #dfe1ed;
+		border:solid 1px #8c93ba;
+		padding:4px }
+	td { border:solid 1px #8c93ba;
+		padding:4px }
+	.gene { margin:10pt }
+-->
+</style>
+</head>
+
+<body>
+
+<a href='./?spe='><img src='GGRNAlogo_ja.png' alt='GGRNA' height=69 width=191 border=0></a>
+
+<small><font color='#003300'>ver.2</font></small>
+
+<script type='text/javascript'>
+<!--
+var spe ;
+if (location.pathname.match(/\/(..)\/help.html$/)){
+	spe = location.pathname.match(/\/(..)\/help.html$/)[1] ;
+}
+switch (spe){
+	case 'hs':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/human/">' +
+			'<img src="togopic/hs_riv.png" alt="Homo sapiens (human)" '      +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'mm':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/mouse/">' +
+			'<img src="togopic/mm_riv.png" alt="Mus musculus (mouse)" '      +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'rn':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/rat/">' +
+			'<img src="togopic/rn_riv.png" alt="Rattus norvegicus (rat)" ' +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'gg':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/chicken/">' +
+			'<img src="togopic/gg_riv.png" alt="Gallus gallus (chicken)" '     +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'xt':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/xenopus_laevis/">' +
+			'<img src="togopic/xt_riv.png" alt="Xenopus tropicalis (frog)" '          +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'dr':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/zebrafish/">' +
+			'<img src="togopic/dr_riv.png" alt="Danio rerio (zebrafish)" '       +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'ci':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/ciona/">'       +
+			'<img src="togopic/ci_riv.png" alt="Ciona intestinalis (sea squirt)" ' +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'dm':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/fruitfly/">'  +
+			'<img src="togopic/dm_riv.png" alt="Drosophila melanogaster (fly)" ' +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'ce':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/nematode/">'  +
+			'<img src="togopic/ce_riv.png" alt="Caenorhabditis elegans (worm)" ' +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'at':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/arabi/">'          +
+			'<img src="togopic/at_riv.png" alt="Arabidopsis thaliana (thale cress)" ' +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'os':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/rice/">' +
+			'<img src="togopic/os_riv.png" alt="Oryza sativa (rice)" '      +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'sc':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/budding_yeast/">' +
+			'<img src="togopic/sc_riv.png" alt="Saccharomyces cerevisiae S288c" '    +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'sp':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/fission_yeast/">' +
+			'<img src="togopic/sp_riv.png" alt="Schizosaccharomyces pombe 972h-" '   +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	default :
+		break ;
+}
+//-->
+</script>
+
+<small style='vertical-align:top'>
+<a style='vertical-align:top' class=k href='.'            >Home</a>            |
+<a style='vertical-align:top' class=k href='advanced.html'>Advanced search</a> |
+<a style='vertical-align:top' class=k href='en/help.html' >English</a>
+</small>
+&emsp;
+<small style='vertical-align:top'>
+<a style='vertical-align:top' class=k href='/v1/'>旧バージョン</a>
+</small>
+
+<form name=refsearch method=GET action='search.cgi'>
+<p>
+<input type=text name=query size=70 value='"cell division"  atggagcct'>
+<input type=submit value='検索'>
+<select id=spe name=spe onchange='change_spe()'>
+	<option value=zoo selected>Zoo (All organisms in RefSeq)</option>
+	<option disabled>----------                        </option>
+	<option value=hs>Homo sapiens (human)              </option>
+	<option value=mm>Mus musculus (mouse)              </option>
+	<option value=rn>Rattus norvegicus (rat)           </option>
+	<option value=gg>Gallus gallus (chicken)           </option>
+	<option value=xt>Xenopus tropicalis (frog)         </option>
+	<option value=dr>Danio rerio (zebrafish)           </option>
+	<option value=ci>Ciona intestinalis (sea squirt)   </option>
+	<option value=dm>Drosophila melanogaster (fly)     </option>
+	<option value=ce>Caenorhabditis elegans (worm)     </option>
+	<option value=at>Arabidopsis thaliana (thale cress)</option>
+	<option value=os>Oryza sativa (rice)               </option>
+	<option value=sc>Saccharomyces cerevisiae S288c    </option>
+	<option value=sp>Schizosaccharomyces pombe 972h-   </option>
+</select>
+</p>
+</form>
+
+<script type='text/javascript'>
+<!--
+set_spe()
+//-->
+</script>
+
+<!--
+<div><font color=red>
+お知らせ：
+<ul>
+	<li>サーバメンテナンス中です。
+</ul>
+</font></div>
+
+<img src='togopic/chata_ja.png' alt='ニャーン' border=0>
+
+<hr> --> <!-- __________________________________________________ -->
+
+<div>
+つかいかた：
+<ul>
+	<li><a target='_blank' class=k href='http://www.ncbi.nlm.nih.gov/RefSeq/'>NCBI RefSeq</a>
+		の transcript を全文検索するウェブサーバです。
+	<li>RefSeq にはゲノム、mRNA、ncRNA、タンパク質のエントリが含まれますが、<br>
+		GGRNA はこのうち mRNA (IDがNM_, XM_で始まる) および ncRNA (NR_, XR_) を検索します。<br>
+		元データ：<a class=k href='ftp://ftp.ncbi.nlm.nih.gov/refseq/release/complete/'><!--
+		-->ftp://ftp.ncbi.nlm.nih.gov/refseq/release/complete/</a>complete.*.rna.gbff.gz
+	<li>大文字・小文字は区別しません。
+	<li>"PAZ domain" のようにダブルクオートで囲むとフレーズ検索できます。
+	<li>複数のキーワードをコンマかスペースで区切るとAND検索になります。
+	<li>このとき、キーワードの順番は結果に影響しません。
+	<li><a href='advanced.html' class=k>Advanced search</a> で検索条件を細かく指定できます。
+	<li>タグ（下記表の緑色の部分）を利用して検索条件を細かく指定することも可能です。
+</ul>
+</div>
+
+<div>
+活用事例集：
+<ul>
+	<li><a target='_blank' class=k href='http://g86.dbcls.jp/~meso/meme/?p=982'>塩基配列編</a>
+	<li><a target='_blank' class=k href='http://g86.dbcls.jp/~meso/meme/?p=1090'>アミノ酸配列編</a>
+</ul>
+</div>
+
+<div>
+動画による解説（<a target='_blank' class=k href='http://togotv.dbcls.jp/ja/'>統合TV</a>）：
+<ul>
+	<a target='_blank' href='http://togotv.dbcls.jp/20120124.html'>
+	<img src='togopic/togotv_small_ja.png' alt='GGRNAで遺伝子をGoogleのように検索する'
+		height=203 width=360 border=0></a>
+</ul>
+</div>
+
+<div>
+検索タグ一覧：
+<ul>
+<table>
+<tr><th>検索語</th><th>説明</th><th>エイリアス</th></tr>
+<tr>
+	<td><a href='refid%3ANM_001518' class=k><cite>refid:</cite>NM_001518</a></td>
+	<td>
+		RefSeq IDから検索。<br>
+		"." 以降のバージョン番号は無視される。<br>
+		つまり古い配列 NM_003380.2 を検索<br>
+		しても最新版 NM_003380.3 がhitする。<br>
+		NM_, XM_, NR_, XR_ で始まる検索語は<br>
+		自動的に<cite>refid:</cite>で解釈される。</td>
+	<td>
+		<cite>refseqid:</cite><br>
+		<cite>refseq:</cite><br>
+		<cite>id:</cite>NM_<br>
+		<cite>id:</cite>XM_<br>
+		<cite>id:</cite>NR_<br>
+		<cite>id:</cite>XR_</td></tr>
+<tr>
+	<td><a href='geneid%3A10579' class=k><cite>geneid:</cite>10579</a></td>
+	<td>
+		Gene IDから検索。<br>
+		数字のみの検索語は自動的に<cite>geneid:</cite>で<br>
+		解釈される。</td>
+	<td>
+		<cite>gene:</cite>数字<br>
+		<cite>id:</cite>数字</td></tr>
+<tr>
+	<td><a href='symbol%3AVIM' class=k><cite>symbol:</cite>VIM</a></td>
+	<td>
+		symbolから検索。<br>
+		symbolに部分一致するものを返す。<br>
+		synonymに部分一致するものも返す。</td>
+	<td>
+		<cite>name:</cite><br>
+		<cite>gene:</cite>アルファベットを含む単語</td></tr>
+<tr>
+	<td><a href='aa%3AKDEL' class=k><cite>aa:</cite>KDEL</a></td>
+	<td>アミノ酸配列から検索。</td>
+	<td></td></tr>
+<tr>
+	<td><a href='ref%3ANaito' class=k><cite>ref:</cite>Naito</a><br>
+		<a href='ref%3A1327585' class=k><cite>ref:</cite>1327585</a></td>
+	<td>文献情報のなかからフリーワード検索。<br>
+		PubMed IDも指定可能。</td>
+	<td><cite>reference:</cite></td></tr>
+<tr>
+	<td><a href='probe%3A1552311_a_at' class=k><cite>probe:</cite>1552311_a_at</a><br>
+		<a href='probe%3AA_23_P101434' class=k><cite>probe:</cite>A_23_P101434</a></td>
+	<td>
+		アレイのプローブIDから塩基配列を検索。<br>
+		_at, _stで終わるもの（Affymetrix ID）、<br>
+		A_で始まるもの（Agilent ID）は自動的に<br>
+		<cite>probe:</cite>で解釈される。プローブIDが登録<br>
+		されていない場合はフリーワード検索。</td>
+	<td><cite>probeid:</cite></td></tr>
+<tr>
+	<td><a href='seq%3Acaagaagagattg' class=k><cite>seq:</cite>caagaagagattg</a></td>
+	<td>
+		塩基配列から検索。<br>
+		A,T,G,C,Uのみからなる文字列は自動的に<br>
+		<cite>seq:</cite>で解釈される。UはTとまったく同じ。<br>
+		<strike><cite>seq1:</cite>, <cite>seq2:</cite>, <cite>seq3:</cite>とすると、それぞれ<br>
+		1, 2, 3ミスマッチまで許容して検索する。</strike></td>
+	<td><cite>sequence:</cite></td></tr>
+<tr>
+	<td><a href='comp%3Acaagaagagattg' class=k><cite>comp:</cite>caagaagagattg</a></td>
+	<td>相補鎖を検索する。<br>
+		<strike><cite>comp1:</cite>, <cite>comp2:</cite>, <cite>comp3:</cite>でそれぞれ<br>
+		1, 2, 3ミスマッチまで許容して検索する。</strike></td>
+	<td><cite>complementary:</cite></td></tr>
+<tr>
+	<td><a href='both%3Acaagaagagattg' class=k><cite>both:</cite>caagaagagattg</a></td>
+	<td>入力配列とその相補鎖を検索する。<br>
+		<strike><cite>both1:</cite>, <cite>both2:</cite>, <cite>both3:</cite>でそれぞれ<br>
+		1, 2, 3ミスマッチまで許容して検索する。</strike></td>
+	<td><cite>bothseq:</cite></td></tr>
+<tr>
+	<td><a href='iub%3Aaggtcannrtgacct' class=k><cite>iub:</cite>aggtcannrtgacct</a><br>
+		<a href='iubcomp%3Aaggtcannrtgacct' class=k><cite>iubcomp:</cite>aggtcannrtgacct</a><br>
+		<a href='iubboth%3Aaggtcannrtgacct' class=k><cite>iubboth:</cite>aggtcannrtgacct</a></td>
+	<td>
+		N, R, Y などのあいまいな塩基を含む<br>
+		塩基配列を検索。あいまい塩基の表記は<br>
+		IUBコードによる。<cite>iubcomp:</cite>は相補鎖、<br>
+		<cite>iubboth:</cite>は入力配列とその相補鎖を検索。</td>
+	<td><cite>iubseq:</cite> &rarr; <cite>iub:</cite></td></tr>
+</table>
+</ul>
+<ul>
+	<li>ミスマッチを許容した検索は
+		<a target='_blank' href='http://GGGenome.dbcls.jp' class=k>GGGenome</a>
+		をご利用ください。
+</ul>
+</div>
+
+<a name=api></a>
+<div>
+検索結果へのリンク：
+<ul>
+	<li>http://GGRNA.dbcls.jp/<!--
+		--><span style='color:#ff6600'>species</span>/<!--
+		--><span style='color:#0000ff'>query+string</span><!--
+		-->[.<span style='color:#008000'>format</span>]<!--
+		-->[.<span style='color:brown'>download</span>]
+	<ul>
+		<li><span style='color:#ff6600'>species</span> &rarr;
+			生物種の学名の頭文字。hs, mm, etc. 省略時は全生物種 (zoo)
+		<li><span style='color:#0000ff'>query+string</span> &rarr;
+			URLエンコードしたクエリ文字列
+		<li><span style='color:#008000'>format</span> &rarr;
+			html, txt, json。省略時は html
+		<li><span style='color:brown'>download</span> &rarr;
+			URLの最後に付加すると検索結果をファイルとしてダウンロードできる
+	</ul>
+	<li>指定できる <span style='color:#ff6600'>species</span> および
+		<span style='color:#008000'>format</span> の種類など、詳細は下記を参照：
+	<ul>
+		<li><a class=k href='http://GGRNA.dbcls.jp/api'>http://GGRNA.dbcls.jp/api</a>
+	</ul>
+	<li>使用例：
+	<ul>
+		<li><a class=k href='http://GGRNA.dbcls.jp/NM_001518.txt'><!--
+			-->http://GGRNA.dbcls.jp/NM_001518.txt</a><br>
+			「NM_001518」を検索してタブ区切りテキストで取得
+		<li><a class=k href='http://GGRNA.dbcls.jp/mm/homeobox.txt'><!--
+			-->http://GGRNA.dbcls.jp/mm/homeobox.txt</a><br>
+			マウスで「homeobox」を検索してタブ区切りテキストで取得
+		<li><a class=k href='http://GGRNA.dbcls.jp/dm/%22RNA+interference%22.json'><!--
+			-->http://GGRNA.dbcls.jp/dm/%22RNA+interference%22.json</a><br>
+			ショウジョウバエで「"RNA interference"」を検索してJSONで取得<br>
+			URLでは " は %22、スペースは + にエンコードしている点に注意
+		<li><a class=k href='http://GGRNA.dbcls.jp/caagaagagattg.json'><!--
+			-->http://GGRNA.dbcls.jp/caagaagagattg.json</a><br>
+			全生物種で「caagaagagattg」を検索してJSONで取得
+	</ul>
+</ul>
+</div>
+
+<div>
+生物種の指定：
+<ul>
+	<li>GGRNAはデフォルトでRefSeqに収録された全生物種を同時に検索します。
+	<li>下記のモデル生物は専用のURLを用意しています。
+</ul>
+<ul>
+<table>
+	<tr>
+		<td><a class=k href='http://GGRNA.dbcls.jp/hs/'>ヒト (hs)<br>
+			<img src='togopic/hs_riv.png' alt='ヒト' height=69 width=120 border=0></a></td>
+		<td><a class=k href='http://GGRNA.dbcls.jp/mm/'>マウス (mm)<br>
+			<img src='togopic/mm_riv.png' alt='マウス' height=69 width=120 border=0></a></td>
+		<td><a class=k href='http://GGRNA.dbcls.jp/rn/'>ラット (rn)<br>
+			<img src='togopic/rn_riv.png' alt='ラット' height=69 width=120 border=0></a></td>
+		<td><a class=k href='http://GGRNA.dbcls.jp/gg/'>ニワトリ (gg)<br>
+			<img src='togopic/gg_riv.png' alt='ニワトリ' height=69 width=120 border=0></a></td>
+	</tr>
+	<tr>
+		<td><a class=k href='http://GGRNA.dbcls.jp/xt/'>ツメガエル (xt)<br>
+			<img src='togopic/xt_riv.png' alt='ツメガエル' height=69 width=120 border=0></a></td>
+		<td><a class=k href='http://GGRNA.dbcls.jp/dr/'>ゼブラフィッシュ (dr)<br>
+			<img src='togopic/dr_riv.png' alt='ゼブラフィッシュ' height=69 width=120 border=0></a></td>
+		<td><a class=k href='http://GGRNA.dbcls.jp/ci/'>ホヤ (ci)<br>
+			<img src='togopic/ci_riv.png' alt='ホヤ' height=69 width=120 border=0></a></td>
+		<td><a class=k href='http://GGRNA.dbcls.jp/dm/'>ショウジョウバエ (dm)<br>
+			<img src='togopic/dm_riv.png' alt='ショウジョウバエ' height=69 width=120 border=0></a></td>
+	</tr>
+	<tr>
+		<td><a class=k href='http://GGRNA.dbcls.jp/ce/'>線虫 (ce)<br>
+			<img src='togopic/ce_riv.png' alt='線虫' height=69 width=120 border=0></a></td>
+		<td><a class=k href='http://GGRNA.dbcls.jp/at/'>シロイヌナズナ (at)<br>
+			<img src='togopic/at_riv.png' alt='シロイヌナズナ' height=69 width=120 border=0></a></td>
+		<td><a class=k href='http://GGRNA.dbcls.jp/os/'>イネ (os)<br>
+			<img src='togopic/os_riv.png' alt='イネ' height=69 width=120 border=0></a></td>
+	</tr>
+	<tr>
+		<td><a class=k href='http://GGRNA.dbcls.jp/sc/'>出芽酵母 (sc)<br>
+			<img src='togopic/sc_riv.png' alt='出芽酵母' height=69 width=120 border=0></a></td>
+		<td><a class=k href='http://GGRNA.dbcls.jp/sp/'>分裂酵母 (sp)<br>
+			<img src='togopic/sp_riv.png' alt='分裂酵母' height=69 width=120 border=0></a></td>
+	</tr>
+</table>
+</ul>
+</div>
+
+<div>
+文献：
+<ul>
+	<li>Yuki Naito &amp; Hidemasa Bono (2012)<br>
+		<a target='_blank' class=k href='http://nar.oxfordjournals.org/content/40/W1/W592.full'><!--
+		-->GGRNA: an ultrafast, transcript-oriented search engine for genes and transcripts.</a><br>
+		<i>Nucleic Acids Res.</i> <b>40</b>, W592-W596.
+	<li>内藤雄樹・坊農秀雅 (2012)<br>
+		<a target='_blank' class=k href='http://first.lifesciencedb.jp/from_dbcls/e0001'><!--
+		-->統合遺伝子検索GGRNA：遺伝子をGoogleのように検索できるウェブサーバ.</a><br>
+		ライフサイエンス 新着論文レビュー (DBCLSからの成果発信).
+		<a target='_blank' class=k
+			href='http://g86.dbcls.jp/~meso/meme/wp-content/uploads/2012/06/GGRNAreviewJ1.pdf'>[PDF]</a>
+</ul>
+</div>
+
+<a name=news></a>
+<div>
+新着情報：
+<ul>
+	<li>2013-07-08　GGRNA ver.2公開。全生物種のRefSeqを検索できます。
+	<li>2013-05-07　データベースをRefSeq rel. 59 (May, 2013)に更新。
+	<li>2013-03-15　データベースをRefSeq rel. 58 (Mar, 2013)に更新。
+	<li>2013-01-15　データベースをRefSeq rel. 57 (Jan, 2013)に更新。
+	<li>2012-11-14　データベースをRefSeq rel. 56 (Nov, 2012)に更新。
+	<li>2012-09-21　データベースをRefSeq rel. 55 (Sep, 2012)に更新。
+	<li>2012-07-18　データベースをRefSeq rel. 54 (Jul, 2012)に更新。
+	<li>2012-05-29　<a target='_blank' class=k
+	                href='http://first.lifesciencedb.jp/from_dbcls/e0001'><!--
+	                -->下記論文の日本語による解説を「DBCLSからの成果発信」に掲載。</a>
+	<li>2012-05-29　<a target='_blank' class=k
+	                href='http://nar.oxfordjournals.org/content/40/W1/W592.full'><!--
+	                -->GGRNAの論文が<i>Nucleic Acids Research</i>に掲載されました。</a>
+	<li>2012-05-14　データベースをRefSeq rel. 53 (May, 2012)に更新。
+	<li>2012-03-09　データベースをRefSeq rel. 52 (Mar, 2012)に更新。
+	<li>2012-02-25　GGRNA REST APIを公開しました
+	                (<a class=k href='help.html#api'>ヘルプページ</a>参照)。
+	<li>2012-01-13　データベースをRefSeq rel. 51 (Jan, 2012)に更新。
+	<li>2011-11-17　<a href='advanced.html' class=k>Advanced Search</a> を公開。検索条件を細かく指定できます。
+	<li>2011-11-11　データベースをRefSeq rel. 50 (Nov, 2011)に更新。
+	<li>2011-09-20　ホヤを追加しました。
+	<li>2011-09-16　<a target='_blank' class=k href='http://g86.dbcls.jp/~meso/meme/?p=1371'><!--
+	                -->外部DBと連携、Gene Ontologyや酵素EC番号で検索可能に</a> (ブログ)
+	<li>2011-09-16　データベースをRefSeq rel. 49 (Sep, 2011)に更新。
+	<li>2011-08-17　トップページのURLを <a class=k href='http://GGRNA.dbcls.jp/'><!--
+	                -->http://GGRNA.dbcls.jp/</a> に変更しました。
+	<li>2011-08-17　<a href='help.html' class=k>使い方のページ</a>を分離してトップページをシンプルにしました。
+	<li>2011-08-09　<a target='_blank' class=k href='http://g86.dbcls.jp/~meso/meme/?p=1090'><!--
+	                -->「GGRNA活用事例集（アミノ酸配列編）」(ブログ)</a>
+	<li>2011-08-05　<a target='_blank' class=k href='http://g86.dbcls.jp/~meso/meme/?p=982'><!--
+	                -->「GGRNA活用事例集（塩基配列編）」(ブログ)</a>
+	<li>2011-07-29　<a target='_blank' class=k href='http://g86.dbcls.jp/~meso/meme/?p=899'><!--
+	                -->「Nを含む塩基配列の検索、DB追加＋アップデート」(ブログ)</a>
+	                <ul>
+	                	<li>N, R, Yなどのあいまいな塩基（IUBコード）を含む検索機能を追加。
+	                	<li>ツメガエル、イネに対応するマイクロアレイのプラットフォームを追加しました。
+	                </ul>
+	<li>2011-07-27　ツメガエル、イネを追加。データをRefSeq rel. 48 (Jul, 2011)に更新。
+	<li>2011-07-04　<a class=k href='en/'>英語版ページ</a>を公開。
+	<li>2011-06-30　塩基配列やアミノ酸配列がヒットしたときは場所を表示するようにしました。
+	<li>2011-06-27　サービス名を変更、<a target='_blank' class=k
+	                href='http://g86.dbcls.jp/~meso/meme/?p=671'>「統合遺伝子検索GGRNA」(ブログ)</a>
+	<li>2011-06-09　<a target='_blank' class=k href='http://g86.dbcls.jp/~meso/meme/?p=604'><!--
+	                -->「アレイのプローブ配列検索を強化」(ブログ)</a>
+	                <ul>
+	                	<li>対応するマイクロアレイのプラットフォームを増やしました。
+	                </ul>
+	<li>2011-06-02　<a target='_blank' class=k href='http://g86.dbcls.jp/~meso/meme/?p=451'><!--
+	                -->「マイクロアレイのプローブIDから塩基配列検索」(ブログ)</a>
+	                <ul>
+	                	<li>マイクロアレイのプローブIDを入力すると、そのプローブの塩基配列をつかって遺伝子を検索。
+	                	<li>AffymetrixヒトU133 Plus 2.0、マウス430 2.0、
+	                		Agilentヒト4x44K v2、マウス4x44K v2に対応。
+	                </ul>
+	<li>2011-05-27　<a target='_blank' class=k href='http://g86.dbcls.jp/~meso/meme/?p=421'><!--
+	                -->「生物種の追加とデータベース更新」(ブログ)</a>
+	                <ul>
+	                	<li>ラット、ニワトリ、ゼブラフィッシュ、シロイヌナズナ、出芽酵母、分裂酵母に対応
+	                	<li>生物種によってはUCSCやRefEx発現量へのリンクがしぼうしています。ご了承ください。
+	                	<li>データをRefSeq rel. 47 (May, 2011)に更新
+	                </ul>
+	<li>2011-05-26　ショウジョウバエ、線虫の遺伝子に対応
+	<li>2011-05-24　マウス遺伝子に対応
+	<li>2011-05-18　サイトを暫定公開：<a target='_blank' class=k
+		            href='http://g86.dbcls.jp/~meso/meme/?p=133'><!--
+	                -->「遺伝子をGoogleのように検索できるサイト」(ブログ)</a>
+	<li>2011-05-16　ヒットした部分の周辺を要約して表示
+	<li>2011-05-11　検索結果をランキング
+	<ul>
+		<li>例えばvimを検索するとKivimaki,Mとかアミノ酸配列のWVVIMMなどが2696件ヒット。
+		<li>→ そんな場合は<cite>symbol:</cite>vimの結果が上位にヒットするように改善する。
+		<li>fgf1で検索した場合に、FGF17とかFGF13よりもFGF1を上位に表示したい。
+	</ul>
+</ul>
+</div>
+
+<hr><!-- __________________________________________________ -->
+
+<p class=g>Last modified on Jul 17, 2013 by
+<a target='_blank' class=a href='http://twitter.com/meso_cacase'>@meso_cacase</a> at 
+<a target='_blank' class=a href='http://dbcls.rois.ac.jp/'>DBCLS</a><br>
+This page is licensed under a
+<a target='_blank' class=a href='http://creativecommons.org/licenses/by/2.1/jp/'>
+Creative Commons Attribution 2.1 Japan License</a>.</p>
+
+</body>
+</html>

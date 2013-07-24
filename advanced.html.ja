@@ -1,0 +1,450 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>
+<html lang=ja>
+
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+<meta http-equiv='Content-Script-Type' content='text/javascript'>
+<meta http-equiv='Content-Style-Type' content='text/css'>
+<meta name='author' content='Yuki Naito'>
+<title>統合遺伝子検索GGRNA</title>
+<script type='text/javascript'>
+<!--
+function set_spe(){
+	var spe ;
+	if (location.pathname.match(/\/(..)\/advanced.html$/)){
+		spe = location.pathname.match(/\/(..)\/advanced.html$/)[1] ;
+		if (spe.match(/hs|mm|rn|gg|xt|dr|ci|dm|ce|at|os|sc|sp/)){
+			document.querygenerator.spe.value = spe ;
+			document.ggrna.spe.value          = spe ;
+		}
+	}
+}
+function change_spe(){
+	if (document.ggrna.query.value == ''){
+		location.href = document.querygenerator.spe.value + '/advanced.html' ;
+	} else {
+		document.ggrna.spe.value = document.querygenerator.spe.value ;
+	}
+}
+function set_query(){
+	var q = document.querygenerator ;
+	qArray = new Array ;
+	// keywords search
+	if ( q.query1.value.match(/\S/) ){
+		qArray.push(q.query1.value) ;
+	}
+	// phrase search
+	if ( q.phrase1.value.match(/\S/) ){
+		var phr1 = q.phrase1.value ;
+		while ( phr1.match(/^\".*\"$/) ){
+			phr1 = phr1.replace(/^\"/, '') ;
+			phr1 = phr1.replace(/\"$/, '') ;
+		}
+		if ( phr1.match(/\s/) ){
+			qArray.push('\"' + phr1 + '\"') ;
+		} else {
+			qArray.push(phr1) ;
+		}
+	}
+	// nucleotide sequence #1 search
+	if ( q.seq1.value.match(/\S/) ){
+		var seqtag1 ;
+		if ( q.plus1.checked && ! q.minus1.checked ){
+			seqtag1 = 'seq' ;
+		} else if ( ! q.plus1.checked && q.minus1.checked ){
+			seqtag1 = 'comp' ;
+		} else if ( q.plus1.checked && q.minus1.checked ){
+			seqtag1 = 'both' ;
+		}
+		if ( seqtag1 && q.iub1.checked ){
+			seqtag1 = 'iub' + seqtag1 ;
+		}
+		if ( seqtag1 ){
+			qArray.push(seqtag1 + ':' + q.seq1.value.replace(/\s/g, '')) ;
+		}
+	}
+	// nucleotide sequence #2 search
+	if ( q.seq2.value.match(/\S/) ){
+		var seqtag2 ;
+		if ( q.plus2.checked && ! q.minus2.checked ){
+			seqtag2 = 'seq' ;
+		} else if ( ! q.plus2.checked && q.minus2.checked ){
+			seqtag2 = 'comp' ;
+		} else if ( q.plus2.checked && q.minus2.checked ){
+			seqtag2 = 'both' ;
+		}
+		if ( seqtag2 && q.iub2.checked ){
+			seqtag2 = 'iub' + seqtag2 ;
+		}
+		if ( seqtag2 ){
+			qArray.push(seqtag2 + ':' + q.seq2.value.replace(/\s/g, '')) ;
+		}
+	}
+	// protein sequence #1 search
+	if ( q.aa1.value.match(/\S/) ){
+		qArray.push('aa:' + q.aa1.value.replace(/\s/g, '')) ;
+	}
+	// protein sequence #2 search
+	if ( q.aa2.value.match(/\S/) ){
+		qArray.push('aa:' + q.aa2.value.replace(/\s/g, '')) ;
+	}
+	// RefSeq ID or Gene ID search
+	if ( q.refid.value.match(/\S/) ){
+		qArray.push('id:' + q.refid.value) ;
+	}
+	// Symbol or Synonym search
+	if ( q.symbol.value.match(/\S/) ){
+		qArray.push('symbol:' + q.symbol.value) ;
+	}
+	// References search
+	if ( q.ref.value.match(/\S/) ){
+		qArray.push('ref:' + q.ref.value) ;
+	}
+	// Probe search
+	if ( q.probe.value.match(/\S/) ){
+		qArray.push('probe:' + q.probe.value) ;
+	}
+	document.ggrna.query.value = qArray.join(' ') ;
+}
+function show_example(button,field,text1,text2){
+	switch (button.value){
+		case 'サンプル' :
+			field.value = text1 ;
+			set_query() ;
+			button.value = 'もっと...' ;
+			break ;
+		case 'もっと...' :
+			field.value = text2 ;
+			set_query() ;
+			button.value = 'リセット' ;
+			break ;
+		default :
+			field.value = '' ;
+			set_query() ;
+			button.value = 'サンプル' ;
+			break ;
+	}
+}
+function show_seq_example(button){
+	var q = document.querygenerator ;
+	switch (button.value){
+		case 'サンプル' :
+			q.seq1.value     = 'CTAGCTGCCAAAGAAGGACAT' ;
+			q.plus1.checked  = true ;
+			q.minus1.checked = false ;
+			q.iub1.checked   = false ;
+			q.seq2.value     = 'CAATGAGATGTTGTCGTGCTC' ;
+			q.plus2.checked  = false ;
+			q.minus2.checked = true ;
+			q.iub2.checked   = false ;
+			set_query() ;
+			button.value     = 'もっと...' ;
+			break ;
+		case 'もっと...' :
+			q.seq1.value     = 'AGGTCANNRTGACCT' ;
+			q.plus1.checked  = true ;
+			q.minus1.checked = false ;
+			q.iub1.checked   = true ;
+			q.seq2.value     = '' ;
+			q.plus2.checked  = true ;
+			q.minus2.checked = false ;
+			q.iub2.checked   = true ;
+			set_query() ;
+			button.value     = 'リセット' ;
+			break ;
+		default :
+			q.seq1.value     = '' ;
+			q.plus1.checked  = true ;
+			q.minus1.checked = true ;
+			q.iub1.checked   = true ;
+			q.seq2.value     = '' ;
+			q.plus2.checked  = true ;
+			q.minus2.checked = true ;
+			q.iub2.checked   = true ;
+			set_query() ;
+			button.value     = 'サンプル' ;
+			break ;
+	}
+}
+//-->
+</script>
+<style type='text/css'>
+<!--
+	* { font-family:verdana,arial,helvetica,sans-serif }
+	p,table,ol,pre,div,small,cite { font-size:9pt }
+	cite { color:#0E774A; font-style:normal }
+	em { font-weight:bold;
+		font-style:normal;
+		background-color:#99FF99 }
+	.a { color:#3366CC; font-style:normal }
+	.k { color:black }
+	.t { font-size:10pt; width:90% }
+	.b { word-wrap:break-word; width:90% }
+	.g { color:gray; width:90% }
+	table { border-collapse:collapse }
+	th { background-color: #dfe1ed;
+		border:solid 1px #8c93ba;
+		padding:4px }
+	td { border:solid 1px #8c93ba;
+		padding:4px }
+	.gene { margin:10pt }
+-->
+</style>
+</head>
+
+<body>
+
+<a href='./?spe='><img src='GGRNAlogo_ja.png' alt='GGRNA' height=69 width=191 border=0></a>
+
+<small><font color='#003300'>ver.2</font></small>
+
+<script type='text/javascript'>
+<!--
+var spe ;
+if (location.pathname.match(/\/(..)\/advanced.html$/)){
+	spe = location.pathname.match(/\/(..)\/advanced.html$/)[1] ;
+}
+switch (spe){
+	case 'hs':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/human/">' +
+			'<img src="togopic/hs_riv.png" alt="Homo sapiens (human)" '      +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'mm':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/mouse/">' +
+			'<img src="togopic/mm_riv.png" alt="Mus musculus (mouse)" '      +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'rn':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/rat/">' +
+			'<img src="togopic/rn_riv.png" alt="Rattus norvegicus (rat)" ' +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'gg':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/chicken/">' +
+			'<img src="togopic/gg_riv.png" alt="Gallus gallus (chicken)" '     +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'xt':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/xenopus_laevis/">' +
+			'<img src="togopic/xt_riv.png" alt="Xenopus tropicalis (frog)" '          +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'dr':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/zebrafish/">' +
+			'<img src="togopic/dr_riv.png" alt="Danio rerio (zebrafish)" '       +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'ci':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/ciona/">'       +
+			'<img src="togopic/ci_riv.png" alt="Ciona intestinalis (sea squirt)" ' +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'dm':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/fruitfly/">'  +
+			'<img src="togopic/dm_riv.png" alt="Drosophila melanogaster (fly)" ' +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'ce':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/nematode/">'  +
+			'<img src="togopic/ce_riv.png" alt="Caenorhabditis elegans (worm)" ' +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'at':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/arabi/">'          +
+			'<img src="togopic/at_riv.png" alt="Arabidopsis thaliana (thale cress)" ' +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'os':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/rice/">' +
+			'<img src="togopic/os_riv.png" alt="Oryza sativa (rice)" '      +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'sc':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/budding_yeast/">' +
+			'<img src="togopic/sc_riv.png" alt="Saccharomyces cerevisiae S288c" '    +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	case 'sp':
+		document.write(
+			'<a target="_blank" href="http://g86.dbcls.jp/~togoriv/fission_yeast/">' +
+			'<img src="togopic/sp_riv.png" alt="Schizosaccharomyces pombe 972h-" '   +
+			'height=69 width=120 border=0><\/a>'
+		) ;  break ;
+	default :
+		break ;
+}
+//-->
+</script>
+
+<small style='vertical-align:top'>
+<a style='vertical-align:top' class=k href='.'               >Home</a> |
+<a style='vertical-align:top' class=k href='help.html'       >Help</a> |
+<a style='vertical-align:top' class=k href='en/advanced.html'>English</a>
+</small>
+&emsp;
+<small style='vertical-align:top'>
+<a style='vertical-align:top' class=k href='/v1/'>旧バージョン</a>
+</small>
+
+<hr><!-- __________________________________________________ -->
+
+<!--
+<div><font color=red>
+お知らせ：
+<ul>
+	<li>サーバメンテナンス中です。
+</ul>
+</font></div>
+
+<img src='togopic/chata_ja.png' alt='ニャーン' border=0>
+
+<hr> --> <!-- __________________________________________________ -->
+
+<noscript>
+<p><font color=red>
+	【警告】JavaScriptを実行できません。このページはJavaScriptに対応したブラウザでご利用ください。</font></p>
+</noscript>
+
+<form name=querygenerator>
+<p>
+1. 生物種を選択：
+<select id=spe name=spe onchange='change_spe()'>
+	<option value=zoo selected>Zoo (All organisms in RefSeq)</option>
+	<option disabled>----------                        </option>
+	<option value=hs>Homo sapiens (human)              </option>
+	<option value=mm>Mus musculus (mouse)              </option>
+	<option value=rn>Rattus norvegicus (rat)           </option>
+	<option value=gg>Gallus gallus (chicken)           </option>
+	<option value=xt>Xenopus tropicalis (frog)         </option>
+	<option value=dr>Danio rerio (zebrafish)           </option>
+	<option value=ci>Ciona intestinalis (sea squirt)   </option>
+	<option value=dm>Drosophila melanogaster (fly)     </option>
+	<option value=ce>Caenorhabditis elegans (worm)     </option>
+	<option value=at>Arabidopsis thaliana (thale cress)</option>
+	<option value=os>Oryza sativa (rice)               </option>
+	<option value=sc>Saccharomyces cerevisiae S288c    </option>
+	<option value=sp>Schizosaccharomyces pombe 972h-   </option>
+</select>
+</p>
+
+<script type='text/javascript'>
+<!--
+set_spe()
+//-->
+</script>
+
+<p>
+2. 検索するキーワードを入力：
+</p>
+
+<table>
+<tr>
+	<td>すべてのキーワードを含む：</td>
+	<td><input type=text name=query1 size=70
+	     onkeyup='set_query()' onkeydown='if(event.keyCode == 13){document.ggrna.submit()}'>
+		<input type=button value='サンプル'
+		 onclick="show_example(this,query1,'homeobox','Nanog')" style='float:right;'></td>
+</tr>
+<tr>
+	<td>フレーズを検索：</td>
+	<td><input type=text name=phrase1 size=70
+	     onkeyup='set_query()' onkeydown='if(event.keyCode == 13){document.ggrna.submit()}'>
+		<input type=button value='サンプル'
+		 onclick="show_example(this,phrase1,'RNA interference','PAZ domain')" style='float:right;'></td>
+</tr>
+<tr>
+	<td rowspan=2>塩基配列を検索：</td>
+	<td>配列1:<input type=text name=seq1 size=64
+	          onkeyup='set_query()' onkeydown='if(event.keyCode == 13){document.ggrna.submit()}'>
+		<input type=button value='サンプル' onclick='show_seq_example(this)' style='float:right;'><br>
+		<input type=checkbox name=plus1  value=1 checked onclick='set_query()'>この配列を検索
+		<input type=checkbox name=minus1 value=1 checked onclick='set_query()'>相補鎖を検索
+		<input type=checkbox name=iub1   value=1 checked onclick='set_query()'>ゆらぎ塩基(N,R,Y等)を含む<br>
+</tr>
+<tr>
+	<td>配列2:<input type=text name=seq2 size=64
+	          onkeyup='set_query()' onkeydown='if(event.keyCode == 13){document.ggrna.submit()}'><br>
+		<input type=checkbox name=plus2  value=1 checked onclick='set_query()'>この配列を検索
+		<input type=checkbox name=minus2 value=1 checked onclick='set_query()'>相補鎖を検索
+		<input type=checkbox name=iub2   value=1 checked onclick='set_query()'>ゆらぎ塩基(N,R,Y等)を含む<br>
+</tr>
+<tr>
+	<td>アミノ酸配列を検索：</td>
+	<td>配列1:<input type=text name=aa1 size=64
+	          onkeyup='set_query()' onkeydown='if(event.keyCode == 13){document.ggrna.submit()}'>
+		<input type=button value='サンプル'
+		 onclick="show_example(this,aa1,'KDEL','SEHPL')" style='float:right;'><br>
+		配列2:<input type=text name=aa2 size=64
+		      onkeyup='set_query()' onkeydown='if(event.keyCode == 13){document.ggrna.submit()}'>
+		</td>
+</tr>
+<tr>
+	<td>RefSeq ID/Gene IDを検索：</td>
+	<td><input type=text name=refid size=70
+		 onkeyup='set_query()' onkeydown='if(event.keyCode == 13){document.ggrna.submit()}'>
+		<input type=button value='サンプル'
+		 onclick="show_example(this,refid,'NM_001518','10579')" style='float:right;'></td>
+</tr>
+<tr>
+	<td>遺伝子名を検索：</td>
+	<td><input type=text name=symbol size=70
+		 onkeyup='set_query()' onkeydown='if(event.keyCode == 13){document.ggrna.submit()}'>
+		<input type=button value='サンプル'
+		 onclick="show_example(this,symbol,'VIM','Oct4')" style='float:right;'></td>
+</tr>
+<tr>
+	<td>文献情報のなかから検索：</td>
+	<td><input type=text name=ref size=70
+		 onkeyup='set_query()' onkeydown='if(event.keyCode == 13){document.ggrna.submit()}'>
+		<input type=button value='サンプル'
+		 onclick="show_example(this,ref,'Naito','1327585')" style='float:right;'></td>
+</tr>
+<tr>
+	<td>アレイのプローブID<br>から塩基配列を検索：</td>
+	<td><input type=text name=probe size=70
+		 onkeyup='set_query()' onkeydown='if(event.keyCode == 13){document.ggrna.submit()}'>
+		<input type=button value='サンプル'
+		 onclick="show_example(this,probe,'1552311_a_at','A_23_P101434')" style='float:right;'></td>
+</tr>
+</table>
+</form>
+
+<form name=ggrna method=GET action='.'>
+<input type=hidden name=spe value=''>
+<table>
+<tr>
+	<td style='border:dotted 1px #8c93ba'>生成された検索式：
+		<input type=text readonly name=query size=80 style='background-color:#f4fff4'><br>
+		（この文字列をGGRNA検索窓に入れても同じ結果が出ます）
+</tr>
+</table>
+
+<p>
+<input type=submit value='検索'>
+</p>
+</form>
+
+<hr><!-- __________________________________________________ -->
+
+<p class=g>Last modified on Jul 17, 2013 by
+<a target='_blank' class=a href='http://twitter.com/meso_cacase'>@meso_cacase</a> at 
+<a target='_blank' class=a href='http://dbcls.rois.ac.jp/'>DBCLS</a><br>
+This page is licensed under a
+<a target='_blank' class=a href='http://creativecommons.org/licenses/by/2.1/jp/'>
+Creative Commons Attribution 2.1 Japan License</a>.</p>
+
+</body>
+</html>

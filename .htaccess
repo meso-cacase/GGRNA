@@ -1,0 +1,94 @@
+# GGRNA (ググルナ)： 遺伝子をGoogleのように検索するサービス
+#
+# クエリに "/" が含まれる場合にURL中の %2F を処理できるよう
+# httpd.conf 等で AllowEncodedSlashes を有効にすること
+
+AddLanguage en .en
+AddLanguage ja .ja
+LanguagePriority en ja
+ForceLanguagePriority Prefer Fallback
+Options +MultiViews
+
+# mod_rewriteを利用し、検索リクエストを全てindex.cgiで処理する
+RewriteEngine On
+
+# [NC] は大文字小文字を区別しない
+# [R]  はリダイレクト
+# [R=301] はredirect permanent
+# [L]  は評価終了
+# [NE] はURIエンコードしない。これを指定しないと
+#      %22query+str%22 が %2522query+str%2522 になる
+# [QSA] は入力URL中のクエリ文字列を変換後のURLにも付加
+
+#- ▼ 旧APIへのアクセスをリダイレクト
+RewriteCond  %{REQUEST_URI}  ^/(test/)?
+RewriteRule  ^api/(.*)$  /%1v1/api/$1  [R,L]
+#- ▲ 旧APIへのアクセスをリダイレクト
+
+#- ▼ GGRNAlogo_en.png, GGRNAlogo_ja.pngの表示
+# mod_rewriteの適用を終了する条件
+RewriteRule  ^GGRNAlogo_(en|ja)\.png$  -  [L]
+
+# パスに/div/spe/等が含まれる場合にURIを修正してリダイレクト
+RewriteCond  %{REQUEST_URI}  ^/(test/)?
+RewriteRule  (?:^|/)(GGRNAlogo_(en|ja)\.png)$  /%1$1  [R,L]
+#- ▲ GGRNAlogo_en.png, GGRNAlogo_ja.pngの表示
+
+#- ▼ 生物アイコンの表示
+# mod_rewriteの適用を終了する条件
+RewriteRule  ^togopic/  -  [L]
+
+# パスに/div/spe/等が含まれる場合にURIを修正してリダイレクト
+RewriteCond  %{REQUEST_URI}  ^/(test/)?
+RewriteRule  (?:^|/)(togopic/.*)$  /%1$1  [R,L]
+#- ▲ 生物アイコンの表示
+
+#- ▼ api.txtの表示
+# mod_rewriteの適用を終了する条件
+RewriteRule  ^api\.txt$  -  [L]
+
+# クエリが空欄またはパスに/DIV/spe/等が含まれる場合にURIを修正してリダイレクト
+RewriteCond  %{REQUEST_URI}  ^/(test/)?
+RewriteRule  (?:^|/)(api)?\.txt$  /%1api.txt  [R,L]
+#- ▲ api.txtの表示
+
+#- ▼ help.htmlの表示
+# mod_rewriteの適用を終了する条件
+RewriteRule  ^help\.html(\.en|\.ja)?$                                             -             [L]
+RewriteRule  ^(?:(en|ja)/)([A-Z]+/)?((?!en/|ja/)[a-z]+/)?help\.html(\.en|\.ja)?$  help.html.$1  [L]
+RewriteRule  ^(?:[A-Z]+/)?(?:[a-z]+/)?help\.html(\.en|\.ja)?$                     help.html$1   [L]
+#- ▲ help.htmlの表示
+
+#- ▼ advanced.htmlの表示
+# mod_rewriteの適用を終了する条件
+RewriteRule  ^advanced\.html(\.en|\.ja)?$                                             -                 [L]
+RewriteRule  ^(?:(en|ja)/)([A-Z]+/)?((?!en/|ja/)[a-z]+/)?advanced\.html(\.en|\.ja)?$  advanced.html.$1  [L]
+RewriteRule  ^(?:[A-Z]+/)?(?:[a-z]+/)?advanced\.html(\.en|\.ja)?$                     advanced.html$1   [L]
+#- ▲ advanced.htmlの表示
+
+#- ▼ GBFFの表示 (2)
+# mod_rewriteの適用を終了する条件
+RewriteRule  ^gbff\.cgi$  -  [L]
+
+# .gbff で終わる場合は gbff.cgi で処理
+RewriteCond  %{REQUEST_URI}  ^/(test/)?
+RewriteRule  ^([^/]*)\.gbff$  /%1gbff.cgi?accession=$1  [L,NE,QSA]
+#- ▲ GBFFの表示 (2)
+
+#- ▼ GBFFの表示 (1)
+# mod_rewriteの適用を終了する条件
+RewriteRule  ^[^/]+\.gbff$  -  [L]
+
+# パスに/DIV/spe/等が含まれる場合にURIを修正してリダイレクト
+RewriteCond  %{REQUEST_URI}  ^/(test/)?
+RewriteRule  (?:/)([^/]+\.gbff)$  /%1$1  [R,L,NE,QSA]
+#- ▲ GBFFの表示 (1)
+
+#- ▼ それ以外のリクエストを全てindex.cgiに送る
+# mod_rewriteの適用を終了する条件
+RewriteRule  ^index\.cgi  -  [L]
+
+# それ以外の場合は index.cgi で処理
+RewriteCond  %{REQUEST_URI}  ^/(test/)?
+RewriteRule  .*  /%1index.cgi  [L]
+#- ▲ それ以外のリクエストを全てindex.cgiに送る
