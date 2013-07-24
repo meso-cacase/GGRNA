@@ -446,6 +446,8 @@ Reference:
 <div>
 What's new:
 <ul>
+	<li>2013-07-24 Source code available via <a target='_blank' class=k
+	               href='https://github.com/meso-cacase/GGRNA'>GitHub</a>
 	<li>2013-07-08 GGRNA ver.2 released. All organisms in RefSeq are available.
 	<li>2013-05-07 Database updated to RefSeq rel. 59 (May, 2013).
 	<li>2013-03-15 Database updated to RefSeq rel. 58 (Mar, 2013).
@@ -477,7 +479,7 @@ What's new:
 
 <hr><!-- __________________________________________________ -->
 
-<p class=g>Last modified on Jul 17, 2013 by
+<p class=g>Last modified on Jul 24, 2013 by
 <a target='_blank' class=a href='http://twitter.com/meso_cacase'>@meso_cacase</a> at 
 <a target='_blank' class=a href='http://dbcls.rois.ac.jp/en/'>DBCLS</a><br>
 This page is licensed under a
