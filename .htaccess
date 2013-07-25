@@ -20,6 +20,9 @@ RewriteEngine On
 #      %22query+str%22 が %2522query+str%2522 になる
 # [QSA] は入力URL中のクエリ文字列を変換後のURLにも付加
 
+# メンテナンス領域へのアクセスはリライトしない
+RewriteRule  ^dev/  -  [L]
+
 #- ▼ 旧APIへのアクセスをリダイレクト
 RewriteCond  %{REQUEST_URI}  ^/(test/)?
 RewriteRule  ^api/(.*)$  /%1v1/api/$1  [R,L]
