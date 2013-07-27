@@ -25,7 +25,7 @@ eval 'use LWP::Simple ; 1' or     # SSD検索サーバとの接続に使用
 eval 'use JSON::XS ; 1' or        # SSD検索サーバとの接続に使用
 	print_html('ERROR : cannot load JSON::XS') ;
 
-my $refseq_version = 'RefSeq release 59 (May, 2013)' ;
+my $refseq_version = 'RefSeq release 60 (Jul, 2013)' ;
 my $ddbj_version   = 'DDBJ release 92.0 (Feb, 2013)' ;
 
 my $timestamp = timestamp() ;     # CGIを実行した時刻
@@ -125,7 +125,7 @@ sub sedue_get_gbff {  # sedue検索を行う
 my $version  = $_[0] or return ('', '') ;
 my $host     = '172.17.1.21' ;  # ssd.dbcls.jp (SSD検索サーバ)
 my $port     = '7700' ;
-my $instance = 'refsub' ;
+my $instance = 'refseq' ;
 my $uri      = "http://$host:$port/v1/$instance/query?" .
                "q=(version:exact:$version)?to=0?get=gbf,reference,ntseq&format=json" ;
 my $json     = get($uri) // '' ;

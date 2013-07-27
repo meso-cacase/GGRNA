@@ -26,7 +26,7 @@ eval 'use LWP::Simple ; 1' or     # SSD検索サーバとの接続に使用
 eval 'use JSON::XS ; 1' or        # SSD検索サーバとの接続に使用
 	printresult('ERROR : cannot load JSON::XS') ;
 
-my $refseq_version = 'RefSeq release 59 (May, 2013)' ;
+my $refseq_version = 'RefSeq release 60 (Jul, 2013)' ;
 my $ddbj_version   = 'DDBJ release 92.0 (Feb, 2013)' ;
 
 my @timer ;                       # 実行時間計測用
@@ -694,7 +694,7 @@ sub sedue_hit_num {  # sedue検索を行いヒット件数を返す
 my $q        = $_[0] or return () ;
 my $host     = '172.17.1.21' ;  # ssd.dbcls.jp (SSD検索サーバ)
 my $port     = '7700' ;
-my $instance = 'refsub' ;
+my $instance = 'refseq' ;
 my $uri      = "http://$host:$port/v1/$instance/query?" .
                "q=$q?to=0&format=json" ;
 my $json     = get($uri) or return () ;
@@ -710,7 +710,7 @@ sub sedue_q {  # sedue検索を行う
 my $q        = $_[0] or return () ;
 my $host     = '172.17.1.21' ;  # ssd.dbcls.jp (SSD検索サーバ)
 my $port     = '7700' ;
-my $instance = 'refsub' ;
+my $instance = 'refseq' ;
 my $limit    = $max_hit_html ;
 my $uri      = "http://$host:$port/v1/$instance/query?" .
                "q=$q?to=$limit?snippet=full_search?drilldown=source?get=" .

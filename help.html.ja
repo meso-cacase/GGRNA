@@ -439,6 +439,7 @@ set_spe()
 <div>
 新着情報：
 <ul>
+	<li>2013-07-28　データベースをRefSeq rel. 60 (Jul, 2013)に更新。
 	<li>2013-07-24　ソースを公開 - <a target='_blank' class=k
 	                href='https://github.com/meso-cacase/GGRNA'>GitHub</a>
 	<li>2013-07-08　GGRNA ver.2公開。全生物種のRefSeqを検索できます。
@@ -519,7 +520,7 @@ set_spe()
 
 <hr><!-- __________________________________________________ -->
 
-<p class=g>Last modified on Jul 24, 2013 by
+<p class=g>Last modified on Jul 28, 2013 by
 <a target='_blank' class=a href='http://twitter.com/meso_cacase'>@meso_cacase</a> at 
 <a target='_blank' class=a href='http://dbcls.rois.ac.jp/'>DBCLS</a><br>
 This page is licensed under a
