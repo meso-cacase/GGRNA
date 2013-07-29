@@ -670,7 +670,7 @@ return $str ;
 # ====================
 sub arrayprobe2seq {  # マイクロアレイのprobe IDを塩基配列に変換
 my $probeid  = $_[0] or return () ;
-my $q        = escape_sedueq($probeid) ;
+my $q        = escape_sedueq(lc($probeid)) ;
 my $host     = '172.17.1.21' ;  # ssd.dbcls.jp (SSD検索サーバ)
 my $port     = '7700' ;
 my $instance = 'arrayprobe' ;
