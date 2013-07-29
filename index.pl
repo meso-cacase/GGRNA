@@ -458,6 +458,14 @@ if ($format eq 'txt'){
 	}
 	#--- △ 【Results】ヒットしたエントリを出力
 
+	#--- ▽ 【Data Export】TXT/JSON出力のbase URIを生成
+	my $linkbase_uri = '/' ;
+	$linkbase_uri .= ($request_uri =~ m{^/test/}) ? 'test/' : '' ;  # テストページ /test/ 対応
+	$linkbase_uri .= $div ? "$div/" : '' ;
+	$linkbase_uri .= $spe ? "$spe/" : '' ;
+	$linkbase_uri .= url_encode($query_string) ;
+	#--- △ 【Data Export】TXT/JSON出力のbase URIを生成
+
 	push @timer, [Time::HiRes::time(), 'cgi_end;'] ;                 #===== 実行時間計測 =====
 
 	#--- ▽ 実行時間計測データの処理
@@ -490,6 +498,7 @@ if ($format eq 'txt'){
 		MAX_HIT_HTML => $max_hit_html,
 		HIT_LIST     => "@hit_list",
 		MAX_HIT_API  => $max_hit_api,
+		LINKBASE_URI => $linkbase_uri,
 		HTTP_HOST    => $ENV{'HTTP_HOST'},
 		REDIRECT_URI => $redirect_uri,
 		LANG         => $lang,
@@ -1073,8 +1082,8 @@ $txt =~ s/^(ERROR.*)$/### $1 ###/s ;
 
 #- ▼ TXT出力
 print "Content-type: text/plain; charset=utf-8\n" ;
-$download and  # ファイルとしてダウンロードする場合
-	print "Content-Disposition: attachment; filename=ggrna_result.txt\n" ;
+print "Content-Disposition: attachment; filename=ggrna_result.txt\n"
+	if $download ;  # ファイルとしてダウンロードする場合
 print "\n" ;
 print "$txt\n" ;
 #- ▲ TXT出力
@@ -1109,8 +1118,8 @@ $json_txt = JSON::XS->new->canonical->utf8->encode(
 
 #- ▼ JSON出力
 print "Content-type: application/json; charset=utf-8\n" ;
-$download and  # ファイルとしてダウンロードする場合
-	print "Content-Disposition: attachment; filename=ggrna_result.json\n" ;
+print "Content-Disposition: attachment; filename=ggrna_result.json\n"
+	if $download ;  # ファイルとしてダウンロードする場合
 print "\n" ;
 print "$json_txt\n" ;
 #- ▲ JSON出力
