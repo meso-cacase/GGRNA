@@ -324,6 +324,9 @@ my $sedue_query = join('%26', @sedue_query_array) ;
 $spe_fullname{$spe} and $sedue_query .= "?source=$spe_fullname{$spe}" ;
 $div and $sedue_query .= "?division=$div" ;
 
+$ENV{'MAX_HIT'} = ($format eq 'txt' or $format eq 'json') ?
+	$max_hit_api : $max_hit_html ;
+
 my ($hit, $uri) = sedue_q($sedue_query) or
 	printresult('ERROR : cannot connect to searcher (2)') ;
 
@@ -683,8 +686,9 @@ my $q        = escape_sedueq(lc($probeid)) ;
 my $host     = '172.17.1.21' ;  # ssd.dbcls.jp (SSD検索サーバ)
 my $port     = '7700' ;
 my $instance = 'arrayprobe' ;
+my $limit    = 50 ;
 my $uri      = "http://$host:$port/v1/$instance/query?" .
-               "q=(probeid:exact:$q)?to=50?get=targetseq&format=json" ;
+               "q=(probeid:exact:$q)?to=$limit?get=targetseq&format=json" ;
 my $json     = get($uri) or printresult('ERROR : cannot connect to searcher (3)') ;
 my $hit      = decode_json($json) // '' ;
 my @probeseq ;
@@ -704,8 +708,9 @@ my $q        = $_[0] or return () ;
 my $host     = '172.17.1.21' ;  # ssd.dbcls.jp (SSD検索サーバ)
 my $port     = '7700' ;
 my $instance = 'refseq' ;
+my $limit    = 0 ;
 my $uri      = "http://$host:$port/v1/$instance/query?" .
-               "q=$q?to=0&format=json" ;
+               "q=$q?to=$limit&format=json" ;
 my $json     = get($uri) or return () ;
 my $hit      = decode_json($json) // '' ;
 my $exact    = $hit->{hit_exact}  // '' ;
@@ -720,7 +725,7 @@ my $q        = $_[0] or return () ;
 my $host     = '172.17.1.21' ;  # ssd.dbcls.jp (SSD検索サーバ)
 my $port     = '7700' ;
 my $instance = 'refseq' ;
-my $limit    = $max_hit_html ;
+my $limit    = $ENV{'MAX_HIT'} // 50 ;
 my $uri      = "http://$host:$port/v1/$instance/query?" .
                "q=$q?to=$limit?snippet=full_search?drilldown=source?get=" .
                join(',', qw/
