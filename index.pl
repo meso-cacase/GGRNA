@@ -301,8 +301,11 @@ foreach (@query_array){
 	$spe_fullname{$spe} and $sedue_query .= "?source=$spe_fullname{$spe}" ;
 	$div and $sedue_query .= "?division=$div" ;
 
-	my ($hit_num, $uri) = sedue_hit_num($sedue_query) or
+	my $hit = sedue_hit_num($sedue_query) or
 		printresult('ERROR : cannot connect to searcher (1)') ;
+
+	my $hit_num = $hit->{hit_num} // '' ;
+	my $uri     = $hit->{uri}     // '' ;
 
 	push @timer, [Time::HiRes::time(), "count_done; $uri"] ;         #===== 実行時間計測 =====
 	#- ▲ ヒット件数を取得
@@ -327,13 +330,14 @@ $div and $sedue_query .= "?division=$div" ;
 $ENV{'MAX_HIT'} = ($format eq 'txt' or $format eq 'json') ?
 	$max_hit_api : $max_hit_html ;
 
-my ($hit, $uri) = sedue_q($sedue_query) or
+my $hit = sedue_q($sedue_query) or
 	printresult('ERROR : cannot connect to searcher (2)') ;
 
+my $uri     = $hit->{uri}       // '' ;
 my $exact   = $hit->{hit_exact} // '' ;
 my $hit_num = $hit->{hit_num}   // '' ;
-$exact or
-	$hit_num =~ s/^(\d{2})(\d*)/'~' . $1 . 0 x length($2)/e ;  # 予測値は有効数字2桁とし先頭に~を付加
+$hit_num =~ s/^(\d{2})(\d*)/'~' . $1 . 0 x length($2)/e
+	unless $exact ;  # 予測値は有効数字2桁とし先頭に~を付加
 
 push @hit_num, {
 	tag     => 'INTERSECTION:',
@@ -582,14 +586,17 @@ foreach (@query){
 	$_ =~ s/&nbsp;/\ /g ;  # 実態参照を戻す
 	$_ =~ s/&\#x2c;/,/g ;  # 実態参照を戻す
 	#- ▼ probe: を塩基配列に展開
-	($_ =~ s/
+	if ($_ =~ s/
 		^(probe:|probeid:)?
 		(
 			([^:]+_[as]t) |                     # Affymetrix
 			((A_|ERCC-|Os|osa-|P..Control).*?)  # Agilent
 		)
-	$//xi) and
-		push @query_out, arrayprobe2seq($2) ;
+	$//xi){
+		my @probeseq = arrayprobe2seq(escape_sedueq($2)) or
+			printresult('ERROR : cannot connect to searcher (3)') ;
+		push @query_out, @probeseq ;
+	}
 	# probe: データベースに存在せず、seqに変換できない場合
 	$_ =~ s/^(probe:|probeid:)//i ;
 	#- ▲ probe: を塩基配列に展開
@@ -682,15 +689,15 @@ return $str ;
 # ====================
 sub arrayprobe2seq {  # マイクロアレイのprobe IDを塩基配列に変換
 my $probeid  = $_[0] or return () ;
-my $q        = escape_sedueq(lc($probeid)) ;
+my $q        = lc($probeid) ;
 my $host     = '172.17.1.21' ;  # ssd.dbcls.jp (SSD検索サーバ)
 my $port     = '7700' ;
 my $instance = 'arrayprobe' ;
 my $limit    = 50 ;
 my $uri      = "http://$host:$port/v1/$instance/query?" .
                "q=(probeid:exact:$q)?to=$limit?get=targetseq&format=json" ;
-my $json     = get($uri) or printresult('ERROR : cannot connect to searcher (3)') ;
-my $hit      = decode_json($json) // '' ;
+my $json     = get($uri) or return () ;
+my $hit      = decode_json($json) // () ;
 my @probeseq ;
 if ($hit->{hit_num}){  # ヒットする場合のみ変換を実行
 	foreach (@{$hit->{docs}}){
@@ -712,12 +719,12 @@ my $limit    = 0 ;
 my $uri      = "http://$host:$port/v1/$instance/query?" .
                "q=$q?to=$limit&format=json" ;
 my $json     = get($uri) or return () ;
-my $hit      = decode_json($json) // '' ;
+my $hit      = decode_json($json) // () ;
 my $exact    = $hit->{hit_exact}  // '' ;
 my $hit_num  = $hit->{hit_num}    // '' ;
-$exact or
-	$hit_num =~ s/^(\d{2})(\d*)/'~' . $1 . 0 x length($2)/e ;  # 予測値の場合先頭"~"＋有効2桁
-return ($hit_num, $uri) ;
+$hit_num =~ s/^(\d{2})(\d*)/'~' . $1 . 0 x length($2)/e
+	unless $exact ;  # 予測値の場合先頭"~"＋有効2桁
+return { hit_num => $hit_num, uri => $uri } ;
 } ;
 # ====================
 sub sedue_q {  # sedue検索を行う
@@ -742,7 +749,9 @@ my $uri      = "http://$host:$port/v1/$instance/query?" .
                /) .
                '&format=json' ;
 my $json     = get($uri) or return () ;
-return (decode_json($json) // '', $uri) ;
+my $result   = decode_json($json) // () ;
+$result->{uri} = $uri ;
+return $result ;
 } ;
 # ====================
 sub show_hit_txt {  # ヒットしたエントリをタブ区切りテキストで出力
@@ -750,7 +759,7 @@ my $gene = $_[0] or return '' ;
 
 #- ▼ 塩基配列、アミノ酸配列のhit position出力
 my $position = $gene->{fields}->{hit_positions} // '' ;
-my $pos_json = decode_json($position) // '' ;
+my $pos_json = decode_json($position) // () ;
 my @ntpos ;
 my @aapos ;
 foreach (@$pos_json){
@@ -784,7 +793,7 @@ my $gene = $_[0] or return '' ;
 
 #- ▼ 塩基配列、アミノ酸配列のhit position出力
 my $position = $gene->{fields}->{hit_positions} // '' ;
-my $pos_json = decode_json($position) // '' ;
+my $pos_json = decode_json($position) // () ;
 my @ntpos ;
 my @aapos ;
 foreach (@$pos_json){
@@ -841,7 +850,7 @@ my $synonym_html = ($synonym) ?
 	'' ;
 
 #- ▼ 塩基配列、アミノ酸配列のhit position出力
-my $pos_json = decode_json($position) // '' ;
+my $pos_json = decode_json($position) // () ;
 my @ntpos ;
 my @aapos ;
 foreach (@$pos_json){

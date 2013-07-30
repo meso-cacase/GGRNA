@@ -45,7 +45,10 @@ map {$_ = url_decode($_)} @highlight ;
 $accession =~ /^\w+(\.\d+)?$/i or print_html('ERROR : Not found.') ;
 
 # SSDサーバからGBFFを取得
-my ($gbf, $ntseq) = sedue_get_gbff($accession) ;
+my $hit = sedue_get_gbff($accession) ;
+
+my $gbf   = $hit->{gbf}   // '' ;
+my $ntseq = $hit->{ntseq} // '' ;
 
 # ヒットなしの場合はエラーメッセージを出力
 ($gbf and $ntseq) or print_html('ERROR : Not found.') ;
@@ -122,16 +125,17 @@ return $str ;
 } ;
 # ====================
 sub sedue_get_gbff {  # sedue検索を行う
-my $version  = $_[0] or return ('', '') ;
+my $version  = $_[0] or return () ;
 my $host     = '172.17.1.21' ;  # ssd.dbcls.jp (SSD検索サーバ)
 my $port     = '7700' ;
 my $instance = 'refseq' ;
+my $limit    = 0 ;
 my $uri      = "http://$host:$port/v1/$instance/query?" .
-               "q=(version:exact:$version)?to=0?get=gbf,reference,ntseq&format=json" ;
-my $json     = get($uri) // '' ;
-my $hit      = decode_json($json) // '' ;
+               "q=(version:exact:$version)?to=$limit?get=gbf,reference,ntseq&format=json" ;
+my $json     = get($uri) or return () ;
+my $hit      = decode_json($json) // () ;
 
-$hit->{hit_num} == 1 and $hit->{hit_exact} == 1 or return ('', '') ;
+$hit->{hit_num} == 1 and $hit->{hit_exact} == 1 or return () ;
 
 my $gbf   = $hit->{docs}->[0]->{fields}->{gbf}       // '' ;
 my $ref   = $hit->{docs}->[0]->{fields}->{reference} // '' ;
@@ -141,7 +145,7 @@ $gbf =~ tr/\t/\n/ ;  # タブを改行に置換
 $ref =~ tr/\t/\n/ ;  # タブを改行に置換
 $gbf =~ s/\nREFERENCE\n/\n$ref/ ;  # 文献部分をマージ
 
-return ($gbf, $ntseq) ;
+return { gbf => $gbf, ntseq => $ntseq } ;
 } ;
 # ====================
 sub emtext_regexp {  # 検索語をハイライト：emtext_regexp($text, \@query_array)
