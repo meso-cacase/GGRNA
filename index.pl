@@ -7,8 +7,10 @@
 #
 # 必要なモジュール：
 # HTML::Template
-# LWP::Simple
 # JSON::XS
+# ./Sedue.pm
+#   LWP::Simple (Sedue.pm内で使用)
+#   JSON::XS    (Sedue.pm内で使用)
 #
 # 2013-07-08 Yuki Naito (@meso_cacase) GGRNA.v2リリース
 
@@ -20,11 +22,11 @@ use Time::HiRes ;
 eval 'use HTML::Template ; 1' or  # HTMLをテンプレート化
 	printresult('ERROR : cannot load HTML::Template') ;
 
-eval 'use LWP::Simple ; 1' or     # SSD検索サーバとの接続に使用
-	printresult('ERROR : cannot load LWP::Simple') ;
-
-eval 'use JSON::XS ; 1' or        # SSD検索サーバとの接続に使用
+eval 'use JSON::XS ; 1' or        # hit_positionsのデコードに使用
 	printresult('ERROR : cannot load JSON::XS') ;
+
+eval 'use Sedue ; 1' or           # Sedueに問い合わせを行うためのモジュール
+	printresult('ERROR : cannot load Sedue') ;
 
 my $refseq_version = 'RefSeq release 60 (Jul, 2013)' ;
 my $ddbj_version   = 'DDBJ release 92.0 (Feb, 2013)' ;
@@ -301,7 +303,7 @@ foreach (@query_array){
 	$spe_fullname{$spe} and $sedue_query .= "?source=$spe_fullname{$spe}" ;
 	$div and $sedue_query .= "?division=$div" ;
 
-	my $hit = sedue_hit_num($sedue_query) or
+	my $hit = Sedue::sedue_hit_num($sedue_query) or
 		printresult('ERROR : cannot connect to searcher (1)') ;
 
 	my $hit_num = $hit->{hit_num} // '' ;
@@ -330,7 +332,7 @@ $div and $sedue_query .= "?division=$div" ;
 $ENV{'MAX_HIT'} = ($format eq 'txt' or $format eq 'json') ?
 	$max_hit_api : $max_hit_html ;
 
-my $hit = sedue_q($sedue_query) or
+my $hit = Sedue::sedue_q($sedue_query) or
 	printresult('ERROR : cannot connect to searcher (2)') ;
 
 my $uri     = $hit->{uri}       // '' ;
@@ -593,7 +595,7 @@ foreach (@query){
 			((A_|ERCC-|Os|osa-|P..Control).*?)  # Agilent
 		)
 	$//xi){
-		my @probeseq = arrayprobe2seq(escape_sedueq($2)) or
+		my @probeseq = Sedue::arrayprobe2seq(escape_sedueq($2)) or
 			printresult('ERROR : cannot connect to searcher (3)') ;
 		push @query_out, @probeseq ;
 	}
@@ -685,73 +687,6 @@ $str =~ s/\[/%5b/g ;
 $str =~ s/\]/%5d/g ;
 $str =~ s/(?=[\|\-\\\(\)\?\:])/\\/g ;
 return $str ;
-} ;
-# ====================
-sub arrayprobe2seq {  # マイクロアレイのprobe IDを塩基配列に変換
-my $probeid  = $_[0] or return () ;
-my $q        = lc($probeid) ;
-my $host     = '172.17.1.21' ;  # ssd.dbcls.jp (SSD検索サーバ)
-my $port     = '7700' ;
-my $instance = 'arrayprobe' ;
-my $limit    = 50 ;
-my $uri      = "http://$host:$port/v1/$instance/query?" .
-               "q=(probeid:exact:$q)?to=$limit?get=targetseq&format=json" ;
-my $json     = get($uri) or return () ;
-my $hit      = decode_json($json) // () ;
-my @probeseq ;
-if ($hit->{hit_num}){  # ヒットする場合のみ変換を実行
-	foreach (@{$hit->{docs}}){
-		my $targetseq = $_->{fields}->{targetseq} ;
-		$targetseq and push @probeseq, "seq:$targetseq" ;
-	}
-	return @probeseq ;
-} else {
-	return ($probeid) ;  # 変換できない場合はprobe IDのまま返す
-}
-} ;
-# ====================
-sub sedue_hit_num {  # sedue検索を行いヒット件数を返す
-my $q        = $_[0] or return () ;
-my $host     = '172.17.1.21' ;  # ssd.dbcls.jp (SSD検索サーバ)
-my $port     = '7700' ;
-my $instance = 'refseq' ;
-my $limit    = 0 ;
-my $uri      = "http://$host:$port/v1/$instance/query?" .
-               "q=$q?to=$limit&format=json" ;
-my $json     = get($uri) or return () ;
-my $hit      = decode_json($json) // () ;
-my $exact    = $hit->{hit_exact}  // '' ;
-my $hit_num  = $hit->{hit_num}    // '' ;
-$hit_num =~ s/^(\d{2})(\d*)/'~' . $1 . 0 x length($2)/e
-	unless $exact ;  # 予測値の場合先頭"~"＋有効2桁
-return { hit_num => $hit_num, uri => $uri } ;
-} ;
-# ====================
-sub sedue_q {  # sedue検索を行う
-my $q        = $_[0] or return () ;
-my $host     = '172.17.1.21' ;  # ssd.dbcls.jp (SSD検索サーバ)
-my $port     = '7700' ;
-my $instance = 'refseq' ;
-my $limit    = $ENV{'MAX_HIT'} // 50 ;
-my $uri      = "http://$host:$port/v1/$instance/query?" .
-               "q=$q?to=$limit?snippet=full_search?drilldown=source?get=" .
-               join(',', qw/
-                    accession
-                    version
-                    gi
-                    length
-                    symbol
-                    synonym
-                    geneid
-                    division
-                    source
-                    definition
-               /) .
-               '&format=json' ;
-my $json     = get($uri) or return () ;
-my $result   = decode_json($json) // () ;
-$result->{uri} = $uri ;
-return $result ;
 } ;
 # ====================
 sub show_hit_txt {  # ヒットしたエントリをタブ区切りテキストで出力

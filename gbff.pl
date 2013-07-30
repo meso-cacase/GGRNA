@@ -7,8 +7,9 @@
 #
 # 必要なモジュール：
 # HTML::Template
-# LWP::Simple
-# JSON::XS
+# ./Sedue.pm
+#   LWP::Simple (Sedue.pm内で使用)
+#   JSON::XS    (Sedue.pm内で使用)
 #
 # 2013-07-08 Yuki Naito (@meso_cacase) GGRNA.v2リリース
 
@@ -19,11 +20,8 @@ use strict ;
 eval 'use HTML::Template ; 1' or  # HTMLをテンプレート化
 	print_html('ERROR : cannot load HTML::Template') ;
 
-eval 'use LWP::Simple ; 1' or     # SSD検索サーバとの接続に使用
-	print_html('ERROR : cannot load LWP::Simple') ;
-
-eval 'use JSON::XS ; 1' or        # SSD検索サーバとの接続に使用
-	print_html('ERROR : cannot load JSON::XS') ;
+eval 'use Sedue ; 1' or           # Sedueに問い合わせを行うためのモジュール
+	printresult('ERROR : cannot load Sedue') ;
 
 my $refseq_version = 'RefSeq release 60 (Jul, 2013)' ;
 my $ddbj_version   = 'DDBJ release 92.0 (Feb, 2013)' ;
@@ -45,7 +43,7 @@ map {$_ = url_decode($_)} @highlight ;
 $accession =~ /^\w+(\.\d+)?$/i or print_html('ERROR : Not found.') ;
 
 # SSDサーバからGBFFを取得
-my $hit = sedue_get_gbff($accession) ;
+my $hit = Sedue::sedue_get_gbff($accession) ;
 
 my $gbf   = $hit->{gbf}   // '' ;
 my $ntseq = $hit->{ntseq} // '' ;
@@ -122,30 +120,6 @@ my $str = $_[0] or return '' ;
 $str =~ s/%([0-9A-F]{2})/pack('C', hex($1))/ieg ;
 $str =~ tr/+/ / ;
 return $str ;
-} ;
-# ====================
-sub sedue_get_gbff {  # sedue検索を行う
-my $version  = $_[0] or return () ;
-my $host     = '172.17.1.21' ;  # ssd.dbcls.jp (SSD検索サーバ)
-my $port     = '7700' ;
-my $instance = 'refseq' ;
-my $limit    = 0 ;
-my $uri      = "http://$host:$port/v1/$instance/query?" .
-               "q=(version:exact:$version)?to=$limit?get=gbf,reference,ntseq&format=json" ;
-my $json     = get($uri) or return () ;
-my $hit      = decode_json($json) // () ;
-
-$hit->{hit_num} == 1 and $hit->{hit_exact} == 1 or return () ;
-
-my $gbf   = $hit->{docs}->[0]->{fields}->{gbf}       // '' ;
-my $ref   = $hit->{docs}->[0]->{fields}->{reference} // '' ;
-my $ntseq = $hit->{docs}->[0]->{fields}->{ntseq}     // '' ;
-
-$gbf =~ tr/\t/\n/ ;  # タブを改行に置換
-$ref =~ tr/\t/\n/ ;  # タブを改行に置換
-$gbf =~ s/\nREFERENCE\n/\n$ref/ ;  # 文献部分をマージ
-
-return { gbf => $gbf, ntseq => $ntseq } ;
 } ;
 # ====================
 sub emtext_regexp {  # 検索語をハイライト：emtext_regexp($text, \@query_array)
