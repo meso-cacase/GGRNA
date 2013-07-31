@@ -550,9 +550,8 @@ my @query = split /&/, $buffer ;
 foreach (@query){
 	my ($name, $value) = split /=/ ;
 	if (defined $name and defined $value){
-		$value =~ tr/+/ / ;
-		$value =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack('C', hex($1))/eg ;
-		$name  =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack('C', hex($1))/eg ;
+		$name  = url_decode($name) ;
+		$value = url_decode($value) ;
 		$query{lc($name)} = $value ;
 	}
 }
@@ -561,8 +560,8 @@ return %query ;
 # ====================
 sub url_decode {  # URLデコード
 my $str = $_[0] or return '' ;
-$str =~ s/%([0-9A-F]{2})/pack('C', hex($1))/ieg ;
 $str =~ tr/+/ / ;
+$str =~ s/%([0-9A-F]{2})/pack('C', hex($1))/ieg ;
 return $str ;
 } ;
 # ====================
@@ -682,10 +681,8 @@ return @out ;
 # ====================
 sub escape_sedueq {  # 「&[]|-\()?:」をエスケープする
 my $str = $_[0] // '' ;
-$str =~ s/&/%5c%26/g ;
-$str =~ s/\[/%5b/g ;
-$str =~ s/\]/%5d/g ;
-$str =~ s/(?=[\|\-\\\(\)\?\:])/\\/g ;
+$str =~ s/(?=[\&\[\]\|\-\\\(\)\?\:])/\\/g ;
+$str = url_encode($str) ;
 return $str ;
 } ;
 # ====================
