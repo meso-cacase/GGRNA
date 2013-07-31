@@ -21,7 +21,7 @@ eval 'use HTML::Template ; 1' or  # HTMLをテンプレート化
 	print_html('ERROR : cannot load HTML::Template') ;
 
 eval 'use Sedue ; 1' or           # Sedueに問い合わせを行うためのモジュール
-	printresult('ERROR : cannot load Sedue') ;
+	print_html('ERROR : cannot load Sedue') ;
 
 my $refseq_version = 'RefSeq release 60 (Jul, 2013)' ;
 my $ddbj_version   = 'DDBJ release 92.0 (Feb, 2013)' ;
@@ -106,9 +106,8 @@ my @query = split /&/, $buffer ;
 foreach (@query){
 	my ($name, $value) = split /=/ ;
 	if (defined $name and defined $value){
-		# $value =~ tr/+/ / ;
-		$value =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack('C', hex($1))/eg ;
-		$name  =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack('C', hex($1))/eg ;
+		# $name  = url_decode($name) ;
+		# $value = url_decode($value) ;
 		$query{lc($name)} = $value ;
 	}
 }
@@ -117,8 +116,8 @@ return %query ;
 # ====================
 sub url_decode {  # URLデコード
 my $str = $_[0] or return '' ;
-$str =~ s/%([0-9A-F]{2})/pack('C', hex($1))/ieg ;
 $str =~ tr/+/ / ;
+$str =~ s/%([0-9A-F]{2})/pack('C', hex($1))/ieg ;
 return $str ;
 } ;
 # ====================
