@@ -19,10 +19,10 @@ my $probeid  = $_[0] or return () ;
 my $q        = lc($probeid) ;
 my $host     = '172.17.1.21' ;  # ssd.dbcls.jp (SSD検索サーバ)
 my $port     = '7700' ;
-my $instance = 'arrayprobe' ;
+my $instance = 'arrayprsub' ;
 my $limit    = 50 ;
 my $uri      = "http://$host:$port/v1/$instance/query?" .
-               "q=(probeid:exact:$q)?to=$limit?get=targetseq&format=json" ;
+               "q=(probeid_norm:exact:$q)?to=$limit?get=targetseq&format=json" ;
 my $json     = get($uri) or return () ;
 my $hit      = decode_json($json) // () ;
 my @probeseq ;
