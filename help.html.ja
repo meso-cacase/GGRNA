@@ -352,7 +352,7 @@ set_spe()
 	<li>指定できる <span style='color:#ff6600'>species</span> および
 		<span style='color:#008000'>format</span> の種類など、詳細は下記を参照：
 	<ul>
-		<li><a class=k href='http://GGRNA.dbcls.jp/api'>http://GGRNA.dbcls.jp/api</a>
+		<li><a class=k href='http://GGRNA.dbcls.jp/api.txt'>http://GGRNA.dbcls.jp/api.txt</a>
 	</ul>
 	<li>使用例：
 	<ul>
