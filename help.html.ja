@@ -432,6 +432,9 @@ set_spe()
 		ライフサイエンス 新着論文レビュー (DBCLSからの成果発信).
 		<a target='_blank' class=k
 			href='http://g86.dbcls.jp/~meso/meme/wp-content/uploads/2012/06/GGRNAreviewJ1.pdf'>[PDF]</a>
+	<li>ソースコード：GitHub -
+		<a target='_blank' class=k href='https://github.com/meso-cacase/GGRNA'><!--
+		-->meso-cacase/GGRNA</a>
 </ul>
 </div>
 
