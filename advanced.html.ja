@@ -301,17 +301,17 @@ switch (spe){
 
 <hr><!-- __________________________________________________ -->
 
+<!--
 <div><font color=red>
 お知らせ：
 <ul>
-	<li>2013年10月27日(日) 7:00 〜 2013年10月28日(月) 10:30
-	    の間、施設の停電およびメンテナンスのためサービスを停止いたします。
+	<li>サーバメンテナンス中です。
 </ul>
 </font></div>
 
 <img src='togopic/chata_ja.png' alt='ニャーン' border=0>
 
-<hr><!-- __________________________________________________ -->
+<hr> --> <!-- __________________________________________________ -->
 
 <noscript>
 <p><font color=red>
@@ -439,7 +439,7 @@ set_spe()
 
 <hr><!-- __________________________________________________ -->
 
-<p class=g>Last modified on Oct 25, 2013 by
+<p class=g>Last modified on Oct 28, 2013 by
 <a target='_blank' class=a href='http://twitter.com/meso_cacase'>@meso_cacase</a> at 
 <a target='_blank' class=a href='http://dbcls.rois.ac.jp/'>DBCLS</a><br>
 This page is licensed under a
