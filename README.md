@@ -72,16 +72,17 @@ for genes and transcripts.]
 + GGRNA.v2をリリース。
 
 従来のGGRNAは、インメモリの圧縮接尾辞配列インデックスを利用していたため、  
-メモリ容量の制約から13種類のモデル生物に限ってサービスを提供してきた。  
+メモリ容量の制約から13種類のモデル生物に限ってサービスを提供してきました。  
 また、ヒット件数が極端に多い場合は圧縮接尾辞配列の解凍に時間がかかるという  
-課題があった。そこで、サーチャを最新版のSedueに置き換えて、非圧縮の  
-接尾辞配列インデックスをSSDに載せる方針 (SSD方式) に変更した。
+課題がありました。そこで、サーチャを最新版のSedueに置き換えて、非圧縮の  
+接尾辞配列インデックスをSSDに載せる方針 (SSD方式) に変更しました。
 
 
 ライセンス
 --------
 
 Copyright &copy; 2012-2013 Yuki Naito
- ([@meso_cacase](http://twitter.com/meso_cacase))  
+ ([@meso_cacase](http://twitter.com/meso_cacase)) at  
+Database Center for Life Science (DBCLS), Japan.  
 This software is distributed under [modified BSD license]
  (http://www.opensource.org/licenses/bsd-license.php).
