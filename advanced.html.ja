@@ -422,7 +422,7 @@ set_spe()
 </table>
 </form>
 
-<form name=ggrna method=GET action='.'>
+<form name=ggrna method=GET action='./'>
 <input type=hidden name=spe value=''>
 <table>
 <tr>
