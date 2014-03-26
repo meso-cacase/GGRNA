@@ -895,7 +895,7 @@ if ($species eq $spe_fullname{'hs'}){
 	push @exlink, {
 		name => 'RefEx(expression)',
 		url  => 'http://refex.dbcls.jp/genelist.php' .
-		        "?db=human&key1=geneID&keyword1=$geneid"
+		        "?lang=en&db=human&geneID=$geneid"
 	} if $geneid ;
 } elsif ($species eq $spe_fullname{'mm'}){
 	push @exlink, {
@@ -906,7 +906,7 @@ if ($species eq $spe_fullname{'hs'}){
 	push @exlink, {
 		name => 'RefEx(expression)',
 		url  => 'http://refex.dbcls.jp/genelist.php' .
-		        "?db=mouse&key1=geneID&keyword1=$geneid"
+		        "?lang=en&db=mouse&geneID=$geneid"
 	} if $geneid ;
 } elsif ($species eq $spe_fullname{'rn'}){
 	push @exlink, {
@@ -917,7 +917,7 @@ if ($species eq $spe_fullname{'hs'}){
 	push @exlink, {
 		name => 'RefEx(expression)',
 		url  => 'http://refex.dbcls.jp/genelist.php' .
-		        "?db=rat&key1=geneID&keyword1=$geneid"
+		        "?lang=en&db=rat&geneID=$geneid"
 	} if $geneid ;
 } elsif ($species eq $spe_fullname{'gg'}){
 	push @exlink, {
