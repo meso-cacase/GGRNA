@@ -989,7 +989,10 @@ if ($species eq $spe_fullname{'hs'}){
 		        "?query=$refid"
 	} if $refid ;
 } elsif ($species eq $spe_fullname{'sp'}){
-	# なし
+	push @exlink, {
+		name => 'PomBase',
+		url  => "http://www.pombase.org/search/ensembl/$refid"
+	} if $refid ;
 }
 #- ▲ 生物種ごとに各種外部データベースにリンク
 
