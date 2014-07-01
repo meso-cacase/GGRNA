@@ -931,6 +931,11 @@ if ($species eq $spe_fullname{'hs'}){
 		url  => 'http://genome.ucsc.edu/cgi-bin/hgTracks' .
 		        "?org=X.+tropicalis&position=$refid"
 	} if $refid ;
+	push @exlink, {
+		name => 'Xenbase',
+		url  => 'http://www.xenbase.org/gene/searchGene.do' .
+		        "?method=search&searchIn=0&searchType=0&searchValue=$refid"
+	} if $refid ;
 } elsif ($species eq $spe_fullname{'dr'}){
 	push @exlink, {
 		name => 'UCSC',
