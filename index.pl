@@ -983,6 +983,11 @@ if ($species eq $spe_fullname{'hs'}){
 		url  => 'http://genome.ucsc.edu/cgi-bin/hgTracks' .
 		        "?org=S.+cerevisiae&position=$refid"
 	} if $refid ;
+	push @exlink, {
+		name => 'SGD',
+		url  => 'http://www.yeastgenome.org/cgi-bin/search/luceneQS.fpl' .
+		        "?query=$refid"
+	} if $refid ;
 } elsif ($species eq $spe_fullname{'sp'}){
 	# なし
 }
