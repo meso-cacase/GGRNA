@@ -17,7 +17,7 @@ use JSON::XS ;     # SSD検索サーバとの接続に使用
 sub arrayprobe2seq {  # マイクロアレイのprobe IDを塩基配列に変換
 my $probeid  = $_[0] or return () ;
 my $q        = lc($probeid) ;
-my $host     = '172.17.1.21' ;  # ssd.dbcls.jp (SSD検索サーバ)
+my $host     = '172.18.8.70' ;  # ssd.dbcls.jp (SSD検索サーバ)
 my $port     = '7700' ;
 my $instance = 'arrayprsub' ;
 my $limit    = 50 ;
@@ -39,7 +39,7 @@ if ($hit->{hit_num}){  # ヒットする場合のみ変換を実行
 # ====================
 sub sedue_hit_num {  # sedue検索を行いヒット件数を返す
 my $q        = $_[0] or return () ;
-my $host     = '172.17.1.21' ;  # ssd.dbcls.jp (SSD検索サーバ)
+my $host     = '172.18.8.70' ;  # ssd.dbcls.jp (SSD検索サーバ)
 my $port     = '7700' ;
 my $instance = 'refsub' ;
 my $limit    = 0 ;
@@ -56,7 +56,7 @@ return { hit_num => $hit_num, uri => $uri } ;
 # ====================
 sub sedue_q {  # sedue検索を行う
 my $q        = $_[0] or return () ;
-my $host     = '172.17.1.21' ;  # ssd.dbcls.jp (SSD検索サーバ)
+my $host     = '172.18.8.70' ;  # ssd.dbcls.jp (SSD検索サーバ)
 my $port     = '7700' ;
 my $instance = 'refsub' ;
 my $limit    = $ENV{'MAX_HIT'} // 50 ;
@@ -83,7 +83,7 @@ return $result ;
 # ====================
 sub sedue_get_gbff {  # sedue検索を行う
 my $version  = $_[0] or return () ;
-my $host     = '172.17.1.21' ;  # ssd.dbcls.jp (SSD検索サーバ)
+my $host     = '172.18.8.70' ;  # ssd.dbcls.jp (SSD検索サーバ)
 my $port     = '7700' ;
 my $instance = 'refsub' ;
 my $limit    = 0 ;
