@@ -347,7 +347,7 @@ Search operators:
 <div>
 URLs:
 <ul>
-	<li>http://GGRNA.dbcls.jp/<!--
+	<li>http[s]://GGRNA.dbcls.jp/<!--
 		--><span style='color:#ff6600'>species</span>/<!--
 		--><span style='color:#0000ff'>query+string</span><!--
 		-->[.<span style='color:#008000'>format</span>]<!--
@@ -450,6 +450,8 @@ Reference:
 <div>
 What's new:
 <ul>
+	<li>2015-01-13 HTTPS encrypted connection supported - <a class=k
+	               href='https://GGRNA.dbcls.jp/'>https://GGRNA.dbcls.jp/</a>
 	<li>2015-01-13 Database updated to RefSeq rel. 69 (Jan, 2015).
 	<li>2014-11-23 Database updated to RefSeq rel. 68 (Nov, 2014).
 	<li>2014-07-20 Database updated to RefSeq rel. 66 (Jul, 2014).

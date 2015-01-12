@@ -335,7 +335,7 @@ set_spe()
 <div>
 検索結果へのリンク：
 <ul>
-	<li>http://GGRNA.dbcls.jp/<!--
+	<li>http[s]://GGRNA.dbcls.jp/<!--
 		--><span style='color:#ff6600'>species</span>/<!--
 		--><span style='color:#0000ff'>query+string</span><!--
 		-->[.<span style='color:#008000'>format</span>]<!--
@@ -443,6 +443,8 @@ set_spe()
 <div>
 新着情報：
 <ul>
+	<li>2015-01-13　HTTPSによる暗号化通信に対応 - <a class=k
+	                href='https://GGRNA.dbcls.jp/'>https://GGRNA.dbcls.jp/</a>
 	<li>2015-01-13　データベースをRefSeq rel. 69 (Jan, 2015)に更新。
 	<li>2014-11-23　データベースをRefSeq rel. 68 (Nov, 2014)に更新。
 	<li>2014-07-20　データベースをRefSeq rel. 66 (Jul, 2014)に更新。
