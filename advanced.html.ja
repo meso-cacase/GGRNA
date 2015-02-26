@@ -301,18 +301,6 @@ switch (spe){
 
 <hr><!-- __________________________________________________ -->
 
-<!--
-<div><font color=red>
-お知らせ：
-<ul>
-	<li>サーバメンテナンス中です。
-</ul>
-</font></div>
-
-<img src='togopic/chata_ja.png' alt='ニャーン' border=0>
-
-<hr> --> <!-- __________________________________________________ -->
-
 <noscript>
 <p><font color=red>
 	【警告】JavaScriptを実行できません。このページはJavaScriptに対応したブラウザでご利用ください。</font></p>
