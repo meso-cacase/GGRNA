@@ -199,6 +199,14 @@ set_spe()
 	<li>このとき、キーワードの順番は結果に影響しません。
 	<li><a href='advanced.html' class=k>Advanced search</a> で検索条件を細かく指定できます。
 	<li>タグ（下記表の緑色の部分）を利用して検索条件を細かく指定することも可能です。
+	<li>ゲノム配列を検索したいときは
+		<a target='_blank' href='http://GGGenome.dbcls.jp/'>
+			<img height=20 src='GGGlogo_small.png'></a>《ゲゲゲノム》をお使いください。
+		<ul>
+			<li>ヒトゲノムの検索例：
+				<a target='_blank' href='http://GGGenome.dbcls.jp/TTCATTGACAACATT' class=k><!--
+				-->http://GGGenome.dbcls.jp/TTCATTGACAACATT</a>
+		</ul>
 </ul>
 </div>
 
@@ -530,7 +538,7 @@ set_spe()
 
 <hr><!-- __________________________________________________ -->
 
-<p class=g>Last modified on May 28, 2015 by
+<p class=g>Last modified on Jul 10, 2015 by
 <a target='_blank' class=a href='http://twitter.com/meso_cacase'>@meso_cacase</a> at 
 <a target='_blank' class=a href='http://dbcls.rois.ac.jp/'>DBCLS</a><br>
 This page is licensed under a

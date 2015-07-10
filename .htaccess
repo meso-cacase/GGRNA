@@ -28,15 +28,6 @@ RewriteCond  %{REQUEST_URI}  ^/(test/)?
 RewriteRule  ^api/(.*)$  /%1v1/api/$1  [R,L]
 #- ▲ 旧APIへのアクセスをリダイレクト
 
-#- ▼ GGRNAlogo_en.png, GGRNAlogo_ja.pngの表示
-# mod_rewriteの適用を終了する条件
-RewriteRule  ^GGRNAlogo_(en|ja)\.png$  -  [L]
-
-# パスに/div/spe/等が含まれる場合にURIを修正してリダイレクト
-RewriteCond  %{REQUEST_URI}  ^/(test/)?
-RewriteRule  (?:^|/)(GGRNAlogo_(en|ja)\.png)$  /%1$1  [R,L]
-#- ▲ GGRNAlogo_en.png, GGRNAlogo_ja.pngの表示
-
 #- ▼ 生物アイコンの表示
 # mod_rewriteの適用を終了する条件
 RewriteRule  ^togopic/  -  [L]
@@ -45,6 +36,15 @@ RewriteRule  ^togopic/  -  [L]
 RewriteCond  %{REQUEST_URI}  ^/(test/)?
 RewriteRule  (?:^|/)(togopic/.*)$  /%1$1  [R,L]
 #- ▲ 生物アイコンの表示
+
+#- ▼ ロゴ画像ファイルの表示
+# mod_rewriteの適用を終了する条件
+RewriteRule  ^[^/]*\.png$  -  [L]
+
+# パスに/div/spe/等が含まれる場合にURIを修正してリダイレクト
+RewriteCond  %{REQUEST_URI}  ^/(test/)?
+RewriteRule  (?:^|/)([^/]*\.png)$  /%1$1  [R,L]
+#- ▲ ロゴ画像ファイルの表示
 
 #- ▼ api.txtの表示
 # mod_rewriteの適用を終了する条件

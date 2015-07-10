@@ -200,6 +200,14 @@ Search tips:
 	<li>Word order does not affect search results.
 	<li><a href='advanced.html' class=k>Advanced search</a> is available for refining your query.
 	<li>Instead, you can refine your query by using operators (see below: shown in green).
+	<li>Search genomic sequence &rarr; Please try
+		<a target='_blank' href='http://GGGenome.dbcls.jp/'>
+			<img height=20 src='GGGlogo_small.png'></a>
+		<ul>
+			<li>Example for searching human genome:
+				<a target='_blank' href='http://GGGenome.dbcls.jp/TTCATTGACAACATT' class=k><!--
+				-->http://GGGenome.dbcls.jp/TTCATTGACAACATT</a>
+		</ul>
 </ul>
 </div>
 
@@ -484,7 +492,7 @@ What's new:
 
 <hr><!-- __________________________________________________ -->
 
-<p class=g>Last modified on May 28, 2015 by
+<p class=g>Last modified on Jul 10, 2015 by
 <a target='_blank' class=a href='http://twitter.com/meso_cacase'>@meso_cacase</a> at 
 <a target='_blank' class=a href='http://dbcls.rois.ac.jp/en/'>DBCLS</a><br>
 This page is licensed under a
