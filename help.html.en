@@ -144,14 +144,14 @@ switch (spe){
 //-->
 </script>
 
-<small style='vertical-align:top'>
-<a style='vertical-align:top' class=k href='.'            >Home</a>            |
-<a style='vertical-align:top' class=k href='advanced.html'>Advanced search</a> |
-<a style='vertical-align:top' class=k href='ja/help.html' >Japanese</a>
-</small>
-&emsp;
-<small style='vertical-align:top'>
-<a style='vertical-align:top' class=k href='/v1/'>Previous release (v1)</a>
+<small style='vertical-align:55px'>
+<a class=k href='.'            >Home</a>
+<font color=silver>|</font>
+<a class=k href='advanced.html'>Advanced search</a>
+<font color=silver>|</font>
+<a class=k href='ja/help.html' >Japanese</a>
+&emsp;&emsp;
+<a class=k href='/v1/'         >Previous release (v1)</a>
 </small>
 
 <form name=refsearch method=GET action='search.cgi'>
