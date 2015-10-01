@@ -427,12 +427,20 @@ set_spe()
 
 <hr><!-- __________________________________________________ -->
 
-<p class=g>Last modified on Oct 28, 2013 by
+<p class=g>Last modified on Oct 1, 2015 by
 <a target='_blank' class=a href='http://twitter.com/meso_cacase'>@meso_cacase</a> at 
 <a target='_blank' class=a href='http://dbcls.rois.ac.jp/'>DBCLS</a><br>
 This page is licensed under a
 <a target='_blank' class=a href='http://creativecommons.org/licenses/by/2.1/jp/'>
 Creative Commons Attribution 2.1 Japan License</a>.</p>
+
+<p class=g>
+If you use GGRNA in your work, please cite:<br>
+Naito Y, Bono H. (2012)<br>
+GGRNA: an ultrafast, transcript-oriented search engine for genes and transcripts.<br>
+<i>Nucleic Acids Res.</i>, <b>40</b>, W592-W596.
+<a target='_blank' class=a href='http://nar.oxfordjournals.org/content/40/W1/W592.full'>
+[Full Text]</a></p>
 
 </body>
 </html>
