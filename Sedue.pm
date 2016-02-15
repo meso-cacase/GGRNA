@@ -59,9 +59,11 @@ my $q        = $_[0] or return () ;
 my $host     = '172.18.8.70' ;  # ssd.dbcls.jp (SSD検索サーバ)
 my $port     = '7700' ;
 my $instance = 'refseq' ;
-my $limit    = $ENV{'MAX_HIT'} // 50 ;
+my $offset   = $_[1] // 0 ;                                                              #ADD tyamamot
+my $limit    = $_[2] // $ENV{'MAX_HIT'} // 50 ;                                          #CHANGE tyamamot
+$limit += $offset - 1 ;                                                                  #ADD tyamamot
 my $uri      = "http://$host:$port/v1/$instance/query?" .
-               "q=$q?to=$limit?snippet=full_search?drilldown=source?get=" .
+               "q=$q?to=$limit?from=$offset?snippet=full_search?drilldown=source?get=" . #CHANGE tyamamot
                join(',', qw/
                     accession
                     version

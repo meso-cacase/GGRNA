@@ -28,6 +28,15 @@ RewriteCond  %{REQUEST_URI}  ^/(test/)?
 RewriteRule  ^api/(.*)$  /%1v1/api/$1  [R,L]
 #- ▲ 旧APIへのアクセスをリダイレクト
 
+#- ▼ static/ 内のファイルを参照
+# mod_rewriteの適用を終了する条件
+RewriteRule  ^static/  -  [L]
+
+# パスに/div/spe/等が含まれる場合にURIを修正してリダイレクト
+RewriteCond  %{REQUEST_URI}  ^/(test/)?
+RewriteRule  (?:^|/)(static/.*)$  /%1$1  [R,L]
+#- ▲ static/ 内のファイルを参照
+
 #- ▼ 生物アイコンの表示
 # mod_rewriteの適用を終了する条件
 RewriteRule  ^togopic/  -  [L]

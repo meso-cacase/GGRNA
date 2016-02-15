@@ -154,9 +154,12 @@ $redirect_uri .= url_encode($query_string) ;
 $redirect_uri .= $format   ? ".$format"  : '' ;
 $redirect_uri .= $download ? '.download' : '' ;
 
+my $QUERY_STRING = $ENV{'QUERY_STRING'} // ''; #ADD tyamamot
+$QUERY_STRING =~ s/offset=[0-9]*//g;           #ADD tyamamot
+$QUERY_STRING =~ s/(&){2,}/$1/g;               #ADD tyamamot
 if ($ENV{'HTTP_HOST'} and              # HTTP経由のリクエストで、かつ
 	($request_uri ne $redirect_uri or  # 現在のURIと異なる場合にリダイレクト
-	 $ENV{'QUERY_STRING'})
+	 $QUERY_STRING)                            #CHANGE tyamamot
 ){
 	$ENV{'HTTPS'} ? redirect_page("https://$ENV{'HTTP_HOST'}$redirect_uri") :  # HTTPS経由
 	                redirect_page("http://$ENV{'HTTP_HOST'}$redirect_uri")  ;  # HTTP経由
@@ -330,15 +333,17 @@ my $sedue_query = join('%26', @sedue_query_array) ;
 $spe_fullname{$spe} and $sedue_query .= "?source=$spe_fullname{$spe}" ;
 $div and $sedue_query .= "?division=$div" ;
 
-$ENV{'MAX_HIT'} = ($format eq 'txt' or $format eq 'json') ?
+my $limit = $ENV{'MAX_HIT'} = ($format eq 'txt' or $format eq 'json') ?  #CHANGE tyamamot
 	$max_hit_api : $max_hit_html ;
 
-my $hit = Sedue::sedue_q($sedue_query) or
+my $offset = $query{'offset'} // 0;                 #ADD tyamamot offsetの追加
+my $hit = Sedue::sedue_q($sedue_query, $offset) or  #CHANGE tyamamot offsetの追加
 	printresult('ERROR : cannot connect to searcher (2)') ;
 
 my $uri     = $hit->{uri}       // '' ;
 my $exact   = $hit->{hit_exact} // '' ;
 my $hit_num = $hit->{hit_num}   // '' ;
+my $total   = $hit_num ;                            #ADD tyamamot totalの追加
 $hit_num =~ s/^(\d{2})(\d*)/'~' . $1 . 0 x length($2)/e
 	unless $exact ;  # 予測値は有効数字2桁とし先頭に~を付加
 
@@ -444,7 +449,11 @@ if ($format eq 'txt'){
 		$q = escape_char($q) ;
 		my $summary_html =
 			($tag eq 'INTERSECTION:') ?
-				"	<li><font color=maroon><b>INTERSECTION ($hit_num)</b></font>" :
+				"	<li><font color=maroon><b>INTERSECTION ($hit_num)</b></font>" .  #CHANGE tyamamot
+				"<input type=hidden name='total' value='$total' />"   .  #ADD tyamamot <input type=hidden>タグの追記
+				"<input type=hidden name='count' value='$hit_num' />" .  #ADD tyamamot <input type=hidden>タグの追記
+				"<input type=hidden name='limit' value='$limit' />"   .  #ADD tyamamot <input type=hidden>タグの追記
+				"<input type=hidden name='offset' value='$offset' />" :  #ADD tyamamot <input type=hidden>タグの追記
 			($tag eq '') ?
 				"	<li><a class=k href='?query=$q_url'>" .
 				"$q ($hit_num)</a>" :
@@ -505,7 +514,6 @@ if ($format eq 'txt'){
 		TIMESTAMP    => $timestamp,
 		REFSEQ_VER   => $refseq_version,
 		SUMMARY      => "@summary",
-		MAX_HIT_HTML => $max_hit_html,
 		HIT_LIST     => "@hit_list",
 		MAX_HIT_API  => $max_hit_api,
 		LINKBASE_URI => $linkbase_uri,

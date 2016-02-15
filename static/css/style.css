@@ -1,0 +1,10 @@
+.x-body {
+	margin: 8px;
+	background: #ffffff;
+}
+.pagingToolbar-render {
+	border-top: dotted 1px silver;  /* ページャの区切り線 */
+}
+h4 {
+	font-size: 14px;
+}

@@ -7,6 +7,19 @@
 <meta http-equiv='Content-Style-Type' content='text/css'>
 <TMPL_VAR NAME=ROBOTS><meta name='author' content='Yuki Naito'>
 <title><TMPL_VAR NAME=TITLE></title>
+<link rel='stylesheet' type='text/css' media='all' charset='UTF-8'
+	href='//cdn.sencha.com/ext/gpl/4.2.1/resources/css/ext-all-neptune.css'>
+<link rel='stylesheet' type='text/css' media='all' charset='UTF-8'
+	href='static/css/style.css'>
+<script type='text/javascript' charset='utf-8'
+	src='//cdn.sencha.com/ext/gpl/4.2.1/ext-all.js'></script>
+<script type='text/javascript' charset='utf-8'
+	src='//cdn.sencha.com/ext/gpl/4.2.1/locale/ext-lang-ja.js'></script>
+<!-- javascriptによる再描画前の画面が一瞬表示されるのを防止 -->
+<style type='text/css'>body { visibility: hidden }</style>
+<noscript>
+<style type='text/css'>body { visibility: visible }</style>
+</noscript>
 <script type='text/javascript'>
 <!--
 function set_spe(){
@@ -217,5 +230,7 @@ GGRNA: an ultrafast, transcript-oriented search engine for genes and transcripts
 <a target='_blank' class=a href='http://nar.oxfordjournals.org/content/40/W1/W592.full'>
 [Full Text]</a></p>
 
+<!-- ページャおよび生物種選択メニュー -->
+<script type='text/javascript' src='static/js/app.js' charset='utf-8'></script>
 </body>
 </html>
