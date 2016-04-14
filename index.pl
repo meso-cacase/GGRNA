@@ -700,7 +700,7 @@ my $gene = $_[0] or return '' ;
 
 #- ▼ 塩基配列、アミノ酸配列のhit position出力
 my $position = $gene->{fields}->{hit_positions} // '' ;
-my $pos_json = decode_json($position) // () ;
+my $pos_json = eval 'decode_json($position)' // () ;
 my @ntpos ;
 my @aapos ;
 foreach (@$pos_json){
@@ -734,7 +734,7 @@ my $gene = $_[0] or return '' ;
 
 #- ▼ 塩基配列、アミノ酸配列のhit position出力
 my $position = $gene->{fields}->{hit_positions} // '' ;
-my $pos_json = decode_json($position) // () ;
+my $pos_json = eval 'decode_json($position)' // () ;
 my @ntpos ;
 my @aapos ;
 foreach (@$pos_json){
@@ -791,7 +791,7 @@ my $synonym_html = ($synonym) ?
 	'' ;
 
 #- ▼ 塩基配列、アミノ酸配列のhit position出力
-my $pos_json = decode_json($position) // () ;
+my $pos_json = eval 'decode_json($position)' // () ;
 my @ntpos ;
 my @aapos ;
 foreach (@$pos_json){

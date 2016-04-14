@@ -24,7 +24,7 @@ my $limit    = 50 ;
 my $uri      = "http://$host:$port/v1/$instance/query?" .
                "q=(probeid_norm:exact:$q)?to=$limit?get=targetseq&format=json" ;
 my $json     = get($uri) or return () ;
-my $hit      = decode_json($json) // () ;
+my $hit      = eval 'decode_json($json)' // () ;
 my @probeseq ;
 if ($hit->{hit_num}){  # ヒットする場合のみ変換を実行
 	foreach (@{$hit->{docs}}){
@@ -46,7 +46,7 @@ my $limit    = 0 ;
 my $uri      = "http://$host:$port/v1/$instance/query?" .
                "q=$q?to=$limit&format=json" ;
 my $json     = get($uri) or return () ;
-my $hit      = decode_json($json) // () ;
+my $hit      = eval 'decode_json($json)' // () ;
 my $exact    = $hit->{hit_exact}  // '' ;
 my $hit_num  = $hit->{hit_num}    // '' ;
 $hit_num =~ s/^(\d{2})(\d*)/'~' . $1 . 0 x length($2)/e
@@ -78,7 +78,7 @@ my $uri      = "http://$host:$port/v1/$instance/query?" .
                /) .
                '&format=json' ;
 my $json     = get($uri) or return () ;
-my $result   = decode_json($json) // () ;
+my $result   = eval 'decode_json($json)' // () ;
 $result->{uri} = $uri ;
 return $result ;
 } ;
@@ -92,7 +92,7 @@ my $limit    = 0 ;
 my $uri      = "http://$host:$port/v1/$instance/query?" .
                "q=(version:exact:$version)?to=$limit?get=gbf,reference,ntseq&format=json" ;
 my $json     = get($uri) or return () ;
-my $hit      = decode_json($json) // () ;
+my $hit      = eval 'decode_json($json)' // () ;
 
 $hit->{hit_num} == 1 and $hit->{hit_exact} == 1 or return () ;
 
