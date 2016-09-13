@@ -188,7 +188,7 @@ set_spe()
 Search tips:
 <ul>
 	<li>GGRNA is a Google-like search engine for genes and transcripts archived in
-		<a target='_blank' class=k href='http://www.ncbi.nlm.nih.gov/RefSeq/'>NCBI RefSeq</a>.
+		<a target='_blank' class=k href='https://www.ncbi.nlm.nih.gov/RefSeq/'>NCBI RefSeq</a>.
 	<li>RefSeq includes genomic, mRNA, noncoding RNA (ncRNA), and protein records.<br>
 		Of these, GGRNA searches for RefSeq mRNA (accession starts with NM_/XM_)
 		and ncRNA (NR_/XR_) records.<br>

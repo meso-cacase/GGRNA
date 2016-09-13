@@ -890,7 +890,7 @@ my @exlink ;
 #- ▼ 全生物種：NCBIへのリンク
 push @exlink, {
 	name => 'NCBI',
-	url  => "http://www.ncbi.nlm.nih.gov/nuccore/$version"
+	url  => "https://www.ncbi.nlm.nih.gov/nuccore/$version"
 } ;
 #- ▲ 全生物種：NCBIへのリンク
 

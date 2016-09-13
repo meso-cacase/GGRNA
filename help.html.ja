@@ -187,7 +187,7 @@ set_spe()
 <div>
 つかいかた：
 <ul>
-	<li><a target='_blank' class=k href='http://www.ncbi.nlm.nih.gov/RefSeq/'>NCBI RefSeq</a>
+	<li><a target='_blank' class=k href='https://www.ncbi.nlm.nih.gov/RefSeq/'>NCBI RefSeq</a>
 		の transcript を全文検索するウェブサーバです。
 	<li>RefSeq にはゲノム、mRNA、ncRNA、タンパク質のエントリが含まれますが、<br>
 		GGRNA はこのうち mRNA (IDがNM_, XM_で始まる) および ncRNA (NR_, XR_) を検索します。<br>
