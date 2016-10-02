@@ -447,6 +447,7 @@ Reference:
 <div>
 What's new:
 <ul>
+	<li>2016-10-03 Database updated to RefSeq rel. 78 (Sep, 2016).
 	<li>2016-07-14 Database updated to RefSeq rel. 77 (Jul, 2016).
 	<li>2016-05-27 Database updated to RefSeq rel. 76 (May, 2016).
 	<li>2016-03-22 Database updated to RefSeq rel. 75 (Mar, 2016).
@@ -499,7 +500,7 @@ What's new:
 
 <hr><!-- __________________________________________________ -->
 
-<p class=g>Last modified on Jul 14, 2016 by
+<p class=g>Last modified on Oct 3, 2016 by
 <a target='_blank' class=a href='http://twitter.com/meso_cacase'>@meso_cacase</a> at 
 <a target='_blank' class=a href='http://dbcls.rois.ac.jp/en/'>DBCLS</a><br>
 This page is licensed under a
