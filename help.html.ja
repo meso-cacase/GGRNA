@@ -446,6 +446,7 @@ set_spe()
 <div>
 新着情報：
 <ul>
+	<li>2017-03-24　データベースをRefSeq rel. 81 (Mar, 2017)に更新。
 	<li>2017-01-22　データベースをRefSeq rel. 80 (Jan, 2017)に更新。
 	<li>2016-11-14　データベースをRefSeq rel. 79 (Nov, 2016)に更新。
 	<li>2016-10-03　データベースをRefSeq rel. 78 (Sep, 2016)に更新。
@@ -548,7 +549,7 @@ set_spe()
 
 <hr><!-- __________________________________________________ -->
 
-<p class=g>Last modified on Jan 22, 2017 by
+<p class=g>Last modified on Mar 24, 2017 by
 <a target='_blank' class=a href='http://twitter.com/meso_cacase'>@meso_cacase</a> at 
 <a target='_blank' class=a href='http://dbcls.rois.ac.jp/'>DBCLS</a><br>
 This page is licensed under a
