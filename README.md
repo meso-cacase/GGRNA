@@ -25,16 +25,15 @@ Sedueは、接尾辞配列のインデックスをSSDに保持することによ
 サンプル画像
 -----
 
-![スクリーンショット]
-(http://g86.dbcls.jp/~meso/meme/wp-content/uploads/2013/07/GGRNA.v2.jpg
+![スクリーンショット](http://data.dbcls.jp/~meso/img/GGRNA.v2.jpg
 "GGRNAスクリーンショット")
 
-トップページ (左図) の検索窓に、[```Argonaute "PAZ domain"```]
-(http://GGRNA.dbcls.jp/hs/Argonaute+%22PAZ+domain%22)
+トップページ (左図) の検索窓に、
+[```Argonaute "PAZ domain"```](http://GGRNA.dbcls.jp/hs/Argonaute+%22PAZ+domain%22)
 と入力して  
 ヒトの遺伝子を検索した例 (右図)。キーワードは緑色にハイライトされます。  
-また、マイクロアレイのプローブID [```1552311_a_at```]
-(http://GGRNA.dbcls.jp/1552311_a_at)
+また、マイクロアレイのプローブID
+[```1552311_a_at```](http://GGRNA.dbcls.jp/1552311_a_at)
 を検索した例 (下図)。  
 AffymetrixのプローブIDは、対応する25 merのプローブ配列×11本に変換され、  
 塩基配列による検索が行われます。
@@ -46,15 +45,13 @@ AffymetrixのプローブIDは、対応する25 merのプローブ配列×11本�
 + GGRNAの[ヘルプページ](http://GGRNA.dbcls.jp/help.html)
 
 + 内藤雄樹・坊農秀雅 (2012)  
-[統合遺伝子検索GGRNA：遺伝子をGoogleのように検索できるウェブサーバ.]
-(http://first.lifesciencedb.jp/from_dbcls/e0001)  
-ライフサイエンス 新着論文レビュー (DBCLSからの成果発信). [ [PDF] ]
-(http://g86.dbcls.jp/~meso/meme/wp-content/uploads/2012/06/GGRNAreviewJ1.pdf)
+[統合遺伝子検索GGRNA：遺伝子をGoogleのように検索できるウェブサーバ.](http://first.lifesciencedb.jp/from_dbcls/e0001)  
+ライフサイエンス 新着論文レビュー (DBCLSからの成果発信).
+[ [PDF] ](http://g86.dbcls.jp/~meso/meme/wp-content/uploads/2012/06/GGRNAreviewJ1.pdf)
 
 + Yuki Naito & Hidemasa Bono (2012)  
 [GGRNA: an ultrafast, transcript-oriented search engine 
-for genes and transcripts.]
-(http://nar.oxfordjournals.org/content/40/W1/W592.full)  
+for genes and transcripts.](http://nar.oxfordjournals.org/content/40/W1/W592.full)  
 *Nucleic Acids Res.* **40**, W592-W596.
 
 
@@ -81,8 +78,8 @@ for genes and transcripts.]
 ライセンス
 --------
 
-Copyright &copy; 2012-2015 Yuki Naito
+Copyright &copy; 2012-2017 Yuki Naito
  ([@meso_cacase](http://twitter.com/meso_cacase)) at  
 Database Center for Life Science (DBCLS), Japan.  
-This software is distributed under [modified BSD license]
- (http://www.opensource.org/licenses/bsd-license.php).
+This software is distributed under
+[modified BSD license](http://www.opensource.org/licenses/bsd-license.php).
