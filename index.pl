@@ -709,6 +709,8 @@ foreach (@$pos_json){
 }
 {my %count ; @ntpos = grep(!$count{$_}++, @ntpos)}  # 重複を除去
 {my %count ; @aapos = grep(!$count{$_}++, @aapos)}  # 重複を除去
+@ntpos = map {$_ + 1} @ntpos ;  # 0-based startを1-based startに変換
+@aapos = map {$_ + 1} @aapos ;  # 0-based startを1-based startに変換
 @ntpos = sort {$a <=> $b} @ntpos ;
 @aapos = sort {$a <=> $b} @aapos ;
 #- ▲ 塩基配列、アミノ酸配列のhit position出力
@@ -743,6 +745,8 @@ foreach (@$pos_json){
 }
 {my %count ; @ntpos = grep(!$count{$_}++, @ntpos)}  # 重複を除去
 {my %count ; @aapos = grep(!$count{$_}++, @aapos)}  # 重複を除去
+@ntpos = map {$_ + 1} @ntpos ;  # 0-based startを1-based startに変換
+@aapos = map {$_ + 1} @aapos ;  # 0-based startを1-based startに変換
 @ntpos = sort {$a <=> $b} @ntpos ;
 @aapos = sort {$a <=> $b} @aapos ;
 #- ▲ 塩基配列、アミノ酸配列のhit position出力
@@ -800,6 +804,8 @@ foreach (@$pos_json){
 }
 {my %count ; @ntpos = grep(!$count{$_}++, @ntpos)}  # 重複を除去
 {my %count ; @aapos = grep(!$count{$_}++, @aapos)}  # 重複を除去
+@ntpos = map {$_ + 1} @ntpos ;  # 0-based startを1-based startに変換
+@aapos = map {$_ + 1} @aapos ;  # 0-based startを1-based startに変換
 @ntpos = sort {$a <=> $b} @ntpos and unshift @ntpos, "<span class=position>position</span>" ;
 @aapos = sort {$a <=> $b} @aapos and unshift @aapos, "<span class=position>AA_position</span>" ;
 my $pos_html = (@ntpos or @aapos) ?
