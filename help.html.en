@@ -189,6 +189,7 @@ Search tips:
 <ul>
 	<li>GGRNA is a Google-like search engine for genes and transcripts archived in
 		<a target='_blank' class=k href='https://www.ncbi.nlm.nih.gov/RefSeq/'>NCBI RefSeq</a>.
+	<li><b>Freely available to all users.</b>
 	<li>RefSeq includes genomic, mRNA, noncoding RNA (ncRNA), and protein records.<br>
 		Of these, GGRNA searches for RefSeq mRNA (accession starts with NM_/XM_)
 		and ncRNA (NR_/XR_) records.<br>
@@ -507,7 +508,7 @@ What's new:
 
 <hr><!-- __________________________________________________ -->
 
-<p class=g>Last modified on Jan 26, 2018 by
+<p class=g>Last modified on Mar 15, 2018 by
 <a target='_blank' class=a href='http://twitter.com/meso_cacase'>@meso_cacase</a> at 
 <a target='_blank' class=a href='http://dbcls.rois.ac.jp/en/'>DBCLS</a><br>
 This page is licensed under a

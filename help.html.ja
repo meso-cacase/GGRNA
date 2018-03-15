@@ -189,6 +189,7 @@ set_spe()
 <ul>
 	<li><a target='_blank' class=k href='https://www.ncbi.nlm.nih.gov/RefSeq/'>NCBI RefSeq</a>
 		の transcript を全文検索するウェブサーバです。
+	<li><b>誰でも無償で自由に利用できます。</b>
 	<li>RefSeq にはゲノム、mRNA、ncRNA、タンパク質のエントリが含まれますが、<br>
 		GGRNA はこのうち mRNA (IDがNM_, XM_で始まる) および ncRNA (NR_, XR_) を検索します。<br>
 		元データ：<a class=k href='ftp://ftp.ncbi.nlm.nih.gov/refseq/release/complete/'><!--
@@ -553,7 +554,7 @@ set_spe()
 
 <hr><!-- __________________________________________________ -->
 
-<p class=g>Last modified on Jan 26, 2018 by
+<p class=g>Last modified on Mar 15, 2018 by
 <a target='_blank' class=a href='http://twitter.com/meso_cacase'>@meso_cacase</a> at 
 <a target='_blank' class=a href='http://dbcls.rois.ac.jp/'>DBCLS</a><br>
 This page is licensed under a
