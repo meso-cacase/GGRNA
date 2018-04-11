@@ -1,6 +1,9 @@
 統合遺伝子検索GGRNA.v2
 ======================
 
+GGRNA is a Google-like full text search engine for
+genes and transcripts. Freely available to all users.
+
 遺伝子をGoogleのように検索できるウェブサービスです。
 
 検索キーワードとして、遺伝子名やアクセッション番号など各種のIDをはじめ、  
@@ -64,7 +67,7 @@ for genes and transcripts.](http://nar.oxfordjournals.org/content/40/W1/W592.ful
 更新履歴
 --------
 
-### 2013年7月8日 ###
+### 2013-07-08 ###
 
 + GGRNA.v2をリリース。
 
@@ -75,10 +78,10 @@ for genes and transcripts.](http://nar.oxfordjournals.org/content/40/W1/W592.ful
 接尾辞配列インデックスをSSDに載せる方針 (SSD方式) に変更しました。
 
 
-ライセンス
+License
 --------
 
-Copyright &copy; 2012-2017 Yuki Naito
+Copyright &copy; 2012-2018 Yuki Naito
  ([@meso_cacase](http://twitter.com/meso_cacase)) at  
 Database Center for Life Science (DBCLS), Japan.  
 This software is distributed under
