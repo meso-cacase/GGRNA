@@ -1,8 +1,8 @@
 統合遺伝子検索GGRNA.v2
 ======================
 
-GGRNA is a Google-like full text search engine for
-genes and transcripts. Freely available to all users.
+GGRNA is a Google-like full text search engine for genes and transcripts.  
+Freely available to all users.
 
 遺伝子をGoogleのように検索できるウェブサービスです。
 
