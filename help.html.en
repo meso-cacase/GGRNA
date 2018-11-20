@@ -448,6 +448,7 @@ Reference:
 <div>
 What's new:
 <ul>
+	<li>2018-11-20 Database updated to RefSeq rel. 91 (Nov, 2018).
 	<li>2018-09-27 Database updated to RefSeq rel. 90 (Sep, 2018).
 	<li>2018-08-03 Database updated to RefSeq rel. 89 (Jul, 2018).
 	<li>2018-05-30 Database updated to RefSeq rel. 88 (May, 2018).
@@ -512,7 +513,7 @@ What's new:
 
 <hr><!-- __________________________________________________ -->
 
-<p class=g>Last modified on Sep 27, 2018 by
+<p class=g>Last modified on Nov 20, 2018 by
 <a target='_blank' class=a href='http://twitter.com/meso_cacase'>@meso_cacase</a> at 
 <a target='_blank' class=a href='http://dbcls.rois.ac.jp/en/'>DBCLS</a><br>
 This page is licensed under a
