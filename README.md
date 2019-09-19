@@ -51,7 +51,7 @@ AffymetrixのプローブIDは、対応する25 merのプローブ配列×11本�
 + 内藤雄樹・坊農秀雅 (2012)  
 [統合遺伝子検索GGRNA：遺伝子をGoogleのように検索できるウェブサーバ.](http://first.lifesciencedb.jp/from_dbcls/e0001)  
 ライフサイエンス 新着論文レビュー (DBCLSからの成果発信).
-[ [PDF] ](http://g86.dbcls.jp/~meso/meme/wp-content/uploads/2012/06/GGRNAreviewJ1.pdf)
+[ [PDF] ](https://data.dbcls.jp/~meso/meme/wp-content/uploads/2012/06/GGRNAreviewJ1.pdf)
 
 + Yuki Naito & Hidemasa Bono (2012)  
 [GGRNA: an ultrafast, transcript-oriented search engine 
