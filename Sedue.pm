@@ -41,7 +41,7 @@ sub sedue_hit_num {  # sedue検索を行いヒット件数を返す
 my $q        = $_[0] or return () ;
 my $host     = '172.18.8.71' ;  # s01.dbcls.jp (SSDクラスタ)
 my $port     = '7700' ;
-my $instance = 'refseq' ;
+my $instance = 'refsub' ;
 my $limit    = 0 ;
 my $uri      = "http://$host:$port/v1/$instance/query?" .
                "q=$q?to=$limit&format=json" ;
@@ -58,7 +58,7 @@ sub sedue_q {  # sedue検索を行う
 my $q        = $_[0] or return () ;
 my $host     = '172.18.8.71' ;  # s01.dbcls.jp (SSDクラスタ)
 my $port     = '7700' ;
-my $instance = 'refseq' ;
+my $instance = 'refsub' ;
 my $offset   = $_[1] // 0 ;                                                              #ADD tyamamot
 my $limit    = $_[2] // $ENV{'MAX_HIT'} // 50 ;                                          #CHANGE tyamamot
 $limit += $offset - 1 ;                                                                  #ADD tyamamot
@@ -87,7 +87,7 @@ sub sedue_get_gbff {  # sedue検索を行う
 my $version  = $_[0] or return () ;
 my $host     = '172.18.8.71' ;  # s01.dbcls.jp (SSDクラスタ)
 my $port     = '7700' ;
-my $instance = 'refseq' ;
+my $instance = 'refsub' ;
 my $limit    = 0 ;
 my $uri      = "http://$host:$port/v1/$instance/query?" .
                "q=(version:exact:$version)?to=$limit?get=gbf,reference,ntseq&format=json" ;

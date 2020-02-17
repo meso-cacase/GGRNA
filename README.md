@@ -82,7 +82,7 @@ for genes and transcripts.](http://nar.oxfordjournals.org/content/40/W1/W592.ful
 License
 --------
 
-Copyright &copy; 2012-2019 Yuki Naito
+Copyright &copy; 2012-2020 Yuki Naito
  ([@meso_cacase](http://twitter.com/meso_cacase)) at  
 Database Center for Life Science (DBCLS), Japan.  
 This software is distributed under
