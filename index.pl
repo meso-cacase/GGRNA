@@ -28,7 +28,7 @@ eval 'use JSON::XS ; 1' or        # hit_positionsのデコードに使用
 eval 'use Sedue ; 1' or           # Sedueに問い合わせを行うためのモジュール
 	printresult('ERROR : cannot load Sedue') ;
 
-my $refseq_version = 'RefSeq release 201 (Jul, 2020)' ;
+my $refseq_version = 'RefSeq release 202 (Sep, 2020)' ;
 my $ddbj_version   = 'DDBJ release 92.0 (Feb, 2013)' ;
 
 my @timer ;                       # 実行時間計測用
