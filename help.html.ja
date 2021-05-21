@@ -202,7 +202,7 @@ set_spe()
 	<li>タグ（下記表の緑色の部分）を利用して検索条件を細かく指定することも可能です。
 	<li>ゲノム配列を検索したいときは
 		<a target='_blank' href='http://GGGenome.dbcls.jp/'>
-			<img height=20 src='GGGlogo_small.png' alt='GGGenome'></a>《ゲゲゲノム》をお使いください。
+			<img height=20 src='GGGlogo_small.png' alt='GGGenome' style='position:relative;top:0.2em'></a>《ゲゲゲノム》をお使いください。
 		<ul>
 			<li>ヒトゲノムの検索例：
 				<a target='_blank' href='http://GGGenome.dbcls.jp/TTCATTGACAACATT' class=k><!--

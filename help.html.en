@@ -203,7 +203,7 @@ Search tips:
 	<li>Instead, you can refine your query by using operators (see below: shown in green).
 	<li>Search genomic sequence &rarr; Please try
 		<a target='_blank' href='http://GGGenome.dbcls.jp/'>
-			<img height=20 src='GGGlogo_small.png' alt='GGGenome'></a>
+			<img height=20 src='GGGlogo_small.png' alt='GGGenome' style='position:relative;top:0.2em'></a>
 		<ul>
 			<li>Example for searching human genome:
 				<a target='_blank' href='http://GGGenome.dbcls.jp/TTCATTGACAACATT' class=k><!--
