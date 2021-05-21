@@ -19,9 +19,9 @@ English version of GGRNA: https://GGRNA.dbcls.jp/en/
 ユーザからのリクエストを受け付け、検索を実行するサーチャにクエリを発行し、  
 得られたデータを処理してユーザに検索結果を返します。  
 
-サーチャはプリファードインフラストラクチャー
-([PFI](http://preferred.jp/)) の
-[Sedue](http://preferred.jp/product/sedue/) を使用しています。  
+サーチャはレトリバ
+([レトリバ](https://retrieva.jp/)) の
+[Sedue](https://retrieva.jp/products#advanced-search) を使用しています。  
 Sedueは、接尾辞配列のインデックスをSSDに保持することによって、塩基配列や  
 アミノ酸配列を含む検索語を、見落としなく、きわめて高速に検索します。
 
