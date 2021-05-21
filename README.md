@@ -12,15 +12,14 @@ English version of GGRNA: https://GGRNA.dbcls.jp/en/
 あらゆる語句を単一の検索窓に入力するだけでRefSeqに登録された転写産物を  
 すばやく探し出すことができます。
 
-+ 統合遺伝子検索GGRNA (http://GGRNA.dbcls.jp/)  
++ 統合遺伝子検索GGRNA (https://GGRNA.dbcls.jp/)  
   本レポジトリにあるCGIが実際に稼働しています。
 
 なお、本レポジトリはGGRNAのウェブインターフェース部分です。  
 ユーザからのリクエストを受け付け、検索を実行するサーチャにクエリを発行し、  
 得られたデータを処理してユーザに検索結果を返します。  
 
-サーチャはレトリバ
-([レトリバ](https://retrieva.jp/)) の
+サーチャは [レトリバ](https://retrieva.jp/) の
 [Sedue](https://retrieva.jp/products#advanced-search) を使用しています。  
 Sedueは、接尾辞配列のインデックスをSSDに保持することによって、塩基配列や  
 アミノ酸配列を含む検索語を、見落としなく、きわめて高速に検索します。
@@ -29,15 +28,15 @@ Sedueは、接尾辞配列のインデックスをSSDに保持することによ
 サンプル画像
 -----
 
-![スクリーンショット](http://data.dbcls.jp/~meso/img/GGRNA.v2.jpg
+![スクリーンショット](https://data.dbcls.jp/~meso/img/GGRNA.v2.jpg
 "GGRNAスクリーンショット")
 
 トップページ (左図) の検索窓に、
-[```Argonaute "PAZ domain"```](http://GGRNA.dbcls.jp/hs/Argonaute+%22PAZ+domain%22)
+[```Argonaute "PAZ domain"```](https://GGRNA.dbcls.jp/hs/Argonaute+%22PAZ+domain%22)
 と入力して  
 ヒトの遺伝子を検索した例 (右図)。キーワードは緑色にハイライトされます。  
 また、マイクロアレイのプローブID
-[```1552311_a_at```](http://GGRNA.dbcls.jp/1552311_a_at)
+[```1552311_a_at```](https://GGRNA.dbcls.jp/1552311_a_at)
 を検索した例 (下図)。  
 AffymetrixのプローブIDは、対応する25 merのプローブ配列×11本に変換され、  
 塩基配列による検索が行われます。
@@ -46,23 +45,23 @@ AffymetrixのプローブIDは、対応する25 merのプローブ配列×11本�
 文献
 --------
 
-+ GGRNAの[ヘルプページ](http://GGRNA.dbcls.jp/help.html)
++ GGRNAの[ヘルプページ](https://GGRNA.dbcls.jp/help.html)
 
 + 内藤雄樹・坊農秀雅 (2012)  
-[統合遺伝子検索GGRNA：遺伝子をGoogleのように検索できるウェブサーバ.](http://first.lifesciencedb.jp/from_dbcls/e0001)  
+[統合遺伝子検索GGRNA：遺伝子をGoogleのように検索できるウェブサーバ.](https://first.lifesciencedb.jp/from_dbcls/e0001)  
 ライフサイエンス 新着論文レビュー (DBCLSからの成果発信).
 [ [PDF] ](https://data.dbcls.jp/~meso/meme/wp-content/uploads/2012/06/GGRNAreviewJ1.pdf)
 
 + Yuki Naito & Hidemasa Bono (2012)  
 [GGRNA: an ultrafast, transcript-oriented search engine 
-for genes and transcripts.](http://nar.oxfordjournals.org/content/40/W1/W592.full)  
+for genes and transcripts.](https://doi.org/10.1093/nar/gks448)  
 *Nucleic Acids Res.* **40**, W592-W596.
 
 
 関連プロジェクト
 --------
 
-+ 高速塩基配列検索GGGenome (http://GGGenome.dbcls.jp/)
++ 高速塩基配列検索GGGenome (https://GGGenome.dbcls.jp/)
 
 
 更新履歴
@@ -83,7 +82,7 @@ License
 --------
 
 Copyright &copy; 2012-2021 Yuki Naito
- ([@meso_cacase](http://twitter.com/meso_cacase)) at  
+ ([@meso_cacase](https://twitter.com/meso_cacase)) at  
 Database Center for Life Science (DBCLS), Japan.  
 This software is distributed under
-[modified BSD license](http://www.opensource.org/licenses/bsd-license.php).
+[modified BSD license](https://opensource.org/licenses/bsd-license.php).
