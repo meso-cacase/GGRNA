@@ -443,139 +443,16 @@ set_spe()
 </ul>
 </div>
 
-<a name=news></a>
 <div>
-新着情報：
+過去の新着情報：
 <ul>
-	<li>2021-09-16　データベースをRefSeq rel. 207 (Jul, 2021) に更新。
-	<li>2021-06-08　データベースをRefSeq rel. 206 (May, 2021) に更新。
-	<li>2021-03-25　データベースをRefSeq rel. 205 (Mar, 2021) に更新。
-	<li>2021-02-04　データベースをRefSeq rel. 204 (Jan, 2021) に更新。
-	<li>2020-12-07　データベースをRefSeq rel. 203 (Nov, 2020) に更新。
-	<li>2020-11-07　データベースをRefSeq rel. 202 (Sep, 2020) に更新。
-	<li>2020-08-11　データベースをRefSeq rel. 201 (Jul, 2020) に更新。
-	<li>2020-05-27　データベースをRefSeq rel. 200 (May, 2020) に更新。
-	<li>2020-03-29　データベースをRefSeq rel. 99 (Mar, 2020) に更新。
-	<li>2020-02-17　データベースをRefSeq rel. 98 (Jan, 2020) に更新。
-	<li>2019-11-29　データベースをRefSeq rel. 97 (Nov, 2019) に更新。
-	<li>2019-09-25　データベースをRefSeq rel. 96 (Sep, 2019) に更新。
-	<li>2019-07-31　データベースをRefSeq rel. 95 (Jul, 2019) に更新。
-	<li>2019-05-27　データベースをRefSeq rel. 94 (May, 2019) に更新。
-	<li>2019-04-03　データベースをRefSeq rel. 93 (Mar, 2019) に更新。
-	<li>2019-01-22　データベースをRefSeq rel. 92 (Jan, 2019) に更新。
-	<li>2018-11-20　データベースをRefSeq rel. 91 (Nov, 2018) に更新。
-	<li>2018-09-27　データベースをRefSeq rel. 90 (Sep, 2018) に更新。
-	<li>2018-08-03　データベースをRefSeq rel. 89 (Jul, 2018) に更新。
-	<li>2018-05-30　データベースをRefSeq rel. 88 (May, 2018) に更新。
-	<li>2018-03-22　データベースをRefSeq rel. 87 (Mar, 2018) に更新。
-	<li>2018-01-26　データベースをRefSeq rel. 86 (Jan, 2018) に更新。
-	<li>2017-11-17　データベースをRefSeq rel. 85 (Nov, 2017) に更新。
-	<li>2017-10-09　データベースをRefSeq rel. 84 (Sep, 2017) に更新。
-	<li>2017-08-05　データベースをRefSeq rel. 83 (Jul, 2017) に更新。
-	<li>2017-03-24　データベースをRefSeq rel. 81 (Mar, 2017) に更新。
-	<li>2017-01-22　データベースをRefSeq rel. 80 (Jan, 2017) に更新。
-	<li>2016-11-14　データベースをRefSeq rel. 79 (Nov, 2016) に更新。
-	<li>2016-10-03　データベースをRefSeq rel. 78 (Sep, 2016) に更新。
-	<li>2016-07-14　データベースをRefSeq rel. 77 (Jul, 2016) に更新。
-	<li>2016-05-27　データベースをRefSeq rel. 76 (May, 2016) に更新。
-	<li>2016-03-22　データベースをRefSeq rel. 75 (Mar, 2016) に更新。
-	<li>2016-01-25　データベースをRefSeq rel. 74 (Jan, 2016) に更新。
-	<li>2015-11-14　データベースをRefSeq rel. 73 (Nov, 2015) に更新。
-	<li>2015-09-07　データベースをRefSeq rel. 72 (Sep, 2015) に更新。
-	<li>2015-07-16　データベースをRefSeq rel. 71 (Jul, 2015) に更新。
-	<li>2015-05-28　データベースをRefSeq rel. 70 (May, 2015) に更新。
-	<li>2015-01-13　HTTPSによる暗号化通信に対応 - <a class=k
-	                href='https://GGRNA.dbcls.jp/'>https://GGRNA.dbcls.jp/</a>
-	<li>2015-01-13　データベースをRefSeq rel. 69 (Jan, 2015) に更新。
-	<li>2014-11-23　データベースをRefSeq rel. 68 (Nov, 2014) に更新。
-	<li>2014-07-20　データベースをRefSeq rel. 66 (Jul, 2014) に更新。
-	<li>2014-05-30　データベースをRefSeq rel. 65 (May, 2014) に更新。
-	<li>2014-03-17　データベースをRefSeq rel. 64 (Mar, 2014) に更新。
-	<li>2014-01-23　データベースをRefSeq rel. 63 (Jan, 2014) に更新。
-	<li>2013-11-17　データベースをRefSeq rel. 62 (Nov, 2013) に更新。
-	<li>2013-09-20　データベースをRefSeq rel. 61 (Sep, 2013) に更新。
-	<li>2013-07-28　データベースをRefSeq rel. 60 (Jul, 2013) に更新。
-	<li>2013-07-24　ソースを公開 - <a target='_blank' class=k
-	                href='https://github.com/meso-cacase/GGRNA'>GitHub</a>
-	<li>2013-07-08　GGRNA ver.2公開。全生物種のRefSeqを検索できます。
-	<li>2013-05-07　データベースをRefSeq rel. 59 (May, 2013) に更新。
-	<li>2013-03-15　データベースをRefSeq rel. 58 (Mar, 2013) に更新。
-	<li>2013-01-15　データベースをRefSeq rel. 57 (Jan, 2013) に更新。
-	<li>2012-11-14　データベースをRefSeq rel. 56 (Nov, 2012) に更新。
-	<li>2012-09-21　データベースをRefSeq rel. 55 (Sep, 2012) に更新。
-	<li>2012-07-18　データベースをRefSeq rel. 54 (Jul, 2012) に更新。
-	<li>2012-05-29　<a target='_blank' class=k
-	                href='http://first.lifesciencedb.jp/from_dbcls/e0001'><!--
-	                -->下記論文の日本語による解説を「DBCLSからの成果発信」に掲載。</a>
-	<li>2012-05-29　<a target='_blank' class=k
-	                href='http://nar.oxfordjournals.org/content/40/W1/W592.full'><!--
-	                -->GGRNAの論文が<i>Nucleic Acids Research</i>に掲載されました。</a>
-	<li>2012-05-14　データベースをRefSeq rel. 53 (May, 2012) に更新。
-	<li>2012-03-09　データベースをRefSeq rel. 52 (Mar, 2012) に更新。
-	<li>2012-02-25　GGRNA REST APIを公開しました
-	                (<a class=k href='help.html#api'>ヘルプページ</a>参照)。
-	<li>2012-01-13　データベースをRefSeq rel. 51 (Jan, 2012) に更新。
-	<li>2011-11-17　<a href='advanced.html' class=k>Advanced Search</a> を公開。検索条件を細かく指定できます。
-	<li>2011-11-11　データベースをRefSeq rel. 50 (Nov, 2011) に更新。
-	<li>2011-09-20　ホヤを追加しました。
-	<li>2011-09-16　<a target='_blank' class=k href='https://data.dbcls.jp/~meso/meme/archives/1371/'><!--
-	                -->外部DBと連携、Gene Ontologyや酵素EC番号で検索可能に</a> (ブログ)
-	<li>2011-09-16　データベースをRefSeq rel. 49 (Sep, 2011) に更新。
-	<li>2011-08-17　トップページのURLを <a class=k href='http://GGRNA.dbcls.jp/'><!--
-	                -->http://GGRNA.dbcls.jp/</a> に変更しました。
-	<li>2011-08-17　<a href='help.html' class=k>使い方のページ</a>を分離してトップページをシンプルにしました。
-	<li>2011-08-09　<a target='_blank' class=k href='https://data.dbcls.jp/~meso/meme/archives/1090/'><!--
-	                -->「GGRNA活用事例集（アミノ酸配列編）」(ブログ)</a>
-	<li>2011-08-05　<a target='_blank' class=k href='https://data.dbcls.jp/~meso/meme/archives/982/'><!--
-	                -->「GGRNA活用事例集（塩基配列編）」(ブログ)</a>
-	<li>2011-07-29　<a target='_blank' class=k href='https://data.dbcls.jp/~meso/meme/archives/899/'><!--
-	                -->「Nを含む塩基配列の検索、DB追加＋アップデート」(ブログ)</a>
-	                <ul>
-	                	<li>N, R, Yなどのあいまいな塩基（IUBコード）を含む検索機能を追加。
-	                	<li>ツメガエル、イネに対応するマイクロアレイのプラットフォームを追加しました。
-	                </ul>
-	<li>2011-07-27　ツメガエル、イネを追加。データをRefSeq rel. 48 (Jul, 2011) に更新。
-	<li>2011-07-04　<a class=k href='en/'>英語版ページ</a>を公開。
-	<li>2011-06-30　塩基配列やアミノ酸配列がヒットしたときは場所を表示するようにしました。
-	<li>2011-06-27　サービス名を変更、<a target='_blank' class=k
-	                href='https://data.dbcls.jp/~meso/meme/archives/671/'>「統合遺伝子検索GGRNA」(ブログ)</a>
-	<li>2011-06-09　<a target='_blank' class=k href='https://data.dbcls.jp/~meso/meme/archives/604/'><!--
-	                -->「アレイのプローブ配列検索を強化」(ブログ)</a>
-	                <ul>
-	                	<li>対応するマイクロアレイのプラットフォームを増やしました。
-	                </ul>
-	<li>2011-06-02　<a target='_blank' class=k href='https://data.dbcls.jp/~meso/meme/archives/451/'><!--
-	                -->「マイクロアレイのプローブIDから塩基配列検索」(ブログ)</a>
-	                <ul>
-	                	<li>マイクロアレイのプローブIDを入力すると、そのプローブの塩基配列をつかって遺伝子を検索。
-	                	<li>AffymetrixヒトU133 Plus 2.0、マウス430 2.0、
-	                		Agilentヒト4x44K v2、マウス4x44K v2に対応。
-	                </ul>
-	<li>2011-05-27　<a target='_blank' class=k href='https://data.dbcls.jp/~meso/meme/archives/421/'><!--
-	                -->「生物種の追加とデータベース更新」(ブログ)</a>
-	                <ul>
-	                	<li>ラット、ニワトリ、ゼブラフィッシュ、シロイヌナズナ、出芽酵母、分裂酵母に対応
-	                	<li>生物種によってはUCSCやRefEx発現量へのリンクがしぼうしています。ご了承ください。
-	                	<li>データをRefSeq rel. 47 (May, 2011) に更新
-	                </ul>
-	<li>2011-05-26　ショウジョウバエ、線虫の遺伝子に対応
-	<li>2011-05-24　マウス遺伝子に対応
-	<li>2011-05-18　サイトを暫定公開：<a target='_blank' class=k
-		            href='https://data.dbcls.jp/~meso/meme/archives/133/'><!--
-	                -->「遺伝子をGoogleのように検索できるサイト」(ブログ)</a>
-	<li>2011-05-16　ヒットした部分の周辺を要約して表示
-	<li>2011-05-11　検索結果をランキング
-	<ul>
-		<li>例えばvimを検索するとKivimaki,Mとかアミノ酸配列のWVVIMMなどが2696件ヒット。
-		<li>→ そんな場合は<cite>symbol:</cite>vimの結果が上位にヒットするように改善する。
-		<li>fgf1で検索した場合に、FGF17とかFGF13よりもFGF1を上位に表示したい。
-	</ul>
+	<li>GitHub Wiki - <a href='https://github.com/meso-cacase/GGRNA/wiki/GGRNA-news-archive-%7C-ja'>GGRNA過去の新着情報</a>
 </ul>
 </div>
 
 <hr><!-- __________________________________________________ -->
 
-<p class=g>Last modified on Sep 16, 2021 by
+<p class=g>Last modified on Oct 21, 2021 by
 <a target='_blank' class=a href='http://twitter.com/meso_cacase'>@meso_cacase</a> at 
 <a target='_blank' class=a href='http://dbcls.rois.ac.jp/'>DBCLS</a><br>
 This page is licensed under a

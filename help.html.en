@@ -444,92 +444,16 @@ Reference:
 </ul>
 </div>
 
-<a name=news></a>
 <div>
-What's new:
+News archive:
 <ul>
-	<li>2021-09-16 Database updated to RefSeq rel. 207 (Jul, 2021).
-	<li>2021-06-08 Database updated to RefSeq rel. 206 (May, 2021).
-	<li>2021-03-25 Database updated to RefSeq rel. 205 (Mar, 2021).
-	<li>2021-02-04 Database updated to RefSeq rel. 204 (Jan, 2021).
-	<li>2020-12-07 Database updated to RefSeq rel. 203 (Nov, 2020).
-	<li>2020-11-07 Database updated to RefSeq rel. 202 (Sep, 2020).
-	<li>2020-08-11 Database updated to RefSeq rel. 201 (Jul, 2020).
-	<li>2020-05-27 Database updated to RefSeq rel. 200 (May, 2020).
-	<li>2020-03-29 Database updated to RefSeq rel. 99 (Mar, 2020).
-	<li>2020-02-17 Database updated to RefSeq rel. 98 (Jan, 2020).
-	<li>2019-11-29 Database updated to RefSeq rel. 97 (Nov, 2019).
-	<li>2019-09-25 Database updated to RefSeq rel. 96 (Sep, 2019).
-	<li>2019-07-31 Database updated to RefSeq rel. 95 (Jul, 2019).
-	<li>2019-05-27 Database updated to RefSeq rel. 94 (May, 2019).
-	<li>2019-04-03 Database updated to RefSeq rel. 93 (Mar, 2019).
-	<li>2019-01-22 Database updated to RefSeq rel. 92 (Jan, 2019).
-	<li>2018-11-20 Database updated to RefSeq rel. 91 (Nov, 2018).
-	<li>2018-09-27 Database updated to RefSeq rel. 90 (Sep, 2018).
-	<li>2018-08-03 Database updated to RefSeq rel. 89 (Jul, 2018).
-	<li>2018-05-30 Database updated to RefSeq rel. 88 (May, 2018).
-	<li>2018-03-22 Database updated to RefSeq rel. 87 (Mar, 2018).
-	<li>2018-01-26 Database updated to RefSeq rel. 86 (Jan, 2018).
-	<li>2017-11-17 Database updated to RefSeq rel. 85 (Nov, 2017).
-	<li>2017-10-09 Database updated to RefSeq rel. 84 (Sep, 2017).
-	<li>2017-08-05 Database updated to RefSeq rel. 83 (Jul, 2017).
-	<li>2017-03-24 Database updated to RefSeq rel. 81 (Mar, 2017).
-	<li>2017-01-22 Database updated to RefSeq rel. 80 (Jan, 2017).
-	<li>2016-11-14 Database updated to RefSeq rel. 79 (Nov, 2016).
-	<li>2016-10-03 Database updated to RefSeq rel. 78 (Sep, 2016).
-	<li>2016-07-14 Database updated to RefSeq rel. 77 (Jul, 2016).
-	<li>2016-05-27 Database updated to RefSeq rel. 76 (May, 2016).
-	<li>2016-03-22 Database updated to RefSeq rel. 75 (Mar, 2016).
-	<li>2016-01-25 Database updated to RefSeq rel. 74 (Jan, 2016).
-	<li>2015-11-14 Database updated to RefSeq rel. 73 (Nov, 2015).
-	<li>2015-09-07 Database updated to RefSeq rel. 72 (Sep, 2015).
-	<li>2015-07-16 Database updated to RefSeq rel. 71 (Jul, 2015).
-	<li>2015-05-28 Database updated to RefSeq rel. 70 (May, 2015).
-	<li>2015-01-13 HTTPS encrypted connection supported - <a class=k
-	               href='https://GGRNA.dbcls.jp/'>https://GGRNA.dbcls.jp/</a>
-	<li>2015-01-13 Database updated to RefSeq rel. 69 (Jan, 2015).
-	<li>2014-11-23 Database updated to RefSeq rel. 68 (Nov, 2014).
-	<li>2014-07-20 Database updated to RefSeq rel. 66 (Jul, 2014).
-	<li>2014-05-30 Database updated to RefSeq rel. 65 (May, 2014).
-	<li>2014-03-17 Database updated to RefSeq rel. 64 (Mar, 2014).
-	<li>2014-01-23 Database updated to RefSeq rel. 63 (Jan, 2014).
-	<li>2013-11-17 Database updated to RefSeq rel. 62 (Nov, 2013).
-	<li>2013-09-20 Database updated to RefSeq rel. 61 (Sep, 2013).
-	<li>2013-07-28 Database updated to RefSeq rel. 60 (Jul, 2013).
-	<li>2013-07-24 Source code available via <a target='_blank' class=k
-	               href='https://github.com/meso-cacase/GGRNA'>GitHub</a>
-	<li>2013-07-08 GGRNA ver.2 released. All organisms in RefSeq are available.
-	<li>2013-05-07 Database updated to RefSeq rel. 59 (May, 2013).
-	<li>2013-03-15 Database updated to RefSeq rel. 58 (Mar, 2013).
-	<li>2013-01-15 Database updated to RefSeq rel. 57 (Jan, 2013).
-	<li>2012-11-14 Database updated to RefSeq rel. 56 (Nov, 2012).
-	<li>2012-09-21 Database updated to RefSeq rel. 55 (Sep, 2012).
-	<li>2012-07-18 Database updated to RefSeq rel. 54 (Jul, 2012).
-	<li>2012-05-29 <a target='_blank' class=k
-	               href='http://nar.oxfordjournals.org/content/40/W1/W592.full'><!--
-	               -->GGRNA paper has been published in <i>Nucleic Acids Research</i>.</a>
-	<li>2012-05-14 Database updated to RefSeq rel. 53 (May, 2012).
-	<li>2012-03-09 Database updated to RefSeq rel. 52 (Mar, 2012).
-	<li>2012-02-25 GGRNA REST API is available. See the <a class=k href='help.html#api'>help page</a>.
-	<li>2012-01-13 Database updated to RefSeq rel. 51 (Jan, 2012).
-	<li>2011-11-17 <a href='advanced.html' class=k>Advanced search</a> released.
-	<li>2011-11-11 Database updated to RefSeq rel. 50 (Nov, 2011).
-	<li>2011-09-20 <i>Ciona intestinalis</i> (sea squirt) is available.
-	<li>2011-09-16 Search by Gene ontology and EC (Enzyme Commission) numbers enabled.
-	<li>2011-09-16 Database updated to RefSeq rel. 49 (Sep, 2011).
-	<li>2011-08-17 URL has been changed: <a class=k href='http://GGRNA.dbcls.jp/en/'><!--
-	               -->http://GGRNA.dbcls.jp/en/</a>
-	<li>2011-07-29 Nucleotide sequence containing IUB code letters (<i>e.g.</i> N,R,Y,...)
-	               can be queried using <cite>iub:</cite> tag.
-	<li>2011-07-27 <i>X. tropicalis</i> (frog) and <i>O. sativa</i> (rice) are available.
-		           Updated to RefSeq rel. 48 (Jul, 2011).
-	<li>2011-07-04 English page launched.
+	<li>GitHub Wiki - <a href='https://github.com/meso-cacase/GGRNA/wiki/GGRNA-news-archive-%7C-en'>GGRNA news archive</a>
 </ul>
 </div>
 
 <hr><!-- __________________________________________________ -->
 
-<p class=g>Last modified on Sep 16, 2021 by
+<p class=g>Last modified on Oct 21, 2021 by
 <a target='_blank' class=a href='http://twitter.com/meso_cacase'>@meso_cacase</a> at 
 <a target='_blank' class=a href='http://dbcls.rois.ac.jp/en/'>DBCLS</a><br>
 This page is licensed under a
