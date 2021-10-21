@@ -184,8 +184,9 @@ set_spe()
 //-->
 </script>
 
+<h4>つかいかた</h4>
+
 <div>
-つかいかた：
 <ul>
 	<li><a target='_blank' class=k href='https://www.ncbi.nlm.nih.gov/RefSeq/'>NCBI RefSeq</a>
 		の transcript を全文検索するウェブサーバです。
@@ -201,36 +202,40 @@ set_spe()
 	<li><a href='advanced.html' class=k>Advanced search</a> で検索条件を細かく指定できます。
 	<li>タグ（下記表の緑色の部分）を利用して検索条件を細かく指定することも可能です。
 	<li>ゲノム配列を検索したいときは
-		<a target='_blank' href='http://GGGenome.dbcls.jp/'>
+		<a target='_blank' href='https://GGGenome.dbcls.jp/'>
 			<img height=20 src='GGGlogo_small.png' alt='GGGenome' style='position:relative;top:0.2em'></a>《ゲゲゲノム》をお使いください。
 		<ul>
 			<li>ヒトゲノムの検索例：
-				<a target='_blank' href='http://GGGenome.dbcls.jp/TTCATTGACAACATT' class=k><!--
-				-->http://GGGenome.dbcls.jp/TTCATTGACAACATT</a>
+				<a target='_blank' href='https://GGGenome.dbcls.jp/TTCATTGACAACATT' class=k><!--
+				-->https://GGGenome.dbcls.jp/TTCATTGACAACATT</a>
 		</ul>
 </ul>
 </div>
 
+<h4>活用事例集</h4>
+
 <div>
-活用事例集：
 <ul>
 	<li><a target='_blank' class=k href='https://data.dbcls.jp/~meso/meme/archives/982/'>塩基配列編</a>
 	<li><a target='_blank' class=k href='https://data.dbcls.jp/~meso/meme/archives/1090/'>アミノ酸配列編</a>
 </ul>
 </div>
 
+<h4>動画による解説</h4>
+
 <div>
-動画による解説（<a target='_blank' class=k href='http://togotv.dbcls.jp/ja/'>統合TV</a>）：
 <ul>
 	<a target='_blank' href='http://togotv.dbcls.jp/20120124.html'>
 	<img src='togopic/togotv_small_ja.png' alt='GGRNAで遺伝子をGoogleのように検索する'
 		height=270 width=480 border=0></a>
-	<p class=g>（統合TV制作: 乳井昌道氏）</p>
+	<p class=g>（<a target='_blank' class=k href='https://togotv.dbcls.jp/ja/'>統合TV</a>
+		制作: 乳井昌道氏）</p>
 </ul>
 </div>
 
+<h4>検索タグ一覧</h4>
+
 <div>
-検索タグ一覧：
 <ul>
 <table>
 <tr><th>検索語</th><th>説明</th><th>エイリアス</th></tr>
@@ -323,14 +328,15 @@ set_spe()
 </ul>
 <ul>
 	<li>ミスマッチを許容した検索は
-		<a target='_blank' href='http://GGGenome.dbcls.jp' class=k>GGGenome</a>
+		<a target='_blank' href='https://GGGenome.dbcls.jp' class=k>GGGenome</a>
 		をご利用ください。
 </ul>
 </div>
 
 <a name=api></a>
+<h4>検索結果へのリンク</h4>
+
 <div>
-検索結果へのリンク：
 <ul>
 	<li>http[s]://GGRNA.dbcls.jp/<!--
 		--><span style='color:#ff6600'>species</span>/<!--
@@ -350,29 +356,30 @@ set_spe()
 	<li>指定できる <span style='color:#ff6600'>species</span> および
 		<span style='color:#008000'>format</span> の種類など、詳細は下記を参照：
 	<ul>
-		<li><a class=k href='http://GGRNA.dbcls.jp/api.txt'>http://GGRNA.dbcls.jp/api.txt</a>
+		<li><a class=k href='https://GGRNA.dbcls.jp/api.txt'>https://GGRNA.dbcls.jp/api.txt</a>
 	</ul>
 	<li>使用例：
 	<ul>
-		<li><a class=k href='http://GGRNA.dbcls.jp/NM_001518.txt'><!--
-			-->http://GGRNA.dbcls.jp/NM_001518.txt</a><br>
+		<li><a class=k href='https://GGRNA.dbcls.jp/NM_001518.txt'><!--
+			-->https://GGRNA.dbcls.jp/NM_001518.txt</a><br>
 			「NM_001518」を検索してタブ区切りテキストで取得
-		<li><a class=k href='http://GGRNA.dbcls.jp/mm/homeobox.txt'><!--
-			-->http://GGRNA.dbcls.jp/mm/homeobox.txt</a><br>
+		<li><a class=k href='https://GGRNA.dbcls.jp/mm/homeobox.txt'><!--
+			-->https://GGRNA.dbcls.jp/mm/homeobox.txt</a><br>
 			マウスで「homeobox」を検索してタブ区切りテキストで取得
-		<li><a class=k href='http://GGRNA.dbcls.jp/dm/%22RNA+interference%22.json'><!--
-			-->http://GGRNA.dbcls.jp/dm/%22RNA+interference%22.json</a><br>
+		<li><a class=k href='https://GGRNA.dbcls.jp/dm/%22RNA+interference%22.json'><!--
+			-->https://GGRNA.dbcls.jp/dm/%22RNA+interference%22.json</a><br>
 			ショウジョウバエで「"RNA interference"」を検索してJSONで取得<br>
 			URLでは " は %22、スペースは + にエンコードしている点に注意
-		<li><a class=k href='http://GGRNA.dbcls.jp/caagaagagattg.json'><!--
-			-->http://GGRNA.dbcls.jp/caagaagagattg.json</a><br>
+		<li><a class=k href='https://GGRNA.dbcls.jp/caagaagagattg.json'><!--
+			-->https://GGRNA.dbcls.jp/caagaagagattg.json</a><br>
 			全生物種で「caagaagagattg」を検索してJSONで取得
 	</ul>
 </ul>
 </div>
 
+<h4>生物種の指定</h4>
+
 <div>
-生物種の指定：
 <ul>
 	<li>GGRNAはデフォルトでRefSeqに収録された全生物種を同時に検索します。
 	<li>下記のモデル生物は専用のURLを用意しています。
@@ -380,45 +387,46 @@ set_spe()
 <ul>
 <table>
 	<tr>
-		<td><a class=k href='http://GGRNA.dbcls.jp/hs/'>ヒト (hs)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/hs/'>ヒト (hs)<br>
 			<img src='togopic/hs_riv.png' alt='ヒト' height=69 width=120 border=0></a></td>
-		<td><a class=k href='http://GGRNA.dbcls.jp/mm/'>マウス (mm)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/mm/'>マウス (mm)<br>
 			<img src='togopic/mm_riv.png' alt='マウス' height=69 width=120 border=0></a></td>
-		<td><a class=k href='http://GGRNA.dbcls.jp/rn/'>ラット (rn)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/rn/'>ラット (rn)<br>
 			<img src='togopic/rn_riv.png' alt='ラット' height=69 width=120 border=0></a></td>
-		<td><a class=k href='http://GGRNA.dbcls.jp/gg/'>ニワトリ (gg)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/gg/'>ニワトリ (gg)<br>
 			<img src='togopic/gg_riv.png' alt='ニワトリ' height=69 width=120 border=0></a></td>
 	</tr>
 	<tr>
-		<td><a class=k href='http://GGRNA.dbcls.jp/xt/'>ツメガエル (xt)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/xt/'>ツメガエル (xt)<br>
 			<img src='togopic/xt_riv.png' alt='ツメガエル' height=69 width=120 border=0></a></td>
-		<td><a class=k href='http://GGRNA.dbcls.jp/dr/'>ゼブラフィッシュ (dr)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/dr/'>ゼブラフィッシュ (dr)<br>
 			<img src='togopic/dr_riv.png' alt='ゼブラフィッシュ' height=69 width=120 border=0></a></td>
-		<td><a class=k href='http://GGRNA.dbcls.jp/ci/'>ホヤ (ci)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/ci/'>ホヤ (ci)<br>
 			<img src='togopic/ci_riv.png' alt='ホヤ' height=69 width=120 border=0></a></td>
-		<td><a class=k href='http://GGRNA.dbcls.jp/dm/'>ショウジョウバエ (dm)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/dm/'>ショウジョウバエ (dm)<br>
 			<img src='togopic/dm_riv.png' alt='ショウジョウバエ' height=69 width=120 border=0></a></td>
 	</tr>
 	<tr>
-		<td><a class=k href='http://GGRNA.dbcls.jp/ce/'>線虫 (ce)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/ce/'>線虫 (ce)<br>
 			<img src='togopic/ce_riv.png' alt='線虫' height=69 width=120 border=0></a></td>
-		<td><a class=k href='http://GGRNA.dbcls.jp/at/'>シロイヌナズナ (at)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/at/'>シロイヌナズナ (at)<br>
 			<img src='togopic/at_riv.png' alt='シロイヌナズナ' height=69 width=120 border=0></a></td>
-		<td><a class=k href='http://GGRNA.dbcls.jp/os/'>イネ (os)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/os/'>イネ (os)<br>
 			<img src='togopic/os_riv.png' alt='イネ' height=69 width=120 border=0></a></td>
 	</tr>
 	<tr>
-		<td><a class=k href='http://GGRNA.dbcls.jp/sc/'>出芽酵母 (sc)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/sc/'>出芽酵母 (sc)<br>
 			<img src='togopic/sc_riv.png' alt='出芽酵母' height=69 width=120 border=0></a></td>
-		<td><a class=k href='http://GGRNA.dbcls.jp/sp/'>分裂酵母 (sp)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/sp/'>分裂酵母 (sp)<br>
 			<img src='togopic/sp_riv.png' alt='分裂酵母' height=69 width=120 border=0></a></td>
 	</tr>
 </table>
 </ul>
 </div>
 
+<h4>文献</h4>
+
 <div>
-文献：
 <p>GGRNAを論文中でとりあげていただける場合は、下記の論文を引用してくださるようお願いいたします。</p>
 <ul>
 	<li>Yuki Naito &amp; Hidemasa Bono (2012)<br>
@@ -443,8 +451,9 @@ set_spe()
 </ul>
 </div>
 
+<h4>過去の新着情報</h4>
+
 <div>
-過去の新着情報：
 <ul>
 	<li>GitHub Wiki - <a href='https://github.com/meso-cacase/GGRNA/wiki/GGRNA-news-archive-%7C-ja'>GGRNA過去の新着情報</a>
 </ul>

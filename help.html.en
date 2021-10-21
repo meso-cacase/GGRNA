@@ -184,8 +184,9 @@ set_spe()
 //-->
 </script>
 
+<h4>Search tips</h4>
+
 <div>
-Search tips:
 <ul>
 	<li>GGRNA is a Google-like search engine for genes and transcripts archived in
 		<a target='_blank' class=k href='https://www.ncbi.nlm.nih.gov/RefSeq/'>NCBI RefSeq</a>.
@@ -202,36 +203,40 @@ Search tips:
 	<li><a href='advanced.html' class=k>Advanced search</a> is available for refining your query.
 	<li>Instead, you can refine your query by using operators (see below: shown in green).
 	<li>Search genomic sequence &rarr; Please try
-		<a target='_blank' href='http://GGGenome.dbcls.jp/'>
+		<a target='_blank' href='https://GGGenome.dbcls.jp/'>
 			<img height=20 src='GGGlogo_small.png' alt='GGGenome' style='position:relative;top:0.2em'></a>
 		<ul>
 			<li>Example for searching human genome:
-				<a target='_blank' href='http://GGGenome.dbcls.jp/TTCATTGACAACATT' class=k><!--
-				-->http://GGGenome.dbcls.jp/TTCATTGACAACATT</a>
+				<a target='_blank' href='https://GGGenome.dbcls.jp/TTCATTGACAACATT' class=k><!--
+				-->https://GGGenome.dbcls.jp/TTCATTGACAACATT</a>
 		</ul>
 </ul>
 </div>
 
+<h4>Search examples</h4>
+
 <div>
-Search examples:
 <ul>
 	<li><a target='_blank' class=k href='https://data.dbcls.jp/~meso/meme/archives/1627/'>Nucleotide sequences</a>
 	<li><a target='_blank' class=k href='https://data.dbcls.jp/~meso/meme/archives/1654/'>Amino-acid sequences</a>
 </ul>
 </div>
 
+<h4>Tutorial video introducing GGRNA</h4>
+
 <div>
-Tutorial video introducing GGRNA (<a target='_blank' class=k href='http://togotv.dbcls.jp/en/'>TogoTV</a>):
 <ul>
 	<a target='_blank' href='http://togotv.dbcls.jp/en/?p=322'>
 	<img src='togopic/togotv_small_en.png' alt='GGRNA: search engine for genes and transcripts'
 		height=270 width=480 border=0></a>
-	<p class=g>Acknowledgement: We thank Mr. Masamichi Chichii for making the tutorial video.</p>
+	<p class=g>Acknowledgement: We thank Mr. Masamichi Chichii for making the tutorial video on
+		<a target='_blank' class=k href='https://togotv.dbcls.jp/en/'>TogoTV</a>.</p>
 </ul>
 </div>
 
+<h4>Search operators</h4>
+
 <div>
-Search operators:
 <ul>
 <table>
 <tr><th>Search words</th><th>Description</th><th>Alias</th></tr>
@@ -335,14 +340,15 @@ Search operators:
 </ul>
 <ul>
 	<li>Please use 
-		<a target='_blank' href='http://GGGenome.dbcls.jp' class=k>GGGenome</a> 
+		<a target='_blank' href='https://GGGenome.dbcls.jp' class=k>GGGenome</a> 
 		for searching nucleotide sequences with mismatches and gaps.
 </ul>
 </div>
 
 <a name=api></a>
+<h4>URLs</h4>
+
 <div>
-URLs:
 <ul>
 	<li>http[s]://GGRNA.dbcls.jp/<!--
 		--><span style='color:#ff6600'>species</span>/<!--
@@ -363,29 +369,30 @@ URLs:
 	<li>Currently available <span style='color:#ff6600'>species</span> and
 		<span style='color:#008000'>format</span> types are listed here:
 	<ul>
-		<li><a class=k href='http://GGRNA.dbcls.jp/api.txt'>http://GGRNA.dbcls.jp/api.txt</a>
+		<li><a class=k href='https://GGRNA.dbcls.jp/api.txt'>https://GGRNA.dbcls.jp/api.txt</a>
 	</ul>
 	<li>Examples:
 	<ul>
-		<li><a class=k href='http://GGRNA.dbcls.jp/NM_001518.txt'><!--
-			-->http://GGRNA.dbcls.jp/NM_001518.txt</a><br>
+		<li><a class=k href='https://GGRNA.dbcls.jp/NM_001518.txt'><!--
+			-->https://GGRNA.dbcls.jp/NM_001518.txt</a><br>
 			(Search "NM_001518". Output in tab delimited text format.)
-		<li><a class=k href='http://GGRNA.dbcls.jp/mm/homeobox.txt'><!--
-			-->http://GGRNA.dbcls.jp/mm/homeobox.txt</a><br>
+		<li><a class=k href='https://GGRNA.dbcls.jp/mm/homeobox.txt'><!--
+			-->https://GGRNA.dbcls.jp/mm/homeobox.txt</a><br>
 			(Search "homeobox" in mouse. Output in tab delimited text format.)
-		<li><a class=k href='http://GGRNA.dbcls.jp/dm/%22RNA+interference%22.json'><!--
-			-->http://GGRNA.dbcls.jp/dm/%22RNA+interference%22.json</a><br>
+		<li><a class=k href='https://GGRNA.dbcls.jp/dm/%22RNA+interference%22.json'><!--
+			-->https://GGRNA.dbcls.jp/dm/%22RNA+interference%22.json</a><br>
 			(Search "RNA interference" in <i>D. melanogaster</i>. Output in JSON format.<br>
 			Note that a double quote is encoded as %22, and a space character is encoded as + in the URL.)
-		<li><a class=k href='http://GGRNA.dbcls.jp/caagaagagattg.json'><!--
-			-->http://GGRNA.dbcls.jp/caagaagagattg.json</a><br>
+		<li><a class=k href='https://GGRNA.dbcls.jp/caagaagagattg.json'><!--
+			-->https://GGRNA.dbcls.jp/caagaagagattg.json</a><br>
 			(Search "caagaagagattg" in all species. Output in JSON format.)
 	</ul>
 </ul>
 </div>
 
+<h4>Species</h4>
+
 <div>
-Species:
 <ul>
 	<li>GGRNA searches for all species in RefSeq by default.
 	<li>However, 13 species listed below can be searched separately from following URLs.
@@ -393,45 +400,46 @@ Species:
 <ul>
 <table>
 	<tr>
-		<td><a class=k href='http://GGRNA.dbcls.jp/hs/'>Human (hs)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/hs/'>Human (hs)<br>
 			<img src='togopic/hs_riv.png' alt='Human' height=69 width=120 border=0></a></td>
-		<td><a class=k href='http://GGRNA.dbcls.jp/mm/'>Mouse (mm)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/mm/'>Mouse (mm)<br>
 			<img src='togopic/mm_riv.png' alt='Mouse' height=69 width=120 border=0></a></td>
-		<td><a class=k href='http://GGRNA.dbcls.jp/rn/'>Rat (rn)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/rn/'>Rat (rn)<br>
 			<img src='togopic/rn_riv.png' alt='Rat' height=69 width=120 border=0></a></td>
-		<td><a class=k href='http://GGRNA.dbcls.jp/gg/'>Chicken (gg)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/gg/'>Chicken (gg)<br>
 			<img src='togopic/gg_riv.png' alt='Chicken' height=69 width=120 border=0></a></td>
 	</tr>
 	<tr>
-		<td><a class=k href='http://GGRNA.dbcls.jp/xt/'>Frog (xt)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/xt/'>Frog (xt)<br>
 			<img src='togopic/xt_riv.png' alt='Frog' height=69 width=120 border=0></a></td>
-		<td><a class=k href='http://GGRNA.dbcls.jp/dr/'>Zebrafish (dr)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/dr/'>Zebrafish (dr)<br>
 			<img src='togopic/dr_riv.png' alt='Zebrafish' height=69 width=120 border=0></a></td>
-		<td><a class=k href='http://GGRNA.dbcls.jp/ci/'>Sea squirt (ci)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/ci/'>Sea squirt (ci)<br>
 			<img src='togopic/ci_riv.png' alt='Sea squirt' height=69 width=120 border=0></a></td>
-		<td><a class=k href='http://GGRNA.dbcls.jp/dm/'>Fly (dm)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/dm/'>Fly (dm)<br>
 			<img src='togopic/dm_riv.png' alt='Fly' height=69 width=120 border=0></a></td>
 	</tr>
 	<tr>
-		<td><a class=k href='http://GGRNA.dbcls.jp/ce/'>Worm (ce)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/ce/'>Worm (ce)<br>
 			<img src='togopic/ce_riv.png' alt='Worm' height=69 width=120 border=0></a></td>
-		<td><a class=k href='http://GGRNA.dbcls.jp/at/'><i>Arabidopsis</i> (at)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/at/'><i>Arabidopsis</i> (at)<br>
 			<img src='togopic/at_riv.png' alt='Arabidopsis' height=69 width=120 border=0></a></td>
-		<td><a class=k href='http://GGRNA.dbcls.jp/os/'>Rice (os)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/os/'>Rice (os)<br>
 			<img src='togopic/os_riv.png' alt='Rice' height=69 width=120 border=0></a></td>
 	</tr>
 	<tr>
-		<td><a class=k href='http://GGRNA.dbcls.jp/sc/'><i>S. cerevisiae</i> (sc)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/sc/'><i>S. cerevisiae</i> (sc)<br>
 			<img src='togopic/sc_riv.png' alt='S. cerevisiae' height=69 width=120 border=0></a></td>
-		<td><a class=k href='http://GGRNA.dbcls.jp/sp/'><i>S. pombe</i> (sp)<br>
+		<td><a class=k href='https://GGRNA.dbcls.jp/sp/'><i>S. pombe</i> (sp)<br>
 			<img src='togopic/sp_riv.png' alt='S. pombe' height=69 width=120 border=0></a></td>
 	</tr>
 </table>
 </ul>
 </div>
 
+<h4>Reference</h4>
+
 <div>
-Reference:
 <p>If you use GGRNA in your work, please cite GGRNA paper.</p>
 <ul>
 	<li>Yuki Naito &amp; Hidemasa Bono (2012)<br>
@@ -444,8 +452,9 @@ Reference:
 </ul>
 </div>
 
+<h4>News archive</h4>
+
 <div>
-News archive:
 <ul>
 	<li>GitHub Wiki - <a href='https://github.com/meso-cacase/GGRNA/wiki/GGRNA-news-archive-%7C-en'>GGRNA news archive</a>
 </ul>
