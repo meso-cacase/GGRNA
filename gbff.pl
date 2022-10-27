@@ -23,7 +23,7 @@ eval 'use HTML::Template ; 1' or  # HTMLをテンプレート化
 eval 'use Sedue ; 1' or           # Sedueに問い合わせを行うためのモジュール
 	print_html('ERROR : cannot load Sedue') ;
 
-my $refseq_version = 'RefSeq release 213 (Jul, 2022)' ;
+my $refseq_version = 'RefSeq release 214 (Sep, 2022)' ;
 my $ddbj_version   = 'DDBJ release 92.0 (Feb, 2013)' ;
 
 my $timestamp = timestamp() ;     # CGIを実行した時刻
