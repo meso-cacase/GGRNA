@@ -81,7 +81,7 @@ for genes and transcripts.](https://doi.org/10.1093/nar/gks448)
 License
 --------
 
-Copyright &copy; 2012-2022 Yuki Naito
+Copyright &copy; 2012-2023 Yuki Naito
  ([@meso_cacase](https://twitter.com/meso_cacase)) at  
 Database Center for Life Science (DBCLS), Japan.  
 This software is distributed under
