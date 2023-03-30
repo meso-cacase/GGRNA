@@ -49,9 +49,12 @@ function change_spe(){
 
 <body>
 
-<a href='./?spe='><img src='GGRNAlogo_en.png' alt='GGRNA' height=69 width=191 border=0></a>
+<a href='./?spe='><img src='GGRNAlogo_en.png' alt='GGRNA' height=64 width=232 border=0></a><small>
 
-<small><font color='#003300'>ver.2</font></small>
+<span style='margin:5px'></span>
+<font color='#003300' style='vertical-align:4px'>ver.2</font>
+<span style='margin:10px'></span>
+</small>
 
 <script type='text/javascript'>
 <!--
@@ -462,7 +465,7 @@ set_spe()
 
 <hr><!-- __________________________________________________ -->
 
-<p class=g>Last modified on Oct 21, 2021 by
+<p class=g>Last modified on Mar 30, 2023 by
 <a target='_blank' class=a href='http://twitter.com/meso_cacase'>@meso_cacase</a> at 
 <a target='_blank' class=a href='http://dbcls.rois.ac.jp/en/'>DBCLS</a><br>
 This page is licensed under a
