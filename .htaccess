@@ -48,11 +48,11 @@ RewriteRule  (?:^|/)(togopic/.*)$  /%1$1  [R,L]
 
 #- ▼ ロゴ画像ファイルの表示
 # mod_rewriteの適用を終了する条件
-RewriteRule  ^[^/]*\.png$  -  [L]
+RewriteRule  ^[^/]*\.(png|svg)$  -  [L]
 
 # パスに/div/spe/等が含まれる場合にURIを修正してリダイレクト
 RewriteCond  %{REQUEST_URI}  ^/(test/)?
-RewriteRule  (?:^|/)([^/]*\.png)$  /%1$1  [R,L]
+RewriteRule  (?:^|/)([^/]*\.(png|svg))$  /%1$1  [R,L]
 #- ▲ ロゴ画像ファイルの表示
 
 #- ▼ api.txtの表示
