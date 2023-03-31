@@ -28,7 +28,7 @@ Sedueは、接尾辞配列のインデックスをSSDに保持することによ
 サンプル画像
 -----
 
-![スクリーンショット](https://data.dbcls.jp/~meso/img/GGRNA.v2.jpg
+![スクリーンショット](https://data.dbcls.jp/~meso/img/GGRNA.v2.newlogo.png
 "GGRNAスクリーンショット")
 
 トップページ (左図) の検索窓に、
@@ -67,7 +67,11 @@ for genes and transcripts.](https://doi.org/10.1093/nar/gks448)
 更新履歴
 --------
 
-### 2013-07-08 ###
+#### 最近の更新履歴 ####
+
++ [Wiki](https://github.com/meso-cacase/GGRNA/wiki/GGRNA-news-archive-%7C-ja) に移動しました。
+
+#### 2013-07-08 ####
 
 + GGRNA.v2をリリース。
 
