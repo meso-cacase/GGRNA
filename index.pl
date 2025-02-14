@@ -42,15 +42,15 @@ my %spe_fullname = (              # 生物種の正式名
 	'mm' => 'Mus musculus (house mouse)',
 	'rn' => 'Rattus norvegicus (Norway rat)',
 	'gg' => 'Gallus gallus (chicken)',
-	'xt' => 'Xenopus (Silurana) tropicalis (western clawed frog)',
+	'xt' => 'Xenopus tropicalis (tropical clawed frog)',
 	'dr' => 'Danio rerio (zebrafish)',
 	'ci' => 'Ciona intestinalis (vase tunicate)',
 	'dm' => 'Drosophila melanogaster (fruit fly)',
 	'ce' => 'Caenorhabditis elegans',
 	'at' => 'Arabidopsis thaliana (thale cress)',
 	'os' => 'Oryza sativa Japonica Group (Japanese rice)',
-	'sc' => 'Saccharomyces cerevisiae S288c',
-	'sp' => 'Schizosaccharomyces pombe 972h-'
+	'sc' => 'Saccharomyces cerevisiae S288C',
+	'sp' => 'Schizosaccharomyces pombe (fission yeast)'
 ) ;
 #- ▲ モジュール読み込みと変数の初期化
 

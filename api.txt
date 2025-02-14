@@ -8,15 +8,15 @@ http://GGRNA.dbcls.jp/SPECIES/QUERY_STRING[.FORMAT][.download]
     'mm' - Mus musculus (house mouse)
     'rn' - Rattus norvegicus (Norway rat)
     'gg' - Gallus gallus (chicken)
-    'xt' - Xenopus (Silurana) tropicalis (western clawed frog)
+    'xt' - Xenopus tropicalis (frog)
     'dr' - Danio rerio (zebrafish)
     'ci' - Ciona intestinalis (vase tunicate)
     'dm' - Drosophila melanogaster (fruit fly)
     'ce' - Caenorhabditis elegans
     'at' - Arabidopsis thaliana (thale cress)
     'os' - Oryza sativa Japonica Group (Japanese rice)
-    'sc' - Saccharomyces cerevisiae S288c
-    'sp' - Schizosaccharomyces pombe 972h-
+    'sc' - Saccharomyces cerevisiae (budding yeast)
+    'sp' - Schizosaccharomyces pombe (fission yeast)
     'zoo' - All species in RefSeq
     Default: zoo
   QUERY_STRING:

@@ -279,13 +279,13 @@ switch (spe){
 	case 'sc':
 		document.write(
 			'<a target="_blank" href="https://togotv.dbcls.jp/togopic.2011.53.html">' +
-			'<img src="togopic/sc_riv.png" alt="Saccharomyces cerevisiae S288c" '     +
+			'<img src="togopic/sc_riv.png" alt="Saccharomyces cerevisiae (budding yeast)" '     +
 			'height=69 width=120 border=0><\/a>'
 		) ;  break ;
 	case 'sp':
 		document.write(
 			'<a target="_blank" href="https://togotv.dbcls.jp/togopic.2011.54.html">' +
-			'<img src="togopic/sp_riv.png" alt="Schizosaccharomyces pombe 972h-" '    +
+			'<img src="togopic/sp_riv.png" alt="Schizosaccharomyces pombe (fission yeast)" '    +
 			'height=69 width=120 border=0><\/a>'
 		) ;  break ;
 	default :
@@ -315,21 +315,21 @@ switch (spe){
 <p>
 1. 生物種を選択：
 <select id=spe name=spe onchange='change_spe()'>
-	<option value=zoo selected>Zoo (All organisms in RefSeq)</option>
-	<option disabled>----------                        </option>
-	<option value=hs>Homo sapiens (human)              </option>
-	<option value=mm>Mus musculus (mouse)              </option>
-	<option value=rn>Rattus norvegicus (rat)           </option>
-	<option value=gg>Gallus gallus (chicken)           </option>
-	<option value=xt>Xenopus tropicalis (frog)         </option>
-	<option value=dr>Danio rerio (zebrafish)           </option>
-	<option value=ci>Ciona intestinalis (sea squirt)   </option>
-	<option value=dm>Drosophila melanogaster (fly)     </option>
-	<option value=ce>Caenorhabditis elegans (worm)     </option>
-	<option value=at>Arabidopsis thaliana (thale cress)</option>
-	<option value=os>Oryza sativa (rice)               </option>
-	<option value=sc>Saccharomyces cerevisiae S288c    </option>
-	<option value=sp>Schizosaccharomyces pombe 972h-   </option>
+	<option value=zoo selected>Zoo (All organisms in RefSeq)  </option>
+	<option disabled>----------                               </option>
+	<option value=hs>Homo sapiens (human)                     </option>
+	<option value=mm>Mus musculus (mouse)                     </option>
+	<option value=rn>Rattus norvegicus (rat)                  </option>
+	<option value=gg>Gallus gallus (chicken)                  </option>
+	<option value=xt>Xenopus tropicalis (frog)                </option>
+	<option value=dr>Danio rerio (zebrafish)                  </option>
+	<option value=ci>Ciona intestinalis (sea squirt)          </option>
+	<option value=dm>Drosophila melanogaster (fly)            </option>
+	<option value=ce>Caenorhabditis elegans (worm)            </option>
+	<option value=at>Arabidopsis thaliana (thale cress)       </option>
+	<option value=os>Oryza sativa (rice)                      </option>
+	<option value=sc>Saccharomyces cerevisiae (budding yeast) </option>
+	<option value=sp>Schizosaccharomyces pombe (fission yeast)</option>
 </select>
 </p>
 
