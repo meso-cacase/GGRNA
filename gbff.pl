@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # GGRNA (ググルナ)： 遺伝子をGoogleのように検索するサービス
-# http://GGRNA.dbcls.jp/
+# https://GGRNA.dbcls.jp/
 #
 # Accession番号からGBFFを生成して出力する
 #

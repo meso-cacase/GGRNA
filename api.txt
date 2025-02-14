@@ -2,7 +2,7 @@ GGRNA.v2 REST API
 
 Query format:
 
-http://GGRNA.dbcls.jp/SPECIES/QUERY_STRING[.FORMAT][.download]
+http[s]://GGRNA.dbcls.jp/SPECIES/QUERY_STRING[.FORMAT][.download]
   SPECIES (optional):
     'hs' - Homo sapiens (human)
     'mm' - Mus musculus (house mouse)
@@ -31,18 +31,18 @@ http://GGRNA.dbcls.jp/SPECIES/QUERY_STRING[.FORMAT][.download]
 
 Examples:
 
-http://GGRNA.dbcls.jp/NM_001518
+http[s]://GGRNA.dbcls.jp/NM_001518
   Search 'NM_001518'.
   Output in HTML format. (default)
 
-http://GGRNA.dbcls.jp/mm/homeobox.json
+http[s]://GGRNA.dbcls.jp/mm/homeobox.json
   Search 'homeobox' in mouse.
   Output in JSON format.
 
-http://GGRNA.dbcls.jp/dm/%22RNA+interference%22.txt.download
+http[s]://GGRNA.dbcls.jp/dm/%22RNA+interference%22.txt.download
   Search 'RNA interference' in D. melanogaster.
   Download tab-delimited text.
 
-http://GGRNA.dbcls.jp/caagaagagattg.json
+http[s]://GGRNA.dbcls.jp/caagaagagattg.json
   Search 'caagaagagattg' in all species.
   Output in JSON format.

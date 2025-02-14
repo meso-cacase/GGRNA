@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 # GGRNA (ググルナ)： 遺伝子をGoogleのように検索するサービス
-# http://GGRNA.dbcls.jp/
+# https://GGRNA.dbcls.jp/
 #
 # SSD検索サーバに問い合わせを行い、結果を HTML, TXT, JSON 形式で出力する
 #
@@ -904,90 +904,90 @@ push @exlink, {
 if ($species eq $spe_fullname{'hs'}){
 	push @exlink, {
 		name => 'UCSC',
-		url  => 'http://genome.ucsc.edu/cgi-bin/hgTracks' .
+		url  => 'https://genome.ucsc.edu/cgi-bin/hgTracks' .
 		        "?org=Human&position=$refid"
 	} if $refid ;
 	push @exlink, {
 		name => 'RefEx(expression)',
-		url  => 'http://refex.dbcls.jp/genelist.php' .
+		url  => 'https://refex.dbcls.jp/genelist.php' .
 		        "?lang=en&db=human&idkind=4&ids=$geneid"
 	} if $geneid ;
 } elsif ($species eq $spe_fullname{'mm'}){
 	push @exlink, {
 		name => 'UCSC',
-		url  => 'http://genome.ucsc.edu/cgi-bin/hgTracks' .
+		url  => 'https://genome.ucsc.edu/cgi-bin/hgTracks' .
 		        "?org=Mouse&position=$refid"
 	} if $refid ;
 	push @exlink, {
 		name => 'RefEx(expression)',
-		url  => 'http://refex.dbcls.jp/genelist.php' .
+		url  => 'https://refex.dbcls.jp/genelist.php' .
 		        "?lang=en&db=mouse&idkind=4&ids=$geneid"
 	} if $geneid ;
 } elsif ($species eq $spe_fullname{'rn'}){
 	push @exlink, {
 		name => 'UCSC',
-		url  => 'http://genome.ucsc.edu/cgi-bin/hgTracks' .
+		url  => 'https://genome.ucsc.edu/cgi-bin/hgTracks' .
 		        "?org=Rat&position=$refid"
 	} if $refid ;
 	push @exlink, {
 		name => 'RefEx(expression)',
-		url  => 'http://refex.dbcls.jp/genelist.php' .
+		url  => 'https://refex.dbcls.jp/genelist.php' .
 		        "?lang=en&db=rat&idkind=4&ids=$geneid"
 	} if $geneid ;
 } elsif ($species eq $spe_fullname{'gg'}){
 	push @exlink, {
 		name => 'UCSC',
-		url  => 'http://genome.ucsc.edu/cgi-bin/hgTracks' .
+		url  => 'https://genome.ucsc.edu/cgi-bin/hgTracks' .
 		        "?org=Chicken&position=$refid"
 	} if $refid ;
 } elsif ($species eq $spe_fullname{'xt'}){
 	push @exlink, {
 		name => 'UCSC',
-		url  => 'http://genome.ucsc.edu/cgi-bin/hgTracks' .
+		url  => 'https://genome.ucsc.edu/cgi-bin/hgTracks' .
 		        "?org=X.+tropicalis&position=$refid"
 	} if $refid ;
 	push @exlink, {
 		name => 'Xenbase',
-		url  => 'http://www.xenbase.org/gene/searchGene.do' .
+		url  => 'https://www.xenbase.org/gene/searchGene.do' .
 		        "?method=search&searchIn=0&searchType=0&searchValue=$refid"
 	} if $refid ;
 } elsif ($species eq $spe_fullname{'dr'}){
 	push @exlink, {
 		name => 'UCSC',
-		url  => 'http://genome.ucsc.edu/cgi-bin/hgTracks' .
+		url  => 'https://genome.ucsc.edu/cgi-bin/hgTracks' .
 		        "?org=Zebrafish&position=$refid"
 	} if $refid ;
 } elsif ($species eq $spe_fullname{'ci'}){
 	push @exlink, {
 		name => 'UCSC',
-		url  => 'http://genome.ucsc.edu/cgi-bin/hgTracks' .
+		url  => 'https://genome.ucsc.edu/cgi-bin/hgTracks' .
 		        "?org=C.+intestinalis&position=$refid"
 	} if $refid ;
 } elsif ($species eq $spe_fullname{'dm'}){
 	push @exlink, {
 		name => 'UCSC',
-		url  => 'http://genome.ucsc.edu/cgi-bin/hgTracks' .
+		url  => 'https://genome.ucsc.edu/cgi-bin/hgTracks' .
 		        "?org=D.+melanogaster&position=$refid"
 	} if $refid ;
 	push @exlink, {
 		name => 'FlyBase',
-		url  => 'http://flybase.org/cgi-bin/uniq.html' .
+		url  => 'https://flybase.org/cgi-bin/uniq.html' .
 		        "?species=Dmel&caller=genejump&context=$symbol"
 	} if $symbol ;
 } elsif ($species eq $spe_fullname{'ce'}){
 	push @exlink, {
 		name => 'UCSC',
-		url  => 'http://genome.ucsc.edu/cgi-bin/hgTracks' .
+		url  => 'https://genome.ucsc.edu/cgi-bin/hgTracks' .
 		        "?org=C.+elegans&position=$refid"
 	} if $refid ;
 	push @exlink, {
 		name => 'WormBase',
-		url  => "http://www.wormbase.org/species/c_elegans/gene/$symbol"
+		url  => "https://www.wormbase.org/species/c_elegans/gene/$symbol"
 	} if $symbol ;
 } elsif ($species eq $spe_fullname{'at'}){
 	push @exlink, {
 		name => 'TAIR',
-		url  => 'http://www.arabidopsis.org/servlets/Search' .
+		url  => 'https://www.arabidopsis.org/servlets/Search' .
 		        "?type=gene&action=search&name_type=accession&name=$refid"
 	} if $refid ;
 } elsif ($species eq $spe_fullname{'os'}){
@@ -995,18 +995,18 @@ if ($species eq $spe_fullname{'hs'}){
 } elsif ($species eq $spe_fullname{'sc'}){
 	push @exlink, {
 		name => 'UCSC',
-		url  => 'http://genome.ucsc.edu/cgi-bin/hgTracks' .
+		url  => 'https://genome.ucsc.edu/cgi-bin/hgTracks' .
 		        "?org=S.+cerevisiae&position=$refid"
 	} if $refid ;
 	push @exlink, {
 		name => 'SGD',
-		url  => 'http://www.yeastgenome.org/cgi-bin/search/luceneQS.fpl' .
+		url  => 'https//www.yeastgenome.org/cgi-bin/search/luceneQS.fpl' .
 		        "?query=$refid"
 	} if $refid ;
 } elsif ($species eq $spe_fullname{'sp'}){
 	push @exlink, {
 		name => 'PomBase',
-		url  => "http://www.pombase.org/search/ensembl/$refid"
+		url  => "https://www.pombase.org/search/ensembl/$refid"
 	} if $refid ;
 }
 #- ▲ 生物種ごとに各種外部データベースにリンク

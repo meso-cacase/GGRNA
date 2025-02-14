@@ -231,7 +231,7 @@ set_spe()
 
 <div>
 <ul>
-	<a target='_blank' href='http://togotv.dbcls.jp/en/?p=322'>
+	<a target='_blank' href='https://togotv.dbcls.jp/en/20120215.html'>
 	<img src='togopic/togotv_small_en.png' alt='GGRNA: search engine for genes and transcripts'
 		height=270 width=480 border=0></a>
 	<p class=g>Acknowledgement: We thank Mr. Masamichi Chichii for making the tutorial video on
@@ -448,7 +448,7 @@ set_spe()
 <p>If you use GGRNA in your work, please cite GGRNA paper.</p>
 <ul>
 	<li>Yuki Naito &amp; Hidemasa Bono (2012)<br>
-		<a target='_blank' class=k href='http://nar.oxfordjournals.org/content/40/W1/W592.full'><!--
+		<a target='_blank' class=k href='https://doi.org/10.1093/nar/gks448'><!--
 		-->GGRNA: an ultrafast, transcript-oriented search engine for genes and transcripts.</a><br>
 		<i>Nucleic Acids Res.</i> <b>40</b>, W592-W596.
 	<li>Source code: GitHub -
@@ -467,9 +467,9 @@ set_spe()
 
 <hr><!-- __________________________________________________ -->
 
-<p class=g>Last modified on Mar 30, 2023 by
-<a target='_blank' class=a href='http://twitter.com/meso_cacase'>@meso_cacase</a> at 
-<a target='_blank' class=a href='http://dbcls.rois.ac.jp/en/'>DBCLS</a><br>
+<p class=g>Last modified on Feb 14, 2025 by
+<a target='_blank' class=a href='https://twitter.com/meso_cacase'>@meso_cacase</a> at 
+<a target='_blank' class=a href='https://dbcls.rois.ac.jp/en/'>DBCLS</a><br>
 This page is licensed under a
 <a target='_blank' class=a href='https://creativecommons.org/licenses/by/4.0/deed.en'>
 Creative Commons Attribution 4.0 International License (CC BY 4.0)</a>.</p>
@@ -479,7 +479,7 @@ If you use GGRNA in your work, please cite:<br>
 Naito Y, Bono H. (2012)<br>
 GGRNA: an ultrafast, transcript-oriented search engine for genes and transcripts.<br>
 <i>Nucleic Acids Res.</i>, <b>40</b>, W592-W596.
-<a target='_blank' class=a href='http://nar.oxfordjournals.org/content/40/W1/W592.full'>
+<a target='_blank' class=a href='https://doi.org/10.1093/nar/gks448'>
 [Full Text]</a></p>
 
 </body>
