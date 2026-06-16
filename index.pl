@@ -154,15 +154,16 @@ $redirect_uri .= url_encode($query_string) ;
 $redirect_uri .= $format   ? ".$format"  : '' ;
 $redirect_uri .= $download ? '.download' : '' ;
 
+my $normalized_request_uri = normalize_uri($request_uri) ;
 my $QUERY_STRING = $ENV{'QUERY_STRING'} // ''; #ADD tyamamot
 $QUERY_STRING =~ s/offset=[0-9]*//g;           #ADD tyamamot
 $QUERY_STRING =~ s/(&){2,}/$1/g;               #ADD tyamamot
 if ($ENV{'HTTP_HOST'} and              # HTTP経由のリクエストで、かつ
-	($request_uri ne $redirect_uri or  # 現在のURIと異なる場合にリダイレクト
+	($normalized_request_uri ne $redirect_uri or  # 現在のURIと異なる場合にリダイレクト
 	 $QUERY_STRING)                            #CHANGE tyamamot
 ){
-	$ENV{'HTTPS'} ? redirect_page("https://$ENV{'HTTP_HOST'}$redirect_uri") :  # HTTPS経由
-	                redirect_page("http://$ENV{'HTTP_HOST'}$redirect_uri")  ;  # HTTP経由
+	my $scheme = $ENV{'HTTPS'} ? 'https' : 'http' ;
+	redirect_page("$scheme://$ENV{'HTTP_HOST'}$redirect_uri") ;
 }
 #- ▲ パラメータからURIを生成してリダイレクト
 
@@ -581,8 +582,18 @@ $str =~ tr/ /+/ ;
 return $str ;
 } ;
 # ====================
+sub normalize_uri {  # URIを現在のエンコード規則に正規化
+my $uri = $_[0] // '' ;
+my @segments = split m{/}, $uri, -1 ;
+foreach my $segment (@segments){
+	$segment = url_encode(url_decode($segment)) if length $segment ;
+}
+return join '/', @segments ;
+} ;
+# ====================
 sub redirect_page {  # リダイレクトする
 my $uri = $_[0] // '' ;
+print "Status: 302 Found\n" ;
 print "Location: $uri\n\n" ;
 exit ;
 } ;

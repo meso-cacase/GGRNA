@@ -23,8 +23,8 @@ my $instance = 'arrayprsub' ;
 my $limit    = 50 ;
 my $uri      = "http://$host:$port/v1/$instance/query?" .
                "q=(probeid_norm:exact:$q)?to=$limit?get=targetseq&format=json" ;
-my $json     = get($uri) or return () ;
-my $hit      = eval 'decode_json($json)' // () ;
+my $json     = get($uri) or return ($probeid) ;
+my $hit      = eval { decode_json($json) } or return ($probeid) ;
 my @probeseq ;
 if ($hit->{hit_num}){  # ヒットする場合のみ変換を実行
 	foreach (@{$hit->{docs}}){

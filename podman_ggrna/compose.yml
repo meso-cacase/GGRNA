@@ -1,0 +1,16 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: apache/Dockerfile
+    ports:
+      - ${APACHE_HTTP_PORT:-80}:80
+    restart: always
+    init: true
+    volumes:
+      - ${PWD}/..:/var/www/html:ro
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
